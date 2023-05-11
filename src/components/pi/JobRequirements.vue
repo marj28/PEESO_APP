@@ -15,7 +15,7 @@
       <v-row class="mt-n6">
         <v-col cols="12" sm="12" md="12">
           <h4 class="green--text">Preferred Occupation</h4>
-          <v-radio-group row>
+          <v-radio-group row  v-model="post.post_meta.preferredo">
             <v-radio label="Part-time" value="PartTime"></v-radio>
             <v-radio label="Full-time" value="FullTime"></v-radio>
           </v-radio-group>
@@ -24,23 +24,27 @@
         <v-col cols="12" sm="12" md="12">
           <h4 class="green--text">Preferred Work Location</h4>
           <v-row>
-            <v-col>
+            <v-col cols="12" md="6">
               <v-checkbox
+              v-model="post.post_meta.local"
                 label="Local (Specify Cities/Municipalities)"
                 class="mt-n1"
                 color="success"
               >
               </v-checkbox>
-              <v-text-field outlined md="4" dense></v-text-field>
+              <v-text-field 
+              v-model="post.post_meta.local_place"
+              outlined  dense class="mb-n6"></v-text-field>
             </v-col>
-            <v-col>
+            <v-col cols="12" md="6">
               <v-checkbox
+              v-model="post.post_meta.overseas"
                 label="Overseas (Specify Countries)"
                 class="mt-n1"
                 color="success"
               >
               </v-checkbox>
-              <v-text-field outlined md="4" dense></v-text-field>
+              <v-text-field v-model="post.post_meta.overseas_place" outlined md="4" dense></v-text-field>
             </v-col>
           </v-row>
         </v-col>
@@ -51,6 +55,7 @@
         </v-col>
         <v-col cols="12" sm="6" md="6">
           <v-file-input
+          v-model="post.post_meta.resume"
             color="green accent-4"
             counter
             label="Resume"
@@ -65,6 +70,7 @@
         </v-col>
         <v-col cols="12" sm="6" md="6">
           <v-file-input
+          v-model="post.post_meta.applicationletter"
             color="green accent-4"
             counter
             label="Application Letter"
@@ -88,6 +94,8 @@ export default {
     jobRequirementss: false,
     jobRequirementsForms: false,
   },
-  data: () => ({}),
+  data: () => ({
+    post: { post_meta: {} },
+  }),
 };
 </script>

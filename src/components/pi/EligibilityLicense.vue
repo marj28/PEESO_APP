@@ -158,18 +158,18 @@ export default {
   },
   setup() {
     
-    const forms = reactive([{ eligibility: "", date_taken: "" }]);
+    const forms = reactive([{ }]);
     const ElgbtAddRow = () => {
-      forms.push({ eligibility: "", Elgbtdate_taken: "" });
+      forms.push({  });
     };
     const ElgbtRemoveRow = (index) => {
       if (forms.length > 1) {
         forms.splice(index, 1);
       }
     };
-    const forms2 = reactive([{ professional: "", date_taken: "" }]);
+    const forms2 = reactive([{  }]);
     const PLAddRow = () => {
-      forms2.push({ professional: "", PLdate_taken: "" });
+      forms2.push({  });
     };
     const PLRemoveRow = (index) => {
       if (forms2.length > 1) {
