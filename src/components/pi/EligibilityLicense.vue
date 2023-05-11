@@ -19,12 +19,13 @@
     </v-row>
     <v-row v-show="eligibilityLicenseForms">
       <v-col cols="12" md="12" sm="12">
-        <h4 class="green--text">Eligibility</h4>
+        <h4 class="green--text mt-n6 mb-2">Eligibility</h4>
         <v-form ref="formsEligibility" v-model="valid" lazy-validation>
-          <div v-for="(item, index) in forms" :key="item">
+          <div v-for="(item, index) in forms" :key="item.id">
             <v-row>
-              <v-col cols="12" md="5">
+              <v-col cols="12" md="6">
                 <v-combobox
+                v-model="item.eligibility_name"
                   :items="eligibilitylist"
                   label="Eligibility Name"
                   required
@@ -36,8 +37,9 @@
                 >
                 </v-combobox>
               </v-col>
-              <v-col cols="12" md="3">
+              <v-col cols="12" md="6">
                 <v-file-input
+                v-model="item.eligibility_pic"
                   label="Attach Picture"
                   accept="image/x-png,image/gif,image/jpeg"
                   outlined
@@ -47,19 +49,19 @@
                   class="mb-n6"
                 ></v-file-input>
               </v-col>
-              <v-col cols="12" md="3">
+              <v-col cols="12" md="6">
                 <v-text-field
+                v-model="item.Elgbtdate_taken"
                   outlined
                   label="Date Taken"
                   type="date"
                   dense
                   color="success"
-                  v-model="item.Elgbtdate_taken"
                    class="mb-n6"
                 >
                 </v-text-field>
               </v-col>
-              <v-col cols="12" md="1">
+              <v-col cols="12" md="6">
                 <v-btn color="error" icon @click="ElgbtRemoveRow(index)">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
@@ -75,10 +77,11 @@
       <v-col cols="12" md="12" sm="12">
         <h4 class="green--text">License</h4>
         <v-form ref="formsProfessional" v-model="valid" lazy-validation>
-          <div v-for="(item, index) in forms2" :key="item">
+          <div v-for="(item, index) in forms2" :key="item.id">
             <v-row>
               <v-col cols="12" md="6">
                 <v-combobox
+                v-model="item.license_name"
                   :items="licenselist"
                   label="License Name"
                   required
@@ -91,6 +94,7 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-file-input
+                v-model="item.license_pic"
                   label="Attach Picture"
                   accept="image/x-png,image/gif,image/jpeg"
                   outlined
@@ -101,6 +105,7 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
+                v-model="item.license_number"
                   outlined
                   label="License Number"
                   type=""
@@ -132,7 +137,7 @@
             <v-divider color="green" class="mb-6"></v-divider>
           </div>
         </v-form>
-        <v-btn color="warning" @click="validaterowprofessional" class="mb-3">
+        <v-btn color="warning" @click="validaterowprofessional">
           <v-icon>mdi-plus</v-icon> Add
         </v-btn>
       </v-col>
@@ -152,33 +157,7 @@ export default {
     // ref
   },
   setup() {
-    const form = reactive([
-      {
-        training_course: "",
-        hours_training: "",
-        training_institution: "",
-        skills_acquired: "",
-        certificate_acquired: "",
-      },
-    ]);
-    const VocationalTrainingAddRow = () => {
-
-      form.push({
-        training_course: "",
-        hours_training: "",
-        training_institution: "",
-        skills_acquired: "",
-        certificate_acquired: "",
-      });
-
-
-
-    };
-    const VocationalTrainingRemoveRow = (index) => {
-      if (form.length > 1) {
-        form.splice(index, 1);
-      }
-    };
+    
     const forms = reactive([{ eligibility: "", date_taken: "" }]);
     const ElgbtAddRow = () => {
       forms.push({ eligibility: "", Elgbtdate_taken: "" });
@@ -198,11 +177,8 @@ export default {
       }
     };
     return {
-      form,
       forms,
       forms2,
-      VocationalTrainingAddRow,
-      VocationalTrainingRemoveRow,
       PLAddRow,
       PLRemoveRow,
       ElgbtAddRow,

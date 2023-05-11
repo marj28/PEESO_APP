@@ -74,6 +74,7 @@
             </v-col>
             <v-col cols="12" md="4">
               <v-file-input
+                v-model="item.training_pic"
                 label="Attach Picture"
                 accept="image/x-png,image/gif,image/jpeg"
                 outlined
@@ -110,32 +111,14 @@ export default {
     technicalTrainings: true,
     technicalTrainingForms: false,
   },
-  data: () => ({
-    
-    
-  }),
+  data: () => ({}),
   components: {
     reactive,
-    // ref
   },
   setup() {
-    const form = reactive([
-      {
-        training_name: "",
-        hours_training: "",
-        training_institution: "",
-        skills_acquired: "",
-        certificate_acquired: "",
-      },
-    ]);
+    const form = reactive([{}]);
     const VocationalTrainingAddRow = () => {
-      form.push({
-        training_course: "",
-        hours_training: "",
-        training_institution: "",
-        skills_acquired: "",
-        certificate_acquired: "",
-      });
+      form.push({});
     };
     const VocationalTrainingRemoveRow = (index) => {
       if (form.length > 1) {
@@ -152,23 +135,21 @@ export default {
   data: () => ({
     post: { post_meta: {} },
   }),
-  created() {
-    
-  },
+  created() {},
   methods: {
     validaterow() {
       this.$refs.formsTech.validate();
       let v = this.$refs.formsTech.validate();
       if (v) {
-       
         this.form.push({
           training_name: "",
           hours_training: "",
           training_institution: "",
           skills_acquired: "",
           certificate_acquired: "",
+          training_pic: "",
         });
-        console.log(this.form)
+        console.log(this.form);
       }
     },
   },
