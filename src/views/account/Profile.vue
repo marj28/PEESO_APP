@@ -20,11 +20,18 @@
                   (employmentStatus = true),
                   (educationalBackground = true),
                   (clientsClassification = true),
-                  (training = true),
-                  (license = true),
+                  (technicalTraining = true),
+                  (eligibilityLicense = true),
                   (otherSkills = true),
-                  (preference = true),
-                (personalInformationForm=false)
+                  (jobRequirements = true),
+                  (personalInformationForm = false),
+                  (employmentStatusForm = false),
+                  (educationalBackgroundForm = false),
+                  (clientsClassificationForm = false),
+                  (technicalTrainingForm = false),
+                  (eligibilityLicenseForm = false),
+                  (otherSkillsForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-briefcase-variant</v-icon
               >View</v-list-item
@@ -36,14 +43,17 @@
                   (employmentStatus = false),
                   (educationalBackground = false),
                   (clientsClassification = false),
-                  (training = false),
-                  (license = false),
+                  (technicalTraining = false),
+                  (eligibilityLicense = false),
                   (otherSkills = false),
-                  (preference = false),
+                  (jobRequirements = false),
                   (employmentStatusForm = false),
-                  educationalBackgroundForm = false,
-                  clientsClassificationForm = false
-                  
+                  (educationalBackgroundForm = false),
+                  (clientsClassificationForm = false),
+                  (technicalTrainingForm = false),
+                  (eligibilityLicenseForm = false),
+                  (otherSkillsForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-briefcase-variant</v-icon>Personal
               Information</v-list-item
@@ -55,13 +65,17 @@
                   (employmentStatus = true),
                   (educationalBackground = false),
                   (clientsClassification = false),
-                  (training = false),
-                  (license = false),
+                  (technicalTraining = false),
+                  (eligibilityLicense = false),
                   (otherSkills = false),
-                  (preference = false),
+                  (jobRequirements = false),
                   (personalInformationForm = false),
-                  educationalBackgroundForm = false,
-                  clientsClassificationForm = false
+                  (educationalBackgroundForm = false),
+                  (clientsClassificationForm = false),
+                  (technicalTrainingForm = false),
+                  (eligibilityLicenseForm = false),
+                  (otherSkillsForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-folder-information</v-icon>Employment
               Status</v-list-item
@@ -73,13 +87,17 @@
                   (employmentStatus = false),
                   (educationalBackground = true),
                   (clientsClassification = false),
-                  (training = false),
-                  (license = false),
+                  (technicalTraining = false),
+                  (eligibilityLicense = false),
                   (otherSkills = false),
-                  (preference = false),
+                  (jobRequirements = false),
                   (personalInformationForm = false),
                   (employmentStatusForm = false),
-                  clientsClassificationForm = false
+                  (clientsClassificationForm = false),
+                  (technicalTrainingForm = false),
+                  (eligibilityLicenseForm = false),
+                  (otherSkillsForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-school-outline</v-icon>Educational
               Background</v-list-item
@@ -91,12 +109,17 @@
                   (employmentStatus = false),
                   (educationalBackground = false),
                   (clientsClassification = true),
-                  (training = false),
-                  (license = false),
+                  (technicalTraining = false),
+                  (eligibilityLicense = false),
                   (otherSkills = false),
-                  (preference = false),
+                  (jobRequirements = false),
                   (personalInformationForm = false),
-                  (employmentStatusForm = false)
+                  (employmentStatusForm = false),
+                  (educationalBackgroundForm = false),
+                  (technicalTrainingForm = false),
+                  (eligibilityLicenseForm = false),
+                  (otherSkillsForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-translate-variant</v-icon>Client's
               Classification</v-list-item
@@ -108,13 +131,17 @@
                   (employmentStatus = false),
                   (educationalBackground = false),
                   (clientsClassification = false),
-                  (training = true),
-                  (license = false),
+                  (technicalTraining = true),
+                  (eligibilityLicense = false),
                   (otherSkills = false),
-                  (preference = false),
+                  (jobRequirements = false),
                   (personalInformationForm = false),
                   (employmentStatusForm = false),
-                  clientsClassificationForm = false
+                  (educationalBackgroundForm = false),
+                  (clientsClassificationForm = false),
+                  (eligibilityLicenseForm = false),
+                  (otherSkillsForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-card-account-details-outline</v-icon
               >Technical / Vocational and Other Training</v-list-item
@@ -126,13 +153,17 @@
                   (employmentStatus = false),
                   (educationalBackground = false),
                   (clientsClassification = false),
-                  (training = false),
-                  (license = true),
+                  (technicalTraining = false),
+                  (eligibilityLicense = true),
                   (otherSkills = false),
-                  (preference = false),
+                  (jobRequirements = false),
                   (personalInformationForm = false),
                   (employmentStatusForm = false),
-                  clientsClassificationForm = false
+                  (educationalBackgroundForm = false),
+                  (clientsClassificationForm = false),
+                  (technicalTrainingForm = false),
+                  (otherSkillsForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-cog</v-icon>Eligibility/Professional
               License</v-list-item
@@ -144,13 +175,17 @@
                   (employmentStatus = false),
                   (educationalBackground = false),
                   (clientsClassification = false),
-                  (training = false),
-                  (license = false),
+                  (technicalTraining = false),
+                  (eligibilityLicense = false),
                   (otherSkills = true),
-                  (preference = false),
+                  (jobRequirements = false),
                   (personalInformationForm = false),
                   (employmentStatusForm = false),
-                  clientsClassificationForm = false
+                  (educationalBackgroundForm = false),
+                  (clientsClassificationForm = false),
+                  (technicalTrainingForm = false),
+                  (eligibilityLicenseForm = false),
+                  (jobRequirementsForm = false)
               "
               ><v-icon left small>mdi-card-account-details-outline</v-icon>Other
               Skills</v-list-item
@@ -162,13 +197,17 @@
                   (employmentStatus = false),
                   (educationalBackground = false),
                   (clientsClassification = false),
-                  (training = false),
-                  (license = false),
+                  (technicalTraining = false),
+                  (eligibilityLicense = false),
                   (otherSkills = false),
-                  (preference = true),
+                  (jobRequirements = true),
                   (personalInformationForm = false),
                   (employmentStatusForm = false),
-                  clientsClassificationForm = false
+                  (educationalBackgroundForm = false),
+                  (clientsClassificationForm = false),
+                  (technicalTrainingForm = false),
+                  (eligibilityLicenseForm = false),
+                  (otherSkillsForm = false)
               "
               ><v-icon left small>mdi-cog</v-icon>Job Preference /
               Requirements</v-list-item
@@ -233,6 +272,24 @@
               v-bind:employmentStatuss="!employmentStatusForm"
               v-bind:employmentStatusForms="employmentStatusForm"
             />
+            <v-btn
+              color="success"
+              class="mr-2"
+              v-if="employmentStatusForm === true"
+              @click="
+                (employmentStatusForm = false), (employmentStatus = true)
+              "
+              >Save
+            </v-btn>
+            <v-btn
+              color="warning"
+              class="mr-2"
+              v-if="employmentStatusForm === true"
+              @click="
+                (employmentStatusForm = false), (employmentStatus = true)
+              "
+              >Cancel
+            </v-btn>
           </v-card-text>
         </v-card>
         <v-card v-if="educationalBackground === true">
@@ -248,14 +305,35 @@
             ></v-toolbar
           >
           <v-card-text>
-            <pi-educational-background v-bind:educationalBackgrounds="!educationalBackgroundForm"
-              v-bind:educationalBackgroundForms="educationalBackgroundForm" />
+            <pi-educational-background
+              v-bind:educationalBackgrounds="!educationalBackgroundForm"
+              v-bind:educationalBackgroundForms="educationalBackgroundForm"
+            />
+            <v-btn
+              color="success"
+              class="mr-2"
+              v-if="educationalBackgroundForm === true"
+              @click="
+                (educationalBackgroundForm = false), (educationalBackground = true)
+              "
+              >Save
+            </v-btn>
+            <v-btn
+              color="warning"
+              class="mr-2"
+              v-if="educationalBackgroundForm === true"
+              @click="
+                (educationalBackgroundForm = false), (educationalBackground = true)
+              "
+              >Cancel
+            </v-btn>
           </v-card-text>
         </v-card>
         <v-card v-if="clientsClassification === true">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Client's
-            Classification <v-icon
+            Classification
+            <v-icon
               v-if="!personalInformation"
               right
               small
@@ -264,36 +342,176 @@
               >mdi-pencil</v-icon
             ></v-toolbar
           >
-          <v-card-text> <pi-client-classification v-bind:clientsClassifications="!clientsClassificationForm"
-              v-bind:clientsClassificationForms="clientsClassificationForm"/></v-card-text>
+          <v-card-text>
+            <pi-client-classification
+              v-bind:clientsClassifications="!clientsClassificationForm"
+              v-bind:clientsClassificationForms="clientsClassificationForm"
+          />
+          <v-btn
+              color="success"
+              class="mr-2"
+              v-if="clientsClassificationForm === true"
+              @click="
+                (clientsClassificationForm = false), (clientsClassification = true)
+              "
+              >Save
+            </v-btn>
+            <v-btn
+              color="warning"
+              class="mr-2"
+              v-if="clientsClassificationForm === true"
+              @click="
+                (clientsClassificationForm = false), (clientsClassification = true)
+              "
+              >Cancel
+            </v-btn></v-card-text>
         </v-card>
-        <v-card v-if="training">
+        <v-card v-if="technicalTraining">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Technical /
-            Vocational and Other Training</v-toolbar
+            Vocational and Other Training<v-icon
+              v-if="!personalInformation"
+              right
+              small
+              color="orange"
+              @click="technicalTrainingForm = true"
+              >mdi-pencil</v-icon
+            ></v-toolbar
           >
-          <v-card-text> Diri ang form... </v-card-text>
+          <v-card-text>
+            <pi-technical-training
+              v-bind:technicalTrainings="!technicalTrainingForm"
+              v-bind:technicalTrainingForms="technicalTrainingForm"
+            />
+            <v-btn
+              color="success"
+              class="mr-2"
+              v-if="technicalTrainingForm === true"
+              @click="
+                (technicalTrainingForm = false), (technicalTraining = true)
+              "
+              >Save
+            </v-btn>
+            <v-btn
+              color="warning"
+              class="mr-2"
+              v-if="technicalTrainingForm === true"
+              @click="
+                (technicalTrainingForm = false), (technicalTraining = true)
+              "
+              >Cancel
+            </v-btn>
+          </v-card-text>
         </v-card>
-        <v-card v-if="license">
+        <v-card v-if="eligibilityLicense">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon
-            >Eligibility/Professional License</v-toolbar
+            >Eligibility/Professional License<v-icon
+              v-if="!personalInformation"
+              right
+              small
+              color="orange"
+              @click="eligibilityLicenseForm = true"
+              >mdi-pencil</v-icon
+            ></v-toolbar
           >
-          <v-card-text> Diri ang form... </v-card-text>
+          <v-card-text>
+            <pi-eligibility-license
+              v-bind:eligibilityLicenses="!eligibilityLicenseForm"
+              v-bind:eligibilityLicenseForms="eligibilityLicenseForm"
+            />
+            <v-btn
+              color="success"
+              class="mr-2"
+              v-if="eligibilityLicenseForm === true"
+              @click="
+                (eligibilityLicenseForm = false), (eligibilityLicense = true)
+              "
+              >Save
+            </v-btn>
+            <v-btn
+              color="warning"
+              class="mr-2"
+              v-if="eligibilityLicenseForm === true"
+              @click="
+                (eligibilityLicenseForm = false), (eligibilityLicense = true)
+              "
+              >Cancel
+            </v-btn>
+          </v-card-text>
         </v-card>
         <v-card v-if="otherSkills">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Other
-            Skills</v-toolbar
+            Skills<v-icon
+              v-if="!personalInformation"
+              right
+              small
+              color="orange"
+              @click="otherSkillsForm = true"
+              >mdi-pencil</v-icon
+            ></v-toolbar
           >
-          <v-card-text> <pi-other-skills></pi-other-skills> </v-card-text>
+          <v-card-text>
+            <pi-other-skills
+              v-bind:otherSkillss="!otherSkillsForm"
+              v-bind:otherSkillsForms="otherSkillsForm"
+            /><v-btn
+              color="success"
+              class="mr-2"
+              v-if="otherSkillsForm === true"
+              @click="
+                (otherSkillsForm = false), (otherSkills = true)
+              "
+              >Save
+            </v-btn>
+            <v-btn
+              color="warning"
+              class="mr-2"
+              v-if="otherSkillsForm === true"
+              @click="
+                (otherSkillsForm = false), (otherSkills = true)
+              "
+              >Cancel
+            </v-btn>
+          </v-card-text>
         </v-card>
-        <v-card v-if="preference">
+        <v-card v-if="jobRequirements">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Job Preference /
-            Requirements</v-toolbar
+            Requirements<v-icon
+              v-if="!personalInformation"
+              right
+              small
+              color="orange"
+              @click="jobRequirementsForm = true"
+              >mdi-pencil</v-icon
+            ></v-toolbar
           >
-          <v-card-text> Diri ang form... </v-card-text>
+          <v-card-text
+            ><pi-job-requirements
+              v-bind:jobRequirementss="!jobRequirementsForm"
+              v-bind:jobRequirementsForms="jobRequirementsForm"
+            />
+            <v-btn
+              color="success"
+              class="mr-2"
+              v-if="jobRequirementsForm === true"
+              @click="
+                (jobRequirementsForm = false), (jobRequirements = true)
+              "
+              >Save
+            </v-btn>
+            <v-btn
+              color="warning"
+              class="mr-2"
+              v-if="jobRequirementsForm === true"
+              @click="
+                (jobRequirementsForm = false), (jobRequirements = true)
+              "
+              >Cancel
+            </v-btn>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -312,14 +530,14 @@ export default {
     educationalBackgroundForm: false,
     clientsClassification: true,
     clientsClassificationForm: false,
-    training: true,
-    trainingForm: false,
-    license: true,
-    licenseForm: false,
+    technicalTraining: true,
+    technicalTrainingForm: false,
+    eligibilityLicense: true,
+    eligibilityLicenseForm: false,
     otherSkills: true,
     otherSkillsForm: false,
-    preference: true,
-    preferenceForm: false,
+    jobRequirements: true,
+    jobRequirementsForm: false,
     state: "new",
     overview: "",
     company: { medias: { logo: "" } },
@@ -347,7 +565,6 @@ export default {
     }
   },
   methods: {
-   
     ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
     imageUrl(data) {
       this.company.medias.logo = data;

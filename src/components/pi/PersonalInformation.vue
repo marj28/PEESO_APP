@@ -20,28 +20,29 @@
         <p>TIN</p>
       </v-col>
     </v-row>
-    <v-row v-if="personalInformationForms === true">
+    <v-row v-if="personalInformationForms === true" class="mt-2">
       <v-col cols="12" sm="6" md="6" class="mt-n6">
         <v-text-field
+          v-model="post.post_meta.surname"
           label="Surname"
           outlined
           dense
           color="success"
-          required
           autofocus
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" class="mt-n6">
         <v-text-field
+          v-model="post.post_meta.firstname"
           label="First Name"
           outlined
           dense
           color="success"
-          required
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" class="mt-n6">
         <v-text-field
+          v-model="post.post_meta.middlename"
           label="Middle Name"
           outlined
           dense
@@ -50,9 +51,9 @@
       </v-col>
       <v-col cols="12" sm="6" md="6" class="mt-n6">
         <v-select
+          v-model="post.post_meta.suffix"
           :items="suffix"
           label="Suffix"
-          required
           outlined
           dense
           color="success"
@@ -62,6 +63,7 @@
 
       <v-col cols="12" sm="6" md="6" class="mt-n6">
         <v-text-field
+          v-model="post.post_meta.dateofbirth"
           label="Date of Birth"
           outlined
           type="date"
@@ -70,14 +72,21 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" class="mt-n6">
-        <v-text-field label="Age" dense outlined color="success" readonly>
+        <v-text-field
+          v-model="post.post_meta.age"
+          label="Age"
+          dense
+          outlined
+          color="success"
+          readonly
+        >
         </v-text-field>
       </v-col>
       <v-col cols="12" md="6" sm="6" class="mt-n6">
         <v-select
+          v-model="post.post_meta.civilstatus"
           :items="civilstatus"
           label="Civil Status"
-          required
           outlined
           dense
           color="success"
@@ -86,9 +95,9 @@
       </v-col>
       <v-col cols="12" md="6" sm="6" class="mt-n6">
         <v-select
+          v-model="post.post_meta.sex"
           :items="sex"
           label="Sex"
-          required
           outlined
           dense
           color="success"
@@ -97,9 +106,9 @@
       </v-col>
       <v-col cols="12" md="4" sm="6" class="mt-n6">
         <v-combobox
+          v-model="post.post_meta.religion"
           :items="religion"
           label="Religion"
-          required
           outlined
           dense
           color="success"
@@ -108,9 +117,9 @@
       </v-col>
       <v-col cols="12" md="4" sm="6" class="mt-n6">
         <v-combobox
+          v-model="post.post_meta.disabilities"
           :items="disabilities"
           label="Disability"
-          required
           outlined
           dense
           color="success"
@@ -119,9 +128,9 @@
       </v-col>
       <v-col cols=" 12" md="4" sm="6" class="mt-n6">
         <v-combobox
+          v-model="post.post_meta.ethnicity"
           :items="ethnicity"
           label="Ethnic Group"
-          required
           outlined
           dense
           color="success"
@@ -130,9 +139,9 @@
       </v-col>
       <v-col cols=" 12" md="6" sm="6" class="mt-n6">
         <v-combobox
+          v-model="post.post_meta.idtype"
           :items="idtype"
           label="Type of ID"
-          required
           outlined
           dense
           color="success"
@@ -141,6 +150,7 @@
       </v-col>
       <v-col cols="12" sm="6" md="6" class="mt-n6">
         <v-file-input
+          v-model="post.post_meta.id"
           label="Attach ID here"
           accept="image/x-png,image/gif,image/jpeg"
           outlined
@@ -154,6 +164,7 @@
       </v-col>
       <v-col cols="12" md="6" sm="12" class="mt-n6">
         <v-combobox
+          v-model="post.post_meta.region"
           :items="address"
           item-text="region_name"
           outlined
@@ -167,6 +178,8 @@
       </v-col>
       <v-col cols="12" md="6" sm="12" class="mt-n6">
         <v-combobox
+          v-model="post.post_meta.province"
+          :items="provincename"
           outlined
           dense
           color="success"
@@ -178,6 +191,7 @@
       </v-col>
       <v-col cols="12" md="6" sm="12" class="mt-n6">
         <v-combobox
+        v-model="post.post_meta.city"
           :items="cityname"
           outlined
           dense
@@ -190,6 +204,7 @@
       </v-col>
       <v-col cols="12" md="6" sm="12" class="mt-n6">
         <v-combobox
+        v-model="post.post_meta.brgy"
           label="Baranggay"
           outlined
           dense
@@ -199,8 +214,8 @@
       </v-col>
       <v-col cols="12" md="12" sm="12" class="mt-n6">
         <v-text-field
+        v-model="post.post_meta.street"
           label="House No. / Street / Village"
-          required
           outlined
           dense
           color="success"
@@ -209,8 +224,8 @@
 
       <v-col cols="12" md="6" sm="12" class="mt-n6">
         <v-text-field
+        v-model="post.post_meta.contactno"
           label="Contact Number"
-          required
           outlined
           dense
           color="success"
@@ -222,8 +237,8 @@
       </v-col>
       <v-col cols="12" md="6" sm="12" class="mt-n6">
         <v-text-field
+        v-model="post.post_meta.email"
           label="E-mail"
-          required
           outlined
           dense
           color="success"
@@ -231,36 +246,26 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" md="6" sm="6" class="mt-n6">
-        <v-text-field
-          label="SSS"
-          required
-          outlined
-          dense
-          color="success"
-        ></v-text-field>
+        <v-text-field v-model="post.post_meta.sss" label="SSS" outlined dense color="success"></v-text-field>
       </v-col>
       <v-col cols="12" md="6" sm="6" class="mt-n6">
-        <v-text-field
-          label="TIN"
-          required
-          outlined
-          dense
-          color="success"
-        ></v-text-field>
+        <v-text-field v-model="post.post_meta.tin" label="TIN" outlined dense color="success"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
- /* eslint-disable */
+/* eslint-disable */
 
 export default {
-  name:"PersonalInformation",
+  name: "PersonalInformation",
   props: {
     personalInformations: false,
     personalInformationForms: false,
   },
-  data: () => ({}),
-  
+  data: () => ({
+    post: { post_meta: {} },
+
+  }),
 };
 </script>

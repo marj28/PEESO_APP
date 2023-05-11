@@ -15,30 +15,33 @@
     <v-row class="mt-n6" v-show="educationalBackgroundForms">
       <v-col cols="12" sm="12" md="6">
         <h4 class="">Literacy Indicators:</h4>
-
-        <v-checkbox label="Can Read?" color="success"></v-checkbox>
-        <v-checkbox label="Can Write?" color="success"></v-checkbox>
+        <v-checkbox v-model="post.post_meta.canread" label="Can Read?" color="success"></v-checkbox>
+        <v-checkbox v-model="post.post_meta.canwrite" class="mt-n6 mb-n12" label="Can Write?" color="success"></v-checkbox>
       </v-col>
       <v-col cols="12" sm="12" md="6">
         <v-checkbox
+        v-model="post.post_meta.canperform"
           label="Can Perform Mathematical Operation?"
+          class="mb-n12"
           color="success"
           @click="mathematical_operation = true"
         ></v-checkbox>
         <v-container v-show="mathematical_operation" style="margin-top: -35px">
           <v-checkbox
+          v-model="post.post_meta.addition"
             label="Addition"
             value="a"
             color="success"
-            style="margin-top: -10px"
           ></v-checkbox>
           <v-checkbox
+          v-model="post.post_meta.multiplication"
             label="Multiplication"
             value="m"
             color="success"
             style="margin-top: -10px"
           ></v-checkbox>
           <v-checkbox
+          v-model="post.post_meta.subtraction"
             label="Subtraction"
             value="s"
             color="success"
@@ -48,12 +51,12 @@
       </v-col>
       <!-- Elementary -->
       <v-col cols="12" sm="12" md="6" v-show="elementarylvl">
-        <p class="font-weight-bold green--text" style="margin-top: 0px">
+        <p class="font-weight-bold green--text mt-3">
           Elementary
         </p>
 
         <v-spacer></v-spacer>
-        <v-radio-group row v-model="elem">
+        <v-radio-group row v-model="post.post_meta.elem">
           <v-radio
             label="Graduate"
             @click="clear_elem_graduate()"
@@ -72,16 +75,16 @@
             <v-row>
               <v-col cols="12" md="12" sm="12" lg="12">
                 <v-text-field
+                v-model="post.post_meta.elem_grad_year"
                   outlined
                   label="Year Graduated"
                   dense
                   color="success"
                   type="number"
                   hide-spin-buttons
-                  v-model="elem_grad_year"
                 ></v-text-field>
                 <v-text-field
-                  v-model="elem_grad_school"
+                v-model="post.post_meta.elem_grad_school"
                   outlined
                   label="School Graduated"
                   dense
@@ -93,32 +96,32 @@
           </v-container>
           <v-container v-show="undergraduate">
             <v-select
+            v-model="post.post_meta.elem_undergrad_level"
               :items="levelreachedElem"
               label="Level reached"
               required
               outlined
               dense
               color="success"
-              v-model="elem_undergrad_level"
             >
             </v-select>
             <v-text-field
+            v-model="post.post_meta.elem_grad_year"
               hide-spin-buttons
               outlined
               label="Year Last Attended"
               dense
               color="success"
               type="number"
-              v-model="elem_undergrad_year"
             >
             </v-text-field>
             <v-text-field
+            v-model="post.post_meta.elem_undergrad_school"
               outlined
               label="School Graduated"
               dense
               color="success"
               type="text"
-              v-model="elem_undergrad_school"
             ></v-text-field>
           </v-container>
         </v-radio-group>
@@ -127,9 +130,8 @@
       <!-- Secondary -->
       <v-col cols="12" sm="12" md="6" lg="6" v-show="secondarylvl">
         <p class="font-weight-bold green--text" id="move">Secondary</p>
-
         <v-spacer></v-spacer>
-        <v-radio-group row v-model="sec">
+        <v-radio-group row v-model="post.post_meta.sec">
           <v-radio
             label="Graduate"
             color="success"
@@ -145,7 +147,7 @@
           >
           </v-radio>
           <v-container v-show="sec_graduate">
-            <v-radio-group v-model="sec_details">
+            <v-radio-group v-model="post.post_meta.sec_details">
               <v-radio
                 label="Secondary (Non-K12)"
                 id="move"
@@ -161,83 +163,83 @@
               ></v-radio>
               <div v-show="non_K">
                 <v-text-field
+                v-model="post.post_meta.sec_grad_year"
                   hide-spin-buttons
                   outlined
                   label="Year Graduated"
                   dense
                   color="success"
                   type="number"
-                  v-model="sec_grad_year"
                 ></v-text-field>
                 <v-text-field
+                v-model="post.post_meta.sec_grad_school"
                   outlined
                   label="School Graduated"
                   dense
                   color="success"
                   type="text"
-                  v-model="sec_grad_school"
                 ></v-text-field>
               </div>
               <div v-show="K">
                 <v-select
+                v-model="post.post_meta.sec_grad_strand"
                   :items="strand"
                   label="SHS Strand"
                   required
                   outlined
                   dense
                   color="success"
-                  v-model="sec_grad_strand"
                 >
                 </v-select>
                 <v-text-field
+                v-model="post.post_meta.sec_grad_year_K"
                   hide-spin-buttons
                   outlined
                   label="Year Graduated"
                   dense
                   color="success"
                   type="number"
-                  v-model="sec_grad_year_K"
                 >
                 </v-text-field>
                 <v-text-field
+                v-model="post.post_meta.sec_grad_school_K"
                   outlined
                   label="School Graduated"
                   dense
                   color="success"
                   type="text"
-                  v-model="sec_grad_school_K"
                 ></v-text-field>
               </div>
             </v-radio-group>
           </v-container>
           <v-container v-show="sec_undergraduate">
             <v-select
+            v-model="post.post_meta.sec_undergrad_level"
               :items="levelreachedSec"
               label="Level Reached"
               required
               outlined
               dense
               color="success"
-              v-model="sec_undergrad_level"
             >
             </v-select>
             <v-text-field
+            v-model="post.post_meta.sec_undergrad_year"
               hide-spin-buttons
               outlined
               label="Year Last Attended"
               dense
               color="success"
               type="number"
-              v-model="sec_undergrad_year"
             >
             </v-text-field>
             <v-text-field
+            v-model="post.post_meta.sec_undergrad_school"
               outlined
               label="School Graduated"
               dense
               color="success"
               type="text"
-              v-model="sec_undergrad_school"
             ></v-text-field>
           </v-container>
         </v-radio-group>
@@ -246,10 +248,9 @@
       <!-- Tertiary -->
       <v-col cols="12" sm="12" md="6" lg="6" v-show="tertiarylvl">
         <p class="font-weight-bold green--text">Tertiary</p>
-
         <v-spacer></v-spacer>
 
-        <v-radio-group row v-model="ter">
+        <v-radio-group row v-model="post.post_meta.ter">
           <v-radio
             label="Graduate"
             color="success"
@@ -266,62 +267,62 @@
           </v-radio>
           <v-container v-show="ter_graduate">
             <v-combobox
+            v-model="post.post_meta.ter_grad_course"
               :items="course"
               label="Course"
               required
               outlined
               dense
               color="success"
-              v-model="ter_grad_course"
             >
             </v-combobox>
             <v-text-field
+            v-model="post.post_meta.ter_grad_year"
               outlined
               hide-spin-buttons
               label="Year Graduated"
               dense
               color="success"
               type="number"
-              v-model="ter_grad_year"
             >
             </v-text-field>
             <v-text-field
+            v-model="post.post_meta.ter_grad_school"
               outlined
               label="School Graduated"
               dense
               color="success"
               type="text"
-              v-model="ter_grad_school"
             ></v-text-field>
           </v-container>
           <v-container v-show="ter_undergraduate">
             <v-select
+            v-model="post.post_meta.ter_undergrad_level"
               :items="levelreachedTer"
               label="Level Reached"
               required
               outlined
               dense
               color="success"
-              v-model="ter_undergrad_level"
             >
             </v-select>
             <v-text-field
+            v-model="post.post_meta.ter_undergrad_year"
               outlined
               hide-spin-buttons
               label="Year Last Attended"
               dense
               color="success"
               type="number"
-              v-model="ter_undergrad_year"
             >
             </v-text-field>
             <v-text-field
+            v-model="post.post_meta.ter_undergrad_school"
               outlined
               label="School Graduated"
               dense
               color="success"
               type="text"
-              v-model="ter_undergrad_school"
             ></v-text-field>
           </v-container>
         </v-radio-group>
@@ -333,7 +334,7 @@
           Graduate Studies/Post-Graduate
         </p>
         <v-spacer></v-spacer>
-        <v-radio-group row v-model="post">
+        <v-radio-group row v-model="post.post_meta.post">
           <v-radio
             label="Graduate"
             color="success"
@@ -350,61 +351,61 @@
           </v-radio>
           <v-container v-show="post_graduates">
             <v-combobox
+            v-model="post.post_meta.post_grad_course"
               :items="courseGraduateStudies"
               label="Course"
               required
               outlined
               dense
               color="success"
-              v-model="post_grad_course"
             >
             </v-combobox>
             <v-text-field
+            v-model="post.post_meta.post_grad_year"
               outlined
               hide-spin-buttons
               label="Year Graduated"
               dense
               color="success"
               type="number"
-              v-model="post_grad_year"
             ></v-text-field>
             <v-text-field
+            v-model="post.post_meta.post_grad_school"
               outlined
               label="School Graduated"
               dense
               color="success"
               type="text"
-              v-model="post_grad_school"
             ></v-text-field>
           </v-container>
           <v-container v-show="post_undergraduate">
             <v-combobox
+            v-model="post.post_meta.post_undergrad_course"
               :items="courseGraduateStudies"
               label="Course"
               required
               outlined
               dense
               color="success"
-              v-model="post_undergrad_course"
             >
             </v-combobox>
             <v-text-field
+            v-model="post.post_meta.post_undergrad_year"
               outlined
               hide-spin-buttons
               label="Year Last Attended"
               dense
               color="success"
               type="number"
-              v-model="post_undergrad_year"
             >
             </v-text-field>
             <v-text-field
+            v-model="post.post_meta.post_undergrad_school"
               outlined
               label="School Graduated"
               dense
               color="success"
               type="text"
-              v-model="post_undergrad_school"
             ></v-text-field>
           </v-container>
         </v-radio-group>
@@ -420,6 +421,16 @@ export default {
     educationalBackgroundForms: false,
   },
   data: () => ({
+    post: { post_meta: {} },
+    levelreachedElem: [],
+    non_K: [],
+    K: [],
+    strand: [],
+    levelreachedSec: [],
+    course: [],
+    levelreachedTer: [],
+    courseGraduateStudies: [],
+    
     mathematical_operation: false,
     elementarylvl: true,
     graduate: false,

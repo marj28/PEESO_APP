@@ -14,7 +14,7 @@
     </v-row>
     <v-row v-show="employmentStatusForms">
       <v-col cols="12" sm="6" md="6" id="step2">
-        <v-radio-group row>
+        <v-radio-group v-model="post.post_meta.employmentstatus" row>
           <v-radio
             label="Employed"
             color="success"
@@ -34,7 +34,7 @@
           </v-radio>
 
           <v-container v-show="employed">
-            <v-radio-group row>
+            <v-radio-group row v-model="post.post_meta.employedstatus">
               <v-radio
                 class="ma-2 pa-2"
                 label="Wage Employed"
@@ -54,6 +54,7 @@
               ></v-radio>
               <v-container v-show="wage_employed">
                 <v-text-field
+                  v-model="post.post_meta.companyname"
                   class="pa-2"
                   style="margin-top: -10px; margin-left: "
                   outlined
@@ -62,6 +63,7 @@
                   color="success"
                 ></v-text-field>
                 <v-text-field
+                  v-model="post.post_meta.companyaddress"
                   class="pa-2"
                   style="margin-top: -30px; margin-left: "
                   outlined
@@ -70,6 +72,7 @@
                   color="success"
                 ></v-text-field>
                 <v-text-field
+                  v-model="post.post_meta.occupation"
                   class="pa-2"
                   style="margin-top: -30px; margin-left: "
                   outlined
@@ -81,6 +84,7 @@
 
               <v-container v-show="self_employed">
                 <v-select
+                  v-model="post.post_meta.selfemployed"
                   class="pa-2"
                   style="margin-left: "
                   dense
@@ -99,6 +103,7 @@
 
           <v-container v-show="unemployed">
             <v-checkbox
+              v-model="post.post_meta.freshgraduate"
               class="ma-2 pa-2"
               label="Fresh Graduate"
               color="success"
@@ -106,6 +111,7 @@
               hide-details
             ></v-checkbox>
             <v-checkbox
+              v-model="post.post_meta.finishedcontract"
               class="ma-2 pa-2"
               label="Finished Contract"
               color="success"
@@ -113,6 +119,7 @@
               hide-details
             ></v-checkbox>
             <v-checkbox
+              v-model="post.post_meta.resigned"
               class="ma-2 pa-2"
               label="Resigned"
               color="success"
@@ -120,6 +127,7 @@
               hide-details
             ></v-checkbox>
             <v-checkbox
+              v-model="post.post_meta.terminated"
               class="ma-2 pa-2"
               label="Terminated"
               color="success"
@@ -127,6 +135,7 @@
               hide-details
             ></v-checkbox>
             <v-checkbox
+              v-model="post.post_meta.retiree"
               class="ma-2 pa-2"
               label="Retiree"
               color="success"
@@ -134,6 +143,7 @@
               hide-details
             ></v-checkbox>
             <v-text-field
+              v-model="post.post_meta.others"
               label="Others: "
               class="ma-2 pa-2"
               outlined
@@ -149,7 +159,7 @@
         <p class="">
           Have you attended Pre-Employment Seminar for Local Applicants (PESLA)?
         </p>
-        <v-radio-group row>
+        <v-radio-group row v-model="post.post_meta.pesla">
           <v-radio
             label="Yes"
             value="yes"
@@ -174,7 +184,7 @@
               information, message PEESO Tagum City Facebook page.
             </p>
             <p class="">Willing to attend PESLA?</p>
-            <v-radio-group row>
+            <v-radio-group row v-model="post.post_meta.attendpesla">
               <v-radio label="Yes" value="yes" color="success"> </v-radio>
               <v-radio label="No" value="no" color="success"> </v-radio>
             </v-radio-group>
@@ -196,7 +206,7 @@
                               </v-container>
                             </v-radio-group> -->
             <p style="" class="">Are you a former OFW?</p>
-            <v-radio-group row>
+            <v-radio-group row v-model="post.post_meta.formerofw">
               <v-radio
                 label="Yes"
                 value="yes"
@@ -214,12 +224,14 @@
               ></v-radio>
               <v-container v-show="former_ofw">
                 <v-text-field
+                  v-model="post.post_meta.lcd"
                   label="Latest Country of Deployment: "
                   outlined
                   dense
                   color="success"
                 ></v-text-field>
                 <v-text-field
+                  v-model="post.post_meta.myrp"
                   label="Month and Year of Return to Philippines: "
                   outlined
                   dense
@@ -234,7 +246,7 @@
 
       <v-col cols="12" sm="12" md="6">
         <p class="">Are you a 4Ps beneficiary?</p>
-        <v-radio-group row>
+        <v-radio-group row v-model="post.post_meta.fourps">
           <v-radio
             label="Yes"
             value="yes"
@@ -252,6 +264,7 @@
           ></v-radio>
           <v-container v-show="fourPs_beneficiary">
             <v-text-field
+              v-model="post.post_meta.householdid"
               label="Household ID No. "
               outlined
               dense
@@ -263,9 +276,19 @@
       </v-col>
       <v-col cols="12" md="6">
         <p class="">First Time Job Seeker?</p>
-        <v-radio-group row>
-          <v-radio label="Yes" value="yes" color="success" class="ma-2 pa-2"></v-radio>
-          <v-radio label="No" value="no" color="success" class="ma-2 pa-2"></v-radio>
+        <v-radio-group row v-model="post.post_meta.ftjs">
+          <v-radio
+            label="Yes"
+            value="yes"
+            color="success"
+            class="ma-2 pa-2"
+          ></v-radio>
+          <v-radio
+            label="No"
+            value="no"
+            color="success"
+            class="ma-2 pa-2"
+          ></v-radio>
         </v-radio-group>
       </v-col>
     </v-row>
@@ -275,10 +298,11 @@
 /* eslint-disable */
 export default {
   props: {
-    employmentStatuss: true,
+    employmentStatuss: false,
     employmentStatusForms: false,
   },
   data: () => ({
+    post: { post_meta: {} },
     employed: false,
     unemployed: false,
     wage_employed: false,
@@ -286,6 +310,7 @@ export default {
     pesla: false,
     former_ofw: false,
     fourPs_beneficiary: false,
+    selfemployed: [],
   }),
 };
 </script>
