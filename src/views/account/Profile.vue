@@ -216,7 +216,7 @@
         </v-card>
       </v-col>
       <v-col cols="9">
-        <v-card v-if="personalInformation === true">
+        <v-card v-show="personalInformation">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Personal
             Information
@@ -235,27 +235,10 @@
               v-bind:personalInformationForms="personalInformationForm"
             />
 
-            <v-btn
-              color="success"
-              class="mr-2"
-              v-if="personalInformationForm === true"
-              @click="
-                (personalInformationForm = false), (personalInformation = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              v-if="personalInformationForm === true"
-              @click="
-                (personalInformationForm = false), (personalInformation = true)
-              "
-            >
-              Cancel
-            </v-btn></v-card-text
+            </v-card-text
           >
         </v-card>
-        <v-card v-if="employmentStatus === true">
+        <v-card v-show="employmentStatus">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Employment Status
             <v-icon
@@ -272,27 +255,10 @@
               v-bind:employmentStatuss="!employmentStatusForm"
               v-bind:employmentStatusForms="employmentStatusForm"
             />
-            <v-btn
-              color="success"
-              class="mr-2"
-              v-if="employmentStatusForm === true"
-              @click="
-                (employmentStatusForm = false), (employmentStatus = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              class="mr-2"
-              v-if="employmentStatusForm === true"
-              @click="
-                (employmentStatusForm = false), (employmentStatus = true)
-              "
-              >Cancel
-            </v-btn>
+            
           </v-card-text>
         </v-card>
-        <v-card v-if="educationalBackground === true">
+        <v-card v-show="educationalBackground">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Educational
             Background<v-icon
@@ -309,24 +275,7 @@
               v-bind:educationalBackgrounds="!educationalBackgroundForm"
               v-bind:educationalBackgroundForms="educationalBackgroundForm"
             />
-            <v-btn
-              color="success"
-              class="mr-2"
-              v-if="educationalBackgroundForm === true"
-              @click="
-                (educationalBackgroundForm = false), (educationalBackground = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              class="mr-2"
-              v-if="educationalBackgroundForm === true"
-              @click="
-                (educationalBackgroundForm = false), (educationalBackground = true)
-              "
-              >Cancel
-            </v-btn>
+            
           </v-card-text>
         </v-card>
         <v-card v-if="clientsClassification === true">
@@ -347,24 +296,7 @@
               v-bind:clientsClassifications="!clientsClassificationForm"
               v-bind:clientsClassificationForms="clientsClassificationForm"
           />
-          <v-btn
-              color="success"
-              class="mr-2"
-              v-if="clientsClassificationForm === true"
-              @click="
-                (clientsClassificationForm = false), (clientsClassification = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              class="mr-2"
-              v-if="clientsClassificationForm === true"
-              @click="
-                (clientsClassificationForm = false), (clientsClassification = true)
-              "
-              >Cancel
-            </v-btn></v-card-text>
+          </v-card-text>
         </v-card>
         <v-card v-if="technicalTraining">
           <v-toolbar dense elevation="1"
@@ -383,24 +315,7 @@
               v-bind:technicalTrainings="!technicalTrainingForm"
               v-bind:technicalTrainingForms="technicalTrainingForm"
             />
-            <v-btn
-              color="success"
-              class="mr-2"
-              v-if="technicalTrainingForm === true"
-              @click="
-                (technicalTrainingForm = false), (technicalTraining = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              class="mr-2"
-              v-if="technicalTrainingForm === true"
-              @click="
-                (technicalTrainingForm = false), (technicalTraining = true)
-              "
-              >Cancel
-            </v-btn>
+            
           </v-card-text>
         </v-card>
         <v-card v-if="eligibilityLicense">
@@ -420,24 +335,7 @@
               v-bind:eligibilityLicenses="!eligibilityLicenseForm"
               v-bind:eligibilityLicenseForms="eligibilityLicenseForm"
             />
-            <v-btn
-              color="success"
-              class="mr-2"
-              v-if="eligibilityLicenseForm === true"
-              @click="
-                (eligibilityLicenseForm = false), (eligibilityLicense = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              class="mr-2"
-              v-if="eligibilityLicenseForm === true"
-              @click="
-                (eligibilityLicenseForm = false), (eligibilityLicense = true)
-              "
-              >Cancel
-            </v-btn>
+            
           </v-card-text>
         </v-card>
         <v-card v-if="otherSkills">
@@ -456,24 +354,7 @@
             <pi-other-skills
               v-bind:otherSkillss="!otherSkillsForm"
               v-bind:otherSkillsForms="otherSkillsForm"
-            /><v-btn
-              color="success"
-              class="mr-2"
-              v-if="otherSkillsForm === true"
-              @click="
-                (otherSkillsForm = false), (otherSkills = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              class="mr-2"
-              v-if="otherSkillsForm === true"
-              @click="
-                (otherSkillsForm = false), (otherSkills = true)
-              "
-              >Cancel
-            </v-btn>
+            />
           </v-card-text>
         </v-card>
         <v-card v-if="jobRequirements">
@@ -493,24 +374,7 @@
               v-bind:jobRequirementss="!jobRequirementsForm"
               v-bind:jobRequirementsForms="jobRequirementsForm"
             />
-            <v-btn
-              color="success"
-              class="mr-2"
-              v-if="jobRequirementsForm === true"
-              @click="
-                (jobRequirementsForm = false), (jobRequirements = true)
-              "
-              >Save
-            </v-btn>
-            <v-btn
-              color="warning"
-              class="mr-2"
-              v-if="jobRequirementsForm === true"
-              @click="
-                (jobRequirementsForm = false), (jobRequirements = true)
-              "
-              >Cancel
-            </v-btn>
+            
           </v-card-text>
         </v-card>
       </v-col>

@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable  -->
   <v-container>
     <v-row v-show="eligibilityLicenses">
       <v-col cols="12" md="12">
@@ -25,7 +26,7 @@
             <v-row>
               <v-col cols="12" md="6">
                 <v-combobox
-                v-model="item.eligibility_name"
+                  v-model="item.eligibility_name"
                   :items="eligibilitylist"
                   label="Eligibility Name"
                   required
@@ -39,7 +40,7 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-file-input
-                v-model="item.eligibility_pic"
+                  v-model="item.eligibility_pic"
                   label="Attach Picture"
                   accept="image/x-png,image/gif,image/jpeg"
                   outlined
@@ -51,13 +52,13 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
-                v-model="item.Elgbtdate_taken"
+                  v-model="item.Elgbtdate_taken"
                   outlined
                   label="Date Taken"
                   type="date"
                   dense
                   color="success"
-                   class="mb-n6"
+                  class="mb-n6"
                 >
                 </v-text-field>
               </v-col>
@@ -81,7 +82,7 @@
             <v-row>
               <v-col cols="12" md="6">
                 <v-combobox
-                v-model="item.license_name"
+                  v-model="item.license_name"
                   :items="licenselist"
                   label="License Name"
                   required
@@ -94,7 +95,7 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-file-input
-                v-model="item.license_pic"
+                  v-model="item.license_pic"
                   label="Attach Picture"
                   accept="image/x-png,image/gif,image/jpeg"
                   outlined
@@ -105,7 +106,7 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
-                v-model="item.license_number"
+                  v-model="item.license_number"
                   outlined
                   label="License Number"
                   type=""
@@ -137,8 +138,24 @@
             <v-divider color="green" class="mb-6"></v-divider>
           </div>
         </v-form>
-        <v-btn color="warning" @click="validaterowprofessional">
-          <v-icon>mdi-plus</v-icon> Add
+        <v-col cols="12" md="12">
+          <v-btn color="warning" @click="validaterowprofessional">
+            <v-icon>mdi-plus</v-icon> Add
+          </v-btn>
+        </v-col>
+        <v-btn
+          color="success"
+          class="mr-2"
+          v-if="eligibilityLicenseForm === true"
+          @click="(eligibilityLicenseForms = false), (eligibilityLicenses = true)"
+          >Save
+        </v-btn>
+        <v-btn
+          color="warning"
+          class="mr-2"
+          v-if="eligibilityLicenseForm === true"
+          @click="(eligibilityLicenseForms = false), (eligibilityLicenses = true)"
+          >Cancel
         </v-btn>
       </v-col>
     </v-row>
@@ -157,19 +174,18 @@ export default {
     // ref
   },
   setup() {
-    
-    const forms = reactive([{ }]);
+    const forms = reactive([{}]);
     const ElgbtAddRow = () => {
-      forms.push({  });
+      forms.push({});
     };
     const ElgbtRemoveRow = (index) => {
       if (forms.length > 1) {
         forms.splice(index, 1);
       }
     };
-    const forms2 = reactive([{  }]);
+    const forms2 = reactive([{}]);
     const PLAddRow = () => {
-      forms2.push({  });
+      forms2.push({});
     };
     const PLRemoveRow = (index) => {
       if (forms2.length > 1) {
@@ -186,13 +202,14 @@ export default {
     };
   },
   data: () => ({}),
-  methods:{
+  methods: {
     validateroweligibility() {
       this.$refs.formsEligibility.validate();
       let v = this.$refs.formsEligibility.validate();
       if (v) {
         this.forms.push({
-          eligibility: "", date_taken: ""
+          eligibility: "",
+          date_taken: "",
         });
       }
     },
@@ -201,10 +218,11 @@ export default {
       let v = this.$refs.formsProfessional.validate();
       if (v) {
         this.forms2.push({
-          professional: "", PLdate_taken: ""
+          professional: "",
+          PLdate_taken: "",
         });
       }
     },
-  }
+  },
 };
 </script>

@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable  -->
   <v-container>
     <v-row v-show="technicalTrainings">
       <v-col cols="12" md="12">
@@ -97,8 +98,22 @@
           <v-divider color="green" class="mb-6"></v-divider>
         </div>
       </v-form>
+      <v-col cols="12" md="12">
       <v-btn color="warning" @click="validaterow" class="mb-4">
         <v-icon>mdi-plus</v-icon> Add
+      </v-btn>
+    </v-col>
+      <v-btn
+        color="success"
+        class="mr-2"
+        @click="(technicalTrainingForms = false), (technicalTrainings = true)"
+        >Save
+      </v-btn>
+      <v-btn
+        color="warning"
+        class="mr-2"
+        @click="(technicalTrainingForms = false), (technicalTrainings = true)"
+        >Cancel
       </v-btn>
     </v-row>
   </v-container>
