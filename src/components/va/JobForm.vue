@@ -159,6 +159,7 @@
            method = 'post/update'
         }
         this.post.type= "job"
+        console.log("sample",this.post)
           this.$http.post(method, this.post).then(response => {  
                 console.log(response.data)
                 this.loading = false

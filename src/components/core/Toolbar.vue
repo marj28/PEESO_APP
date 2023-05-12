@@ -121,6 +121,18 @@ export default {
         icon: "mdi-account-hard-hat",
         route: "/job-post",
       },
+    ],
+    admin_menu: [
+    {
+        label: "My Account",
+        icon: "mdi-card-account-details",
+        route: "/admin",
+      },
+      {
+        label: "Jobs",
+        icon: "mdi-account-hard-hat",
+        route: "/job-post",
+      },
       {
         label: "Trainings",
         icon: "mdi-forum",
@@ -131,7 +143,7 @@ export default {
         icon: "mdi-note-plus",
         route: "/program-post",
       },
-    ],
+    ]
   }),
 
   computed: {
@@ -145,7 +157,10 @@ export default {
       else if (this.user.role == "Student") {
         return this.student_menu;
       }
-      return this.seeker_menu;
+      else if (this.user.role == "Jobseeker") {
+        return this.seeker_menu
+      }
+      return this.admin_menu;
     },
     currentRouteName() {
       return this.$route.name;

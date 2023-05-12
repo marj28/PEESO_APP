@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="3">
+      <v-col cols="12" md="3">
         <v-card width="256">
           <div class="pa-3">
             <va-file-upload
@@ -12,9 +12,9 @@
 
           <v-divider></v-divider>
 
-          <v-navigation-drawer permanent>
-            <v-list-item link @click="view()"
-              ><v-icon left small>mdi-eyet</v-icon
+          <v-navigation-drawer permanent class="">
+            <v-list-item link @click="view()" color="success"
+              ><v-icon left small>mdi-eye</v-icon
               >View</v-list-item
             >
             <v-list-item link @click="personalinformation()"
@@ -53,7 +53,7 @@
           <!-- navigation for job seeker -->
         </v-card>
       </v-col>
-      <v-col cols="9">
+      <v-col cols="9" >
         <v-card v-show="personalInformation">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Personal

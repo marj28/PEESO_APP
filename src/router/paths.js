@@ -74,6 +74,11 @@ export default [
       path: '/studentprofile',
       name: 'StudentProfile',
       view: 'account/StudentProfile'
+    },
+    {
+      path: '/admin',
+      name: 'AdminDashboard',
+      view: 'AdminDashboard'
     }
     
   ]
