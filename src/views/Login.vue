@@ -146,7 +146,11 @@
                     this.$router.push("employeer")
                     //setTimeout(()=>{ location.reload() }, 1000)
                    
-                 } else {
+                 } 
+                 else if (response.data.account.role == "Student"){
+                    this.$router.push("Student")
+                 }
+                 else {
                   this.$router.push("home")
                  }
                 

@@ -13,206 +13,44 @@
           <v-divider></v-divider>
 
           <v-navigation-drawer permanent>
-            <v-list-item
-              link
-              @click="
-                (personalInformation = true),
-                  (employmentStatus = true),
-                  (educationalBackground = true),
-                  (clientsClassification = true),
-                  (technicalTraining = true),
-                  (eligibilityLicense = true),
-                  (otherSkills = true),
-                  (jobRequirements = true),
-                  (personalInformationForm = false),
-                  (employmentStatusForm = false),
-                  (educationalBackgroundForm = false),
-                  (clientsClassificationForm = false),
-                  (technicalTrainingForm = false),
-                  (eligibilityLicenseForm = false),
-                  (otherSkillsForm = false),
-                  (jobRequirementsForm = false)
-              "
-              ><v-icon left small>mdi-briefcase-variant</v-icon
+            <v-list-item link @click="view()"
+              ><v-icon left small>mdi-eyet</v-icon
               >View</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = true),
-                  (employmentStatus = false),
-                  (educationalBackground = false),
-                  (clientsClassification = false),
-                  (technicalTraining = false),
-                  (eligibilityLicense = false),
-                  (otherSkills = false),
-                  (jobRequirements = false),
-                  (employmentStatusForm = false),
-                  (educationalBackgroundForm = false),
-                  (clientsClassificationForm = false),
-                  (technicalTrainingForm = false),
-                  (eligibilityLicenseForm = false),
-                  (otherSkillsForm = false),
-                  (jobRequirementsForm = false)
-              "
+            <v-list-item link @click="personalinformation()"
               ><v-icon left small>mdi-briefcase-variant</v-icon>Personal
               Information</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = false),
-                  (employmentStatus = true),
-                  (educationalBackground = false),
-                  (clientsClassification = false),
-                  (technicalTraining = false),
-                  (eligibilityLicense = false),
-                  (otherSkills = false),
-                  (jobRequirements = false),
-                  (personalInformationForm = false),
-                  (educationalBackgroundForm = false),
-                  (clientsClassificationForm = false),
-                  (technicalTrainingForm = false),
-                  (eligibilityLicenseForm = false),
-                  (otherSkillsForm = false),
-                  (jobRequirementsForm = false)
-              "
+            <v-list-item link @click="employmentstatus()"
               ><v-icon left small>mdi-folder-information</v-icon>Employment
               Status</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = false),
-                  (employmentStatus = false),
-                  (educationalBackground = true),
-                  (clientsClassification = false),
-                  (technicalTraining = false),
-                  (eligibilityLicense = false),
-                  (otherSkills = false),
-                  (jobRequirements = false),
-                  (personalInformationForm = false),
-                  (employmentStatusForm = false),
-                  (clientsClassificationForm = false),
-                  (technicalTrainingForm = false),
-                  (eligibilityLicenseForm = false),
-                  (otherSkillsForm = false),
-                  (jobRequirementsForm = false)
-              "
+            <v-list-item link @click="educationalbackground()"
               ><v-icon left small>mdi-school-outline</v-icon>Educational
               Background</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = false),
-                  (employmentStatus = false),
-                  (educationalBackground = false),
-                  (clientsClassification = true),
-                  (technicalTraining = false),
-                  (eligibilityLicense = false),
-                  (otherSkills = false),
-                  (jobRequirements = false),
-                  (personalInformationForm = false),
-                  (employmentStatusForm = false),
-                  (educationalBackgroundForm = false),
-                  (technicalTrainingForm = false),
-                  (eligibilityLicenseForm = false),
-                  (otherSkillsForm = false),
-                  (jobRequirementsForm = false)
-              "
+            <v-list-item link @click="clientsclassification()"
               ><v-icon left small>mdi-translate-variant</v-icon>Client's
               Classification</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = false),
-                  (employmentStatus = false),
-                  (educationalBackground = false),
-                  (clientsClassification = false),
-                  (technicalTraining = true),
-                  (eligibilityLicense = false),
-                  (otherSkills = false),
-                  (jobRequirements = false),
-                  (personalInformationForm = false),
-                  (employmentStatusForm = false),
-                  (educationalBackgroundForm = false),
-                  (clientsClassificationForm = false),
-                  (eligibilityLicenseForm = false),
-                  (otherSkillsForm = false),
-                  (jobRequirementsForm = false)
-              "
+            <v-list-item link @click="technicaltraining()"
               ><v-icon left small>mdi-card-account-details-outline</v-icon
               >Technical / Vocational and Other Training</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = false),
-                  (employmentStatus = false),
-                  (educationalBackground = false),
-                  (clientsClassification = false),
-                  (technicalTraining = false),
-                  (eligibilityLicense = true),
-                  (otherSkills = false),
-                  (jobRequirements = false),
-                  (personalInformationForm = false),
-                  (employmentStatusForm = false),
-                  (educationalBackgroundForm = false),
-                  (clientsClassificationForm = false),
-                  (technicalTrainingForm = false),
-                  (otherSkillsForm = false),
-                  (jobRequirementsForm = false)
-              "
+            <v-list-item link @click="eligibilitylicense()"
               ><v-icon left small>mdi-cog</v-icon>Eligibility/Professional
               License</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = false),
-                  (employmentStatus = false),
-                  (educationalBackground = false),
-                  (clientsClassification = false),
-                  (technicalTraining = false),
-                  (eligibilityLicense = false),
-                  (otherSkills = true),
-                  (jobRequirements = false),
-                  (personalInformationForm = false),
-                  (employmentStatusForm = false),
-                  (educationalBackgroundForm = false),
-                  (clientsClassificationForm = false),
-                  (technicalTrainingForm = false),
-                  (eligibilityLicenseForm = false),
-                  (jobRequirementsForm = false)
-              "
+            <v-list-item link @click="otherskills()"
               ><v-icon left small>mdi-card-account-details-outline</v-icon>Other
               Skills</v-list-item
             >
-            <v-list-item
-              link
-              @click="
-                (personalInformation = false),
-                  (employmentStatus = false),
-                  (educationalBackground = false),
-                  (clientsClassification = false),
-                  (technicalTraining = false),
-                  (eligibilityLicense = false),
-                  (otherSkills = false),
-                  (jobRequirements = true),
-                  (personalInformationForm = false),
-                  (employmentStatusForm = false),
-                  (educationalBackgroundForm = false),
-                  (clientsClassificationForm = false),
-                  (technicalTrainingForm = false),
-                  (eligibilityLicenseForm = false),
-                  (otherSkillsForm = false)
-              "
+            <v-list-item link @click="jobrequirement()"
               ><v-icon left small>mdi-cog</v-icon>Job Preference /
               Requirements</v-list-item
             >
           </v-navigation-drawer>
+          <!-- navigation for job seeker -->
         </v-card>
       </v-col>
       <v-col cols="9">
@@ -234,9 +72,7 @@
               v-bind:personalInformations="!personalInformationForm"
               v-bind:personalInformationForms="personalInformationForm"
             />
-
-            </v-card-text
-          >
+          </v-card-text>
         </v-card>
         <v-card v-show="employmentStatus">
           <v-toolbar dense elevation="1"
@@ -255,7 +91,6 @@
               v-bind:employmentStatuss="!employmentStatusForm"
               v-bind:employmentStatusForms="employmentStatusForm"
             />
-            
           </v-card-text>
         </v-card>
         <v-card v-show="educationalBackground">
@@ -275,7 +110,6 @@
               v-bind:educationalBackgrounds="!educationalBackgroundForm"
               v-bind:educationalBackgroundForms="educationalBackgroundForm"
             />
-            
           </v-card-text>
         </v-card>
         <v-card v-if="clientsClassification === true">
@@ -295,7 +129,7 @@
             <pi-client-classification
               v-bind:clientsClassifications="!clientsClassificationForm"
               v-bind:clientsClassificationForms="clientsClassificationForm"
-          />
+            />
           </v-card-text>
         </v-card>
         <v-card v-if="technicalTraining">
@@ -315,7 +149,6 @@
               v-bind:technicalTrainings="!technicalTrainingForm"
               v-bind:technicalTrainingForms="technicalTrainingForm"
             />
-            
           </v-card-text>
         </v-card>
         <v-card v-if="eligibilityLicense">
@@ -335,7 +168,6 @@
               v-bind:eligibilityLicenses="!eligibilityLicenseForm"
               v-bind:eligibilityLicenseForms="eligibilityLicenseForm"
             />
-            
           </v-card-text>
         </v-card>
         <v-card v-if="otherSkills">
@@ -374,7 +206,6 @@
               v-bind:jobRequirementss="!jobRequirementsForm"
               v-bind:jobRequirementsForms="jobRequirementsForm"
             />
-            
           </v-card-text>
         </v-card>
       </v-col>
@@ -476,6 +307,160 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+    },
+    view() {
+      (this.personalInformation = true),
+        (this.employmentStatus = true),
+        (this.educationalBackground = true),
+        (this.clientsClassification = true),
+        (this.technicalTraining = true),
+        (this.eligibilityLicense = true),
+        (this.otherSkills = true),
+        (this.jobRequirements = true),
+        (this.personalInformationForm = false),
+        (this.employmentStatusForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.clientsClassificationForm = false),
+        (this.technicalTrainingForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.otherSkillsForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    personalinformation() {
+      (this.personalInformation = true),
+        (this.employmentStatus = false),
+        (this.educationalBackground = false),
+        (this.clientsClassification = false),
+        (this.technicalTraining = false),
+        (this.eligibilityLicense = false),
+        (this.otherSkills = false),
+        (this.jobRequirements = false),
+        (this.employmentStatusForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.clientsClassificationForm = false),
+        (this.technicalTrainingForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.otherSkillsForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    employmentstatus() {
+      (this.personalInformation = false),
+        (this.employmentStatus = true),
+        (this.educationalBackground = false),
+        (this.clientsClassification = false),
+        (this.technicalTraining = false),
+        (this.eligibilityLicense = false),
+        (this.otherSkills = false),
+        (this.jobRequirements = false),
+        (this.personalInformationForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.clientsClassificationForm = false),
+        (this.technicalTrainingForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.otherSkillsForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    educationalbackground() {
+      (this.personalInformation = false),
+        (this.employmentStatus = false),
+        (this.educationalBackground = true),
+        (this.clientsClassification = false),
+        (this.technicalTraining = false),
+        (this.eligibilityLicense = false),
+        (this.otherSkills = false),
+        (this.jobRequirements = false),
+        (this.personalInformationForm = false),
+        (this.employmentStatusForm = false),
+        (this.clientsClassificationForm = false),
+        (this.technicalTrainingForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.otherSkillsForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    clientsclassification() {
+      (this.personalInformation = false),
+        (this.employmentStatus = false),
+        (this.educationalBackground = false),
+        (this.clientsClassification = true),
+        (this.technicalTraining = false),
+        (this.eligibilityLicense = false),
+        (this.otherSkills = false),
+        (this.jobRequirements = false),
+        (this.personalInformationForm = false),
+        (this.employmentStatusForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.technicalTrainingForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.otherSkillsForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    technicaltraining() {
+      (this.personalInformation = false),
+        (this.employmentStatus = false),
+        (this.educationalBackground = false),
+        (this.clientsClassification = false),
+        (this.technicalTraining = true),
+        (this.eligibilityLicense = false),
+        (this.otherSkills = false),
+        (this.jobRequirements = false),
+        (this.personalInformationForm = false),
+        (this.employmentStatusForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.clientsClassificationForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.otherSkillsForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    eligibilitylicense() {
+      (this.personalInformation = false),
+        (this.employmentStatus = false),
+        (this.educationalBackground = false),
+        (this.clientsClassification = false),
+        (this.technicalTraining = false),
+        (this.eligibilityLicense = true),
+        (this.otherSkills = false),
+        (this.jobRequirements = false),
+        (this.personalInformationForm = false),
+        (this.employmentStatusForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.clientsClassificationForm = false),
+        (this.technicalTrainingForm = false),
+        (this.otherSkillsForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    otherskills() {
+        (this.personalInformation = false),
+        (this.employmentStatus = false),
+        (this.educationalBackground = false),
+        (this.clientsClassification = false),
+        (this.technicalTraining = false),
+        (this.eligibilityLicense = false),
+        (this.otherSkills = true),
+        (this.jobRequirements = false),
+        (this.personalInformationForm = false),
+        (this.employmentStatusForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.clientsClassificationForm = false),
+        (this.technicalTrainingForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.jobRequirementsForm = false);
+    },
+    jobrequirement() {
+        (this.personalInformation = false),
+        (this.employmentStatus = false),
+        (this.educationalBackground = false),
+        (this.clientsClassification = false),
+        (this.technicalTraining = false),
+        (this.eligibilityLicense = false),
+        (this.otherSkills = false),
+        (this.jobRequirements = true),
+        (this.personalInformationForm = false),
+        (this.employmentStatusForm = false),
+        (this.educationalBackgroundForm = false),
+        (this.clientsClassificationForm = false),
+        (this.technicalTrainingForm = false),
+        (this.eligibilityLicenseForm = false),
+        (this.otherSkillsForm = false);
     },
   },
 };

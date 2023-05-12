@@ -63,6 +63,17 @@ export default [
       path: '/profile',
       name: 'Profile',
       view: 'account/Profile'
+    },
+    {
+      path: '/student',
+      name: 'Student',
+      view: 'Student'
+      //supposedly student.vue ,, for now same as applicant muna
+    },
+    {
+      path: '/studentprofile',
+      name: 'StudentProfile',
+      view: 'account/StudentProfile'
     }
     
   ]

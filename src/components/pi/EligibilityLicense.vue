@@ -138,7 +138,7 @@
             <v-divider color="green" class="mb-6"></v-divider>
           </div>
         </v-form>
-        <v-col cols="12" md="12">
+        <v-col cols="12" md="12" class="mb-6 mt-n2">
           <v-btn color="warning" @click="validaterowprofessional">
             <v-icon>mdi-plus</v-icon> Add
           </v-btn>
@@ -146,14 +146,12 @@
         <v-btn
           color="success"
           class="mr-2"
-          v-if="eligibilityLicenseForm === true"
           @click="(eligibilityLicenseForms = false), (eligibilityLicenses = true)"
           >Save
         </v-btn>
         <v-btn
           color="warning"
           class="mr-2"
-          v-if="eligibilityLicenseForm === true"
           @click="(eligibilityLicenseForms = false), (eligibilityLicenses = true)"
           >Cancel
         </v-btn>
