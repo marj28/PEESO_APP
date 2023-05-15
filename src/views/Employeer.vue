@@ -4,13 +4,8 @@
       <v-col cols="12">
         <v-card>
           <v-card-text>
-<<<<<<< HEAD
-            <div style="float:left;" class="mr-8">
-              <img :src="$store.state.systemlogo" width="110px">
-=======
             <div style="float: left" class="mr-8">
               <img :src="$store.state.systemlogo" width="110px" />
->>>>>>> 13d9a20 (adding rules in student profile)
             </div>
             <div style="min-height: 100px">
               <div class="text-h5 font-weight-bold text-primary">Welcome</div>
@@ -26,11 +21,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
-<<<<<<< HEAD
-                <img :src="$store.state.img_dir + 'program.png'" width="48">
-=======
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
->>>>>>> 13d9a20 (adding rules in student profile)
               </v-col>
               <v-col cols="8">
                 <div class="text-h6">2</div>
@@ -45,11 +36,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
-<<<<<<< HEAD
-                <img :src="$store.state.img_dir + 'job.png'" width="48">
-=======
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
->>>>>>> 13d9a20 (adding rules in student profile)
               </v-col>
               <v-col cols="8">
                 <div class="text-h6">1,440</div>
