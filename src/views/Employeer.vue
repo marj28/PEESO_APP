@@ -16,7 +16,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="4">
+      <!-- <v-col cols="4">
         <v-card @click="$router.push({ path: 'program-page' })">
           <v-card-text>
             <v-row>
@@ -30,9 +30,9 @@
             </v-row>
           </v-card-text>
         </v-card>
-      </v-col>
+      </v-col> -->
       <v-col cols="4">
-        <v-card color="primary" dark>
+        <v-card color="primary" dark @click="$router.push({ path: 'job-post' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
@@ -47,7 +47,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="4">
+      <!-- <v-col cols="4">
         <v-card  @click="$router.push({ path: 'training-details' })">
           <v-card-text>
             <v-row>
@@ -61,7 +61,7 @@
             </v-row>
           </v-card-text>
         </v-card>
-      </v-col>
+      </v-col> -->
     </v-row>
 
     <v-row>

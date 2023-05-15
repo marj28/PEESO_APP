@@ -150,6 +150,9 @@
                  else if (response.data.account.role == "Student"){
                     this.$router.push("Student")
                  }
+                 else if (response.data.account.role == "Admin"){
+                  this.$router.push("admin")
+                 }
                  else {
                   this.$router.push("home")
                  }

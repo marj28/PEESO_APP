@@ -32,7 +32,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="12 ">
+        <v-col cols="6">
           <v-card
             tile
             :dark="account_type == 'Student' ? true : false"
@@ -43,6 +43,20 @@
             <v-card-text class="text-center">
               <span
                 ><v-icon left>mdi-account-school</v-icon> As Scholarship Seeker</span>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card
+            tile
+            :dark="account_type == 'Admin' ? true : false"
+            :color="account_type == 'Admin' ? 'success' : ''"
+            @click="account_type = 'Admin'"
+            class="align-center"
+          >
+            <v-card-text class="text-center">
+              <span
+                ><v-icon left>mdi-account-tie</v-icon> As Admin</span>
             </v-card-text>
           </v-card>
         </v-col>

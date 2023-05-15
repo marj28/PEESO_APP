@@ -136,12 +136,12 @@ export default {
       {
         label: "Trainings",
         icon: "mdi-forum",
-        route: "/training-post",
+        route: "/training-details",
       },
       {
         label: "Programs",
         icon: "mdi-note-plus",
-        route: "/program-post",
+        route: "/program-page",
       },
     ]
   }),
