@@ -28,6 +28,7 @@
             <v-col cols="12" sm="12" md="6" class="mt-n6">
               <v-text-field
               v-model="post.post_meta.surname"
+              :rules="[rules.required]"
                 label="Surname"
                 required
                 dense
@@ -35,18 +36,17 @@
                 autofocus
                 color="success"
                 clearable
-                :rules="rules"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="6" class="mt-n6">
               <v-text-field
               v-model="post.post_meta.firstname"
+              :rules="[rules.required]"
                 label="First Name"
                 outlined
                 dense
                 color="success"
                 clearable
-                :rules="rules"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="6" class="mt-n6">
@@ -58,7 +58,6 @@
                 outlined
                 color="success"
                 clearable
-                :rules="rules"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="6" class="mt-n6">
@@ -71,7 +70,7 @@
                 outlined
                 color="success"
                 clearable
-                :rules="rules"
+                :rules="[rules.required]"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="6" class="mt-n6">
@@ -83,7 +82,6 @@
                 dense
                 color="success"
                 clearable
-                :rules="rules"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="3" class="mt-n6">
@@ -96,7 +94,7 @@
                 outlined
                 color="success"
                 clearable
-                :rules="rules"
+                :rules="[rules.required]"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="3" class="mt-n6">
@@ -109,7 +107,6 @@
                 color="success"
                 clearable
                 type="email"
-                :rules="rules"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="6" class="mt-n6">
@@ -121,7 +118,7 @@
                 dense
                 color="success"
                 clearable
-                :rules="rules"
+                :rules="[rules.required]"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="6" class="mt-n6">
@@ -133,7 +130,7 @@
                 dense
                 color="success"
                 clearable
-                :rules="rules"
+                :rules="[rules.required]"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="3" class="mt-n6">
@@ -146,7 +143,7 @@
                 color="success"
                 clearable
                 type="number"
-                :rules="rules"
+               
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="3" class="mt-n6">
@@ -158,7 +155,7 @@
                 outlined
                 color="success"
                 clearable
-                :rules="rules"
+                
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="6" md="6" class="mt-n6">
@@ -171,7 +168,7 @@
                 multiple
                 small-chips
                 color="success"
-                :rules="rules"
+                :rules="[rules.required]"
               >
               </v-select>
             </v-col>
@@ -249,7 +246,7 @@
                 dense
                 color="success"
                 clearable
-                :rules="rules"
+                :rules="[rules.required]"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="6" md="3" class="mt-n6">
@@ -262,7 +259,7 @@
                 color="success"
                 clearable
                 type="number"
-                :rules="rules"
+                :rules="[rules.required]"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="6" md="3" class="mt-n6">
@@ -274,7 +271,7 @@
                 dense
                 color="success"
                 clearable
-                :rules="rules"
+                :rules="[rules.required]"
               ></v-text-field>
             </v-col>
           </v-row>
