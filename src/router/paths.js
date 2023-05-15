@@ -20,6 +20,16 @@ export default [
       view: 'Employeer'
     },
     {
+      path: '/training-details',
+      name: 'TrainingDetails',
+      view: 'TrainingDetails'
+    },
+    {
+      path: '/program-page',
+      name: 'ProgramPage',
+      view: 'ProgramPage'
+    },
+    {
       path: '/job-post',
       name: 'Jobs',
       view: 'employeer/Jobs'
