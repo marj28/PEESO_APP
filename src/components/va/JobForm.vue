@@ -140,7 +140,7 @@
                 this.company = response.data.companies[0]
                 this.post.company_id = this.company.id
                 this.post.post_meta.company = this.company.name
-                this.post.post_meta.company_address = this.company.address
+                this.post.post_meta.company_address = this.company.address 
              }
          }).catch(e => {
          console.log(e)
