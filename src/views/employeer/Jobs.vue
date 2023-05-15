@@ -5,6 +5,7 @@
       <v-row>
           <v-col cols="12">
             JOB LIST
+            
           </v-col>
        </v-row> 
       <v-row>
@@ -65,8 +66,8 @@
             </td>
   
             <td  class="text-center">
-                 <v-icon small class="mr-2" @click="jobform = true, state='update', post=item" color="success">
-                 mdi-eye
+                 <v-icon small class="mr-2" @click="JobFormShow = true, state='update', post=item" color="success">
+                 mdi-eye  
                 </v-icon>
               <v-btn text x-small color="warning" @click="jobform = true, state='update', post=item"><v-icon left small>mdi-pencil</v-icon> Edit</v-btn>
               <v-icon @click="deleteItem(item)" color="error" small> mdi-delete </v-icon>
@@ -82,7 +83,7 @@
 
       </v-row>
       <va-job-form :show="jobform" :data="post" :post_state="state" @DialogEvent="formEv"/> 
-      <!-- <va-job-form :show="JobFormShow" :data="post" :post_state="state" @DialogEvent="formEv"/> -->
+      <va-job-show :show="JobFormShow" :data="post" :post_state="state"  @DialogEvent="formEv"/>
     </v-container>
   </template>
   <script>
@@ -100,7 +101,7 @@
       switch1: true,
 
      jobform: false, 
-     /*  JobFormShow:false, */
+       JobFormShow:false, 
       }),
       computed: {
        
@@ -128,6 +129,7 @@
 
         formEv() {
           this.jobform=false
+          this.JobFormShow=true
           this.myJobs()
         },
 
@@ -135,7 +137,10 @@
           this.JobFormShow=false
           this.myJobs()
         }, */
-       
+
+      
+
+
         myJobs() {
           this.$http.post('post/my_post', {type:'job'}).then(response => {  
             response.data.status?this.posts = response.data.posts:this.posts=[]
