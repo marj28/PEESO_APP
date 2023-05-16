@@ -34,7 +34,7 @@
       </v-col>
 
       <v-col cols="4">
-        <v-card @click="$router.push({ path: 'program-page' })">
+        <v-card @click="$router.push({ path: 'program-post' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
@@ -50,7 +50,7 @@
       </v-col>
 
       <v-col cols="4">
-        <v-card @click="$router.push({ path: 'training-details' })">
+        <v-card @click="$router.push({ path: 'training-post' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">

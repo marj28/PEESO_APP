@@ -9,7 +9,7 @@
             </v-card-title>
             <v-card-text>
               <v-list three-line>
-                <template v-for="(item, index) in items">
+                <template v-for="(item, index) in programs">
                   <v-list-item
                     :key="index + '-t'"
                   >
@@ -35,7 +35,7 @@
   } from 'vuex'
     export default {
       data: () => ({
-        items: [],
+        programs: [],
       }),
       computed: {
        
@@ -47,7 +47,7 @@
         ...mapMutations(['setLoggedIn', 'setAppBar', 'setMonthDailySales']),
         trainingposts() {
             this.$http.post('post/list', {type:'program'}).then(response => {  
-              response.data.status?this.items = response.data.posts:this.items=[]
+              response.data.status?this.programs = response.data.posts:this.programs=[]
              }).catch(e => {
              console.log(e)
              })

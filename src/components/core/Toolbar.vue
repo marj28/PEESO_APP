@@ -2,17 +2,40 @@
   <div>
     <v-toolbar dense elevation="1">
       <img :src="$store.state.systemlogo" class="mr-2" width="40px" />
-      <v-btn text tile @click="$router.push('/home').catch((err) => {})">
-        Home
-      </v-btn>
-      <v-btn text tile> What is PEESO? </v-btn>
-      <v-btn text tile @click="$router.push('/home').catch((err) => {})">
-        Company Profiles
-      </v-btn>
-      <v-btn text tile @click="$router.push('/home').catch((err) => {})">
-        Contact Us
-      </v-btn>
-
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn text tile @click="$router.push('/home').catch((err) => {})">
+          Home
+        </v-btn>
+        <v-btn text tile> What is PEESO? </v-btn>
+        <v-btn text tile @click="$router.push('/home').catch((err) => {})">
+          Company Profiles
+        </v-btn>
+        <v-btn text tile @click="$router.push('/home').catch((err) => {})">
+          Contact Us
+        </v-btn>
+      </v-toolbar-items>
+      <v-menu >
+        <!-- Sa icon diay ibutang ang class para ma-hide -->
+        <template v-slot:activator="{ on, attrs }">
+          <v-icon color="primary" dark v-bind="attrs" v-on="on" class="hidden-md-and-up">
+            mdi-menu
+          </v-icon>
+        </template>
+        <v-list>
+          <v-list-item @click="$router.push('/home').catch((err) => {})">
+            <v-list-item-title>HOME</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>WHAT IS PEESO?</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$router.push('/home').catch((err) => {})">
+            <v-list-item-title>COMPANY PROFILES</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$router.push('/home').catch((err) => {})">
+            <v-list-item-title>CONTACT US</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <v-spacer />
       <template v-if="isLoggin">
         <v-menu offset-y>
@@ -34,7 +57,6 @@
                   {{ menu.label }}
                 </v-list-item-title>
               </v-list-item>
-              <!-- <v-divider /> -->
             </template>
             <v-list-item @click="confirm = true" color="warning">
               <v-list-item-title>
@@ -92,24 +114,52 @@ import { mapMutations } from "vuex";
 export default {
   data: () => ({
     confirm: false,
-    title: null,
+    listing: false,
+    // title: null,
+    menu: [
+      { icon: "home", title: "Link A" },
+      { icon: "info", title: "Link B" },
+      { icon: "warning", title: "Link C" },
+    ],
     seeker_menu: [
       {
         label: "My Account",
         icon: "mdi-card-account-details",
         route: "/profile",
       },
+      {
+        label: "Jobs",
+        icon: "mdi-account-hard-hat",
+        route: "/job-post",
+      },
+      {
+        label: "Trainings",
+        icon: "mdi-forum",
+        route: "/training-details",
+      },
       // {
       //   label: 'PDS', icon: 'mdi-text-box-check', route: '/job-post',
       // }
     ],
+
     student_menu: [
       {
         label: "My Account",
         icon: "mdi-card-account-details",
         route: "/studentprofile",
       },
+      {
+        label: "Programs",
+        icon: "mdi-note-plus",
+        route: "/program-page",
+      },
+      {
+        label: "Trainings",
+        icon: "mdi-forum",
+        route: "/training-details",
+      },
     ],
+
     employeer_menu: [
       {
         label: "My Company",
@@ -122,8 +172,9 @@ export default {
         route: "/job-post",
       },
     ],
+
     admin_menu: [
-    {
+      {
         label: "My Account",
         icon: "mdi-card-account-details",
         route: "/admin",
@@ -143,7 +194,7 @@ export default {
         icon: "mdi-note-plus",
         route: "/program-page",
       },
-    ]
+    ],
   }),
 
   computed: {
@@ -153,12 +204,10 @@ export default {
     MENUS() {
       if (this.user.role == "Employeer") {
         return this.employeer_menu;
-      }
-      else if (this.user.role == "Student") {
+      } else if (this.user.role == "Student") {
         return this.student_menu;
-      }
-      else if (this.user.role == "Jobseeker") {
-        return this.seeker_menu
+      } else if (this.user.role == "Jobseeker") {
+        return this.seeker_menu;
       }
       return this.admin_menu;
     },
@@ -184,7 +233,20 @@ export default {
       this.$router.push("home");
       //setTimeout(()=>{ location.reload() }, 1000)
     },
+    menuItems() {
+      return this.menu;
+    },
   },
 };
 </script>
+<style>
+
+  @media screen and (min-width: 600px) {
+    .hidden-md-and-up{
+      content-visibility: hidden;
+    }
+  }
+
+
+</style>
  
