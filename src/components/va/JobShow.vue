@@ -10,7 +10,7 @@
         <v-card-title class="green darken-4 white--text">
           
 
-                    <v-icon small class="mr-2" @click="$router.push({ name: 'job-post' })" color="white">
+                    <v-icon small class="mr-2" @click="emitToParent('close')" color="white">
                         mdi-arrow-left
                     </v-icon>JOB POSTING DETAILS
                     <v-spacer></v-spacer>
@@ -107,15 +107,34 @@
                     </v-col>
                 </v-row>
        
+                <v-row class="pa-2">
+          <v-col lg="6" cols="12" md="6">
+             <v-card color="#1B5E20">
+                <v-card-title  class="subtitle-2">
+                <h4 style="color:white;" > APPLICANT LIST </h4>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+            <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details outlined
+              rounded dark dense></v-text-field>
+          </v-card-title>
+          <v-card-text>
+            <v-data-table :headers="headers" :items="desserts" :search="search" @click:row="editItem"
+              class="btn-hover elevation-1 pa-4">
+    
+            </v-data-table>
+          </v-card-text>
+        </v-card>
+      </v-col>
 
-
-
-
-
+      </v-row>
 
 
 </v-card>
   
+
+
+
 
 </v-dialog> 
 
@@ -125,35 +144,6 @@
 </div>
 </template>
 
-<!-- <script>
-// eslint-disable 
-export default {
-    
-  
-    components: {
-  
-    },
-  props:{
-    show: {
-      type: Boolean,
-      default: false
-    },
-  },
-    data () {
-      return {
-        
-
-      
-      }
-  
-    }
-    
-  
-      };
-  
-</script> -->
-  
-   
  -  <script>
 /*    eslint-disable */
   import {
@@ -187,6 +177,40 @@ export default {
       nameRules: [
         v => !!v || 'Field is required'
       ],
+
+      headers: [
+        {
+          text: 'First Name',
+          align: 'left',
+          sortable: false,
+          value: 'firstname',
+        },
+        {
+          text: 'Last Name',
+          align: 'left',
+          sortable: false,
+          value: 'lastname',
+        },
+        {
+          text: 'Job Posting Applied',
+          align: 'left',
+          sortable: false,
+          value: 'jobpostingapplied',
+        },
+        {
+          text: 'Contact Number',
+          align: 'left',
+          sortable: false,
+          value: 'contact_number',
+        },
+        {
+          text: 'Remarks',
+          align: 'left',
+          sortable: false,
+          value: 'remark',
+        },
+      ],
+
     }),
     watch: {
         show(v) {
