@@ -45,6 +45,11 @@ export default [
       view: 'employeer/Trainings'
     },
     {
+      path: '/company-page',
+      name: 'CompanyPage',
+      view: 'CompanyPage'
+    },
+    {
       path: '/post/:id',
       name: 'Post',
       view: 'Post'
