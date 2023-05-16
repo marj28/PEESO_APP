@@ -8,6 +8,8 @@
       <v-card>
   
         <v-card-title class="green darken-4 white--text">
+          
+
                     <v-icon small class="mr-2" @click="$router.push({ name: 'job-post' })" color="white">
                         mdi-arrow-left
                     </v-icon>JOB POSTING DETAILS
@@ -46,9 +48,10 @@
                <v-icon  left color="success">mdi-account-hard-hat</v-icon> Job Description
               </p> 
                 <div  class="mb-2">
-                  <v-tiptap readonly v-model="post.content"/>
+               <!--    <v-tiptap readonly v-model="post.content"/> -->
+                  <div class="tiptap-vuetify-editor__content" v-html="post.content"/>
+                <!--  <p>{{ post.content }}</p> -->
                 </div>
-
 
                                 <v-list-item-title class="text-h8 mb-1 mt-4">
                                     <b color="#1B5E20">Purpose of Vacancy:</b> {{ data.post_meta.purposeofvacancy }}
@@ -247,3 +250,5 @@ export default {
   }
   
   </script> 
+
+

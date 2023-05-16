@@ -7,16 +7,21 @@
             JOB LIST
             
           </v-col>
-       </v-row> 
+       </v-row>
+
       <v-row>
 
-        <v-col cols="4">
-          <v-card color="info" dark>
+        <v-col cols="12" md="4" sm="4"> 
+
+          <v-card color="#1B5E20" dark>
               <v-card-text class="text-center" @click="jobform = true, state='new', post={}" style="height: 80px;">
                     <div style="margin-top: 10px;"><v-icon large left>mdi-plus-circle</v-icon> POST A JOB</div>
               </v-card-text>
+
           </v-card>
         </v-col> 
+
+      </v-row>
 
        <!--  <template v-for="(item,index) in posts">
 
@@ -38,50 +43,48 @@
           </v-col>
           
         </template>   -->
+
+        <v-row>
+
+      <v-col cols="12" md="12" lg="12" sm="12">
         
-      <!--   <v-data-table  :headers="headers" :items="posts"  >
-          <template v-for="(item,index) in posts">
+        <v-data-table class="custom-table"  :headers="headers" :items="posts" :search="search"   >
 
-          </template>  
-        </v-data-table> -->
-
-          <table class="datatable" style="width:100%">
-            <thead>
-                <th>Position Title</th>
-                <th>Salary</th>
-                <th>Nature of Work</th>
-                <th class="text-center">Vacancy Count</th>
-                <th class="text-center">Job Post status</th>
-                <th class="text-center">Actions</th>
-            </thead>
-            <tbody>
-
-          <tr height="10px" v-for="(item,index) in posts" :key="index + 'post'"> 
-           <td >{{item.title}}</td>
-            <td>{{item.post_meta.salary}}</td>
-            <td>{{ item.post_meta.classificationofwork }}</td>
-            <td class="text-center">{{ item.post_meta.vacancycount }}</td>
-            <td class="text-center" > 
-              <v-switch v-model="switch1"  style="height: 10px;"  class="ml-12 mt-n4"   dense/>
-            </td>
-  
-            <td  class="text-center">
-                 <v-icon small class="mr-2" @click="JobFormShow = true, state='update', post=item" color="success">
-                 mdi-eye  
-                </v-icon>
-              <v-btn text x-small color="warning" @click="jobform = true, state='update', post=item"><v-icon left small>mdi-pencil</v-icon> Edit</v-btn>
-              <v-icon @click="deleteItem(item)" color="error" small> mdi-delete </v-icon>
-
-            </td>
-
-           
-        </tr>
-       
-         </tbody>
-        </table>
+          <template v-slot:top>
+      <v-toolbar flat dark color="#1B5E20">
+        <v-toolbar-title>JOB POSTING || Open Contract <span style="font-size: 15px;">{{ status }} </span></v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details outlined rounded
+          dense></v-text-field>
+        <v-divider vertical class="mx-2" inset></v-divider>
+      </v-toolbar>
+      </template>
 
 
+    <template  slot="item.switch1" slot-scope="{ item }">
+      <v-switch class="px-5 mt-n1" v-model="item.switch1" color="success" dense></v-switch>
+    </template>
+
+
+    <template v-slot:item.actions="{ item }">
+      <v-icon small class="mr-2" @click="JobFormShow = true, state='update', post=item" color="success">
+      mdi-eye  
+      </v-icon>
+
+      <v-btn text x-small color="warning" @click="jobform = true, state='update', post=item"><v-icon left small>mdi-pencil</v-icon> Edit</v-btn>
+      <v-icon @click="deleteItem(item)" color="error" small> mdi-delete </v-icon>
+    </template>
+
+
+        </v-data-table> 
+
+        </v-col>
       </v-row>
+
+
+     
       <va-job-form :show="jobform" :data="post" :post_state="state" @DialogEvent="formEv"/> 
       <va-job-show :show="JobFormShow" :data="post" :post_state="state"  @DialogEvent="formEv"/>
     </v-container>
@@ -96,17 +99,31 @@
       data: () => ({
       state:"new",
       post:{},
+      search: "",
       posts:[],
+
+      headers: [
+        { text: 'Positin Title', value: 'title' },
+        { text: 'Salary', value: 'post_meta.salary' },
+        { text: 'Nature of Work', value: 'post_meta.classificationofwork' },
+        { text: 'Vacancy Count', value: 'post_meta.vacancycount' },
+        { text: 'Job post Status', value: 'switch1' },
+        { text: 'Actions', value: 'actions' },
+      ],
     
-      switch1: true,
+  
+      switch1:true,
 
      jobform: false, 
        JobFormShow:false, 
       }),
+
       computed: {
-       
+      
 
       },
+
+
       created() {
         if (this.$session.exists()) {
             this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.$session.get('jwt')
@@ -116,13 +133,14 @@
           } 
        
       },
+
       methods: {
       /*   goToJobposting(item) {
       this.$router.push(`/JobPostingId/${item.id}/${this.admin}`);
     }, */
- 
-
+  
         ...mapMutations(['setLoggedIn', 'setAppBar', 'setMonthDailySales']),
+
         imageUrl(data) {
           this.company.medias.logo= data
         },
@@ -137,9 +155,7 @@
           this.JobFormShow=false
           this.myJobs()
         }, */
-
-      
-
+        
 
         myJobs() {
           this.$http.post('post/my_post', {type:'job'}).then(response => {  
@@ -147,38 +163,26 @@
            }).catch(e => {
            console.log(e)
            })
-        }
+
+     
+
+           .catch((error) => {
+          console.error(error);
+          this.isLoading = false;
+        });
+
+        },
+
       },
     }
     
   </script>
 
 <style scoped>
-.datatable {
-  width: 100%;
-  border-collapse: collapse;
-  border: 2px solid black;
+
+.custom-table {
+  border: 1px solid #1B5E20; 
 }
 
-.datatable th, .datatable td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
 
-.datatable th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-th {
-  height: 30px;
-}
-td{
-height:-20px;
-}
-
-.datatable tr:hover {
-  background-color: #f5f5f5;
-}
 </style>
