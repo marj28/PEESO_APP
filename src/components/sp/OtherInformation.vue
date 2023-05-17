@@ -64,7 +64,7 @@
   <script>
 /* eslint-disable */
 export default {
-  name: "Other Information",
+  // name: "Other Information",
   props: {
     otherInformations: false,
     otherInformationForms: false,

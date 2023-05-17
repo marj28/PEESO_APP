@@ -3,7 +3,7 @@
      
   
       <v-row>
-        <v-col cols="8">
+        <v-col cols="12" md="12">
           <v-card>
             <v-toolbar
             elevation="0"
@@ -37,13 +37,13 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="4">
+        <!-- <v-col cols="12" md="4">
           <div class="mb-4">
               <widget-training-widget></widget-training-widget>
           </div>
           <widget-program-widget></widget-program-widget>
         
-        </v-col>
+        </v-col> -->
       </v-row>
     </v-container>
   </template>

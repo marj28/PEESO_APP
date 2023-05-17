@@ -1,0 +1,263 @@
+<template>
+  <!--  eslint-disable  -->
+  <v-container>
+    <v-row>
+      <v-col cols="12"> JOB LIST </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <!-- <v-col cols="4">
+            <v-card color="info" dark>
+                <v-card-text class="text-center" @click="jobform = true, state='new', post={}" style="height: 80px;">
+                      <div style="margin-top: 10px;"><v-icon large left>mdi-plus-circle</v-icon> POST A JOB</div>
+                </v-card-text>
+            </v-card>
+          </v-col>  -->
+
+        <!--  <template v-for="(item,index) in posts">
+  
+            <v-col cols="4" :key="index + 'post'">
+  
+              <v-card>
+                
+                  <v-card-text class="text-center">
+                       <span class="font-weight-bold text-h6">{{item.title}}</span>
+                       <p>SALARY: {{item.post_meta.salary}}</p>
+                </v-card-text>
+                <v-card-actions dense>
+                  <span class="text-caption text-info">{{item.status}}</span>
+                  <v-spacer></v-spacer>
+                  <v-btn text x-small color="warning" @click="jobform = true, state='update', post=item"><v-icon left small>mdi-pencil</v-icon> Edit</v-btn>
+                </v-card-actions>
+  
+            </v-card>
+            </v-col>
+            
+          </template>   -->
+
+        <!--   <v-data-table  :headers="headers" :items="posts"  >
+            <template v-for="(item,index) in posts">
+  
+            </template>  
+          </v-data-table> -->
+
+        
+        <v-card>
+          <!-- <v-toolbar dense elevation="0">
+          <span class="text-primary">LATEST JOBS</span>
+          <v-spacer />
+        </v-toolbar> -->
+          <!-- <v-card-title>
+            Nutrition
+            <v-spacer></v-spacer>
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+          </v-card-title> -->
+          <!-- <v-data-table
+          v-for="(item, index) in jobs"
+                :key="index + 'post'"
+            :headers="this.item.title"
+            :items="desserts"
+            :search="search"
+          ></v-data-table> -->
+
+          <table class="datatable" style="width: 100%" :search="search">
+          
+            <input type="text" v-model="search" />
+            <thead>
+              <th>Position Title</th>
+              <th>Salary</th>
+              <th>Nature of Work</th>
+              <th class="text-center">Vacancy Count</th>
+              <th class="text-center">Job Post status</th>
+              
+            </thead>
+            <tbody>
+              <tr
+                height="10px"
+                v-for="(item, index) in jobs"
+                :key="index + 'post'"
+              >
+                <td>
+                  <a
+                    @click="$router.push('post/' + item.id).catch((err) => {})"
+                    >{{ item.title }}</a
+                  >
+                </td>
+                <td>{{ item.post_meta.salary }}</td>
+                <td>{{ item.post_meta.classificationofwork }}</td>
+                <td class="text-center">{{ item.post_meta.vacancycount }}</td>
+                <td class="text-center">
+                  <v-switch
+                    v-model="switch1"
+                    disabled
+                    style="height: 10px"
+                    class="ml-12 mt-n4"
+                    dense
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- <v-card-text>
+          <v-list three-line>
+            <template v-for="(item, index) in jobs">
+              <v-list-item :key="index + '-job'">
+                <v-list-item-avatar tile size="62">
+                  <v-img
+                    :src="item.medias != null ? item.medias.logo : noImage"
+                  />
+                </v-list-item-avatar>
+
+                <v-list-item-content>
+                  <v-list-item-title
+                    ><a
+                      @click="
+                        $router.push('post/' + item.id).catch((err) => {})
+                      "
+                      >{{ item.title }}</a
+                    ></v-list-item-title
+                  >
+                  <v-list-item-subtitle>
+                    <em class="text-info">{{
+                      $moment(item.created_dt).startOf("day").fromNow()
+                    }}</em>
+                    - {{ item.post_meta.company }} -
+                    {{ item.post_meta.company_address }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-list>
+        </v-card-text> -->
+        </v-card>
+      </v-col>
+    </v-row>
+    <va-job-form
+      :show="jobform"
+      :data="post"
+      :post_state="state"
+      @DialogEvent="formEv"
+    />
+    <va-job-show
+      :show="JobFormShow"
+      :data="post"
+      :post_state="state"
+      @DialogEvent="formEv"
+    />
+  </v-container>
+</template>
+    <script>
+/* eslint-disable */
+import { mapMutations } from "vuex";
+export default {
+  name: "EmployeerPage",
+  data: () => ({
+    state: "new",
+    post: {},
+    posts: [],
+    jobs: [],
+    search: "",
+
+    switch1: true,
+
+    jobform: false,
+    JobFormShow: false,
+  }),
+  computed: {},
+  created() {
+    this.jobposts();
+    if (this.$session.exists()) {
+      this.$http.defaults.headers.common["Authorization"] =
+        "Bearer " + this.$session.get("jwt");
+      this.setLoggedIn(true);
+      this.setAppBar(true);
+      this.myJobs();
+    }
+  },
+  methods: {
+    /*   goToJobposting(item) {
+        this.$router.push(`/JobPostingId/${item.id}/${this.admin}`);
+      }, */
+
+    ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
+    jobposts() {
+      this.$http
+        .post("post/list", { type: "job" })
+        .then((response) => {
+          response.data.status
+            ? (this.jobs = response.data.posts)
+            : (this.jobs = []);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    imageUrl(data) {
+      this.company.medias.logo = data;
+    },
+
+    formEv() {
+      this.jobform = false;
+      this.JobFormShow = true;
+      this.myJobs();
+    },
+
+    /*  formEv1() {
+            this.JobFormShow=false
+            this.myJobs()
+          }, */
+
+    myJobs() {
+      this.$http
+        .post("post/my_post", { type: "job" })
+        .then((response) => {
+          response.data.status
+            ? (this.posts = response.data.posts)
+            : (this.posts = []);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
+};
+</script>
+  
+  <style scoped>
+.datatable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.datatable th,
+.datatable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.datatable th {
+  background-color: #006700;
+  font-weight: bold;
+  color: #ddd;
+}
+
+th {
+  height: 30px;
+}
+td {
+  height: -20px;
+}
+
+.datatable tr:hover {
+  background-color: #f5f5f5;
+}
+</style>

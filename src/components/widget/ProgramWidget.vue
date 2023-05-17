@@ -5,7 +5,7 @@
               <span
                 class="text-primary
           "
-              >Latest Programs</span>
+              >LATEST PROGRAM</span>
             </v-card-title>
             <v-card-text>
               <v-list three-line>

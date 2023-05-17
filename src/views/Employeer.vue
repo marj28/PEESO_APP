@@ -32,14 +32,18 @@
         </v-card>
       </v-col> -->
       <v-col cols="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'job-post' })">
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'job-post' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6">1,440</div>
+                <div class="text-h6" >{{ jobs.length }}</div>
                 Job Posts
               </v-col>
             </v-row>
@@ -47,8 +51,12 @@
         </v-card>
       </v-col>
 
-      <!-- <v-col cols="4">
-        <v-card  @click="$router.push({ path: 'training-details' })">
+      <v-col cols="4">
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'training-details' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
@@ -56,17 +64,17 @@
               </v-col>
               <v-col cols="8">
                 <div class="text-h6">888</div>
-                Trainings
+                Applicant List
               </v-col>
             </v-row>
           </v-card-text>
         </v-card>
-      </v-col> -->
+      </v-col>
     </v-row>
 
     <v-row>
       <v-col cols="8">
-        <v-card>
+        <!-- <v-card>
           <v-toolbar dense elevation="1">
             <span class="text-primary">
               <v-icon left color="success">mdi-domain</v-icon> Company
@@ -150,9 +158,9 @@
               <v-tiptap v-model="company.overview" />
             </div>
           </v-card-text>
-        </v-card>
+        </v-card> -->
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" md="8">
         <v-card class="mb-4">
           <v-toolbar dense>
             <span class="text-primary">YOUR JOB POSTS</span>
@@ -168,9 +176,11 @@
             <v-list three-line>
               <template v-for="(item, index) in jobs">
                 <v-list-item :key="index + '-jobs'">
-                  <!-- <v-list-item-avatar>
-                    <v-img :src="item.avatar" />
-                  </v-list-item-avatar> -->
+                  <v-list-item-avatar tile size="62">
+                    <v-img
+                      :src="item.medias != null ? item.medias.logo : noImage"
+                    />
+                  </v-list-item-avatar>
                   <v-list-item-content>
                     <v-list-item-title
                       ><a
@@ -197,7 +207,8 @@
             </v-list>
           </v-card-text>
         </v-card>
-
+      </v-col>
+      <v-col cols="12" md="4">
         <v-card class="mb-4">
           <v-card-title>
             <span class="text-primary">Latest Programs</span>
@@ -205,9 +216,17 @@
           <v-card-text>
             <v-list three-line>
               <template v-for="(item, index) in programs">
-                <v-subheader v-if="item.header" :key="item.header" v-text="item.header" />
+                <v-subheader
+                  v-if="item.header"
+                  :key="item.header"
+                  v-text="item.header"
+                />
 
-                <v-divider v-else-if="item.divider" :key="index" :inset="item.inset" />
+                <v-divider
+                  v-else-if="item.divider"
+                  :key="index"
+                  :inset="item.inset"
+                />
 
                 <v-list-item v-else :key="item.title">
                   <v-list-item-avatar>

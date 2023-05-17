@@ -49,6 +49,7 @@
       },
       created() {
         if (this.$session.exists()) {
+            
             this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.$session.get('jwt')
             this.setLoggedIn(true)
             this.setAppBar(true)
@@ -72,6 +73,8 @@
            }).catch(e => {
            console.log(e)
            })
+           console.log("post=",this.posts)
+
         }
       },
     }

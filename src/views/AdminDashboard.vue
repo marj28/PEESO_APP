@@ -25,7 +25,7 @@
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" :key="index">{{ jobs.length }}</div>
+                <div class="text-h6" >{{ jobs.length }}</div>
                 Job Posts
               </v-col>
             </v-row>
@@ -34,14 +34,14 @@
       </v-col>
 
       <v-col cols="4">
-        <v-card @click="$router.push({ path: 'program-post' })">
+        <v-card color="primary" dark @click="$router.push({ path: 'program-post' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" :key="index">{{programs.length}}</div>
+                <div class="text-h6" >{{programs.length}}</div>
                 Programs
               </v-col>
             </v-row>
@@ -50,14 +50,14 @@
       </v-col>
 
       <v-col cols="4">
-        <v-card @click="$router.push({ path: 'training-post' })">
+        <v-card color="primary" dark @click="$router.push({ path: 'training-post' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'training.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" :key="index">{{trainings.length}}</div>
+                <div class="text-h6" >{{trainings.length}}</div>
                 Trainings
               </v-col>
             </v-row>

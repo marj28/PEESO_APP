@@ -89,7 +89,22 @@ export default [
       path: '/admin',
       name: 'AdminDashboard',
       view: 'AdminDashboard'
-    }
-    
+    },
+    // Viewing for Student and Applicant Only
+    {
+      path: '/jobview',
+      name: 'JobsView',
+      view: 'Viewing/JobsView'
+    },
+    {
+      path: '/programview',
+      name: 'ProgramsView',
+      view: 'Viewing/ProgramsView'
+    },
+    {
+      path: '/trainingview',
+      name: 'TrainingsView',
+      view: 'Viewing/TrainingsView'
+    },
   ]
   

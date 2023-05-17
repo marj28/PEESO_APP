@@ -32,7 +32,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" >
           <v-card
             tile
             :dark="account_type == 'Student' ? true : false"
@@ -46,7 +46,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <!-- <v-col cols="6">
           <v-card
             tile
             :dark="account_type == 'Admin' ? true : false"
@@ -59,7 +59,7 @@
                 ><v-icon left>mdi-account-tie</v-icon> As Admin</span>
             </v-card-text>
           </v-card>
-        </v-col>
+        </v-col> -->
       </v-row>
       <v-form
         v-if="account_type != ''"

@@ -20,7 +20,7 @@
         <v-card
           color="primary"
           dark
-          @click="$router.push({ path: 'job-post' })"
+          @click="$router.push({ path: 'jobview' })"
         >
           <v-card-text>
             <v-row>
@@ -28,7 +28,7 @@
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" :key="index">{{ jobs.length }}</div>
+                <div class="text-h6" >{{ jobs.length }}</div>
                 Job Posts
               </v-col>
             </v-row>
@@ -36,27 +36,11 @@
         </v-card>
       </v-col>
 
-      <!-- <v-col cols="4">
-        <v-card @click="$router.push({ path: 'program-post' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'program.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6" :key="index">{{ programs.length }}</div>
-                Programs
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col> -->
-
       <v-col cols="6" md="4">
         <v-card
           color="primary"
           dark
-          @click="$router.push({ path: 'training-post' })"
+          @click="$router.push({ path: 'trainingview' })"
         >
           <v-card-text>
             <v-row>
@@ -64,7 +48,7 @@
                 <img :src="$store.state.img_dir + 'training.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" :key="index">{{ trainings.length }}</div>
+                <div class="text-h6" >{{ trainings.length }}</div>
                 Trainings
               </v-col>
             </v-row>
@@ -74,14 +58,14 @@
 
       <v-col cols="12" md="4">
         <v-card color="primary"
-          dark @click="$router.push({ path: 'program-post' })">
+          dark @click="$router.push({ path: 'programview' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" :key="index">{{ programs.length }}</div>
+                <div class="text-h6" >{{ programs.length }}</div>
                 Announcement
               </v-col>
             </v-row>
@@ -100,7 +84,7 @@
           <v-card-text>
             <v-list three-line>
               <template v-for="(item, index) in jobs">
-                <v-list-item :key="index + '-job'">
+                <v-list-item :key="index + '-job'" v-if="index <=4">
                   <v-list-item-avatar tile size="62">
                     <v-img
                       :src="item.medias != null ? item.medias.logo : noImage"

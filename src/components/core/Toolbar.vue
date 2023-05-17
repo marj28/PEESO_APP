@@ -2,14 +2,14 @@
   <div>
     <v-toolbar dense elevation="1">
       <img :src="$store.state.systemlogo" class="mr-2" width="40px" />
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items class="hidden-md-and-down">
         <v-btn text tile @click="$router.push('/home').catch((err) => {})">
           Home
         </v-btn>
         <v-btn text tile> What is PEESO? </v-btn>
-        <v-btn text tile @click="$router.push('/home').catch((err) => {})">
+        <!-- <v-btn text tile @click="$router.push('/home').catch((err) => {})">
           Company Profiles
-        </v-btn>
+        </v-btn> -->
         <v-btn text tile @click="$router.push('/home').catch((err) => {})">
           Contact Us
         </v-btn>
@@ -17,7 +17,7 @@
       <v-menu >
         <!-- Sa icon diay ibutang ang class para ma-hide -->
         <template v-slot:activator="{ on, attrs }">
-          <v-icon color="primary" dark v-bind="attrs" v-on="on" class="hidden-md-and-up">
+          <v-icon color="primary" dark v-bind="attrs" v-on="on" class="hidden-lg-and-up">
             mdi-menu
           </v-icon>
         </template>
@@ -28,9 +28,9 @@
           <v-list-item>
             <v-list-item-title>WHAT IS PEESO?</v-list-item-title>
           </v-list-item>
-          <v-list-item @click="$router.push('/home').catch((err) => {})">
+          <!-- <v-list-item @click="$router.push('/home').catch((err) => {})">
             <v-list-item-title>COMPANY PROFILES</v-list-item-title>
-          </v-list-item>
+          </v-list-item> -->
           <v-list-item @click="$router.push('/home').catch((err) => {})">
             <v-list-item-title>CONTACT US</v-list-item-title>
           </v-list-item>
@@ -116,11 +116,6 @@ export default {
     confirm: false,
     listing: false,
     // title: null,
-    menu: [
-      { icon: "home", title: "Link A" },
-      { icon: "info", title: "Link B" },
-      { icon: "warning", title: "Link C" },
-    ],
     seeker_menu: [
       {
         label: "My Account",
@@ -157,6 +152,11 @@ export default {
         label: "Trainings",
         icon: "mdi-forum",
         route: "/training-details",
+      },
+      {
+        label: "Jobs",
+        icon: "mdi-account-hard-hat",
+        route: "/job-post",
       },
     ],
 
