@@ -42,38 +42,34 @@
 
       <v-col cols="12" md="12" lg="12" sm="12">
         
-        <v-data-table class="custom-table"  :headers="headers" :items="posts" :search="search"   >
+        <v-data-table class="custom-table"   :headers="headers" :items="posts" :search="search"   >
 
           <template v-slot:top>
 
           <v-card  class="my-5 mt-3" color="#1B5E20"  >
             
       <v-row>
-            <v-col cols="12" md="4" lg="4" sm="4" >
+            <v-col cols="12" md="4" lg="4" sm="4" class="mt-lg-n2 mt-md-n2 mt-sm-n2">
  <v-toolbar  flat dark color="#1B5E20">
           
-  <v-toolbar-title>JOB POSTING || <span style="font-size: 15px;"><!-- {{ status }} --></span></v-toolbar-title>
+  <v-toolbar-title >JOB POSTING || <span style="font-size: 15px;"><!-- {{ status }} --></span></v-toolbar-title>
       
 </v-toolbar> 
 </v-col>
 
+<v-col cols="12" md="4" lg="4" sm="4" class="mt-n6 mt-lg-n2 mt-md-n2 mt-sm-n2" >
+<v-toolbar flat dark color="#1B5E20" >
 
-<v-col cols="12" md="4" lg="4" sm="4" >
-<v-toolbar flat dark color="#1B5E20">
-
-  
-        <div class="text-center mt-10" @click="jobform = true, state='new', post={}" style="height: 80px;">
+        <div class="text-center mt-10 " @click="jobform = true, state='new', post={}" style="height: 80px;">
         <v-btn color="success" dark class="mb-2" v-bind="attrs" v-on="on">
               <v-icon> mdi-plus </v-icon> New Job Post
             </v-btn>
           </div>
 
-       
-     
 </v-toolbar>
 </v-col>
 
-<v-col cols="12" md="4" lg="4" sm="4" >
+<v-col cols="12" md="4" lg="4" sm="4" class="mt-n6 mt-lg-n2 mt-md-n2 mt-sm-n2" >
 <v-toolbar flat dark color="#1B5E20">
 
         <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details outlined rounded
