@@ -2,7 +2,7 @@
   <div>
   <v-dialog
     v-model="dailog"
-   fullscreen
+  
     persistent
   >
 <!--    eslint-disable  -->
@@ -163,6 +163,7 @@
 v-model="post.post_meta.postingdate"
 outlined
 type="date"
+:rules="nameRules"
 prepend-inner-icon="mdi-tag-search"
 dense 
 hint="Separated by comma"
@@ -176,6 +177,7 @@ label="Posting Date"/>
 v-model="post.post_meta.validuntil"
 outlined
 type="date"
+ :rules="nameRules"
 prepend-inner-icon="mdi-tag-search"
 dense 
 hint="Separated by comma"
@@ -291,7 +293,7 @@ label="Valid Until"/>
                           <v-select 
                           v-model="post.post_meta.educationallevel"
                           :items="['Elementary Level', 'Elementary Graduate', 'Junior High School Level' , 'Junior High School Level Graduate' , 'Senior High School Level' , 'Junior High School Graduate', 'TechVoc Level', 'TechVoc Graduate', 'College Level', 'College Graduate', 'Graduate/Post Graduate Studies']"               
-                          
+                          :rules="nameRules"
                           label="Educational Level" outlined dense color="green"
                            >
                           </v-select>
@@ -328,6 +330,7 @@ label="Valid Until"/>
 
                         <v-col class="ml-0 mt-n7  ml-lg-7 mt-lg-n7 ml-md-7 mt-md-n7 ml-sm-7 mt-sm-n7" cols="12" sm="11" md="11">
                           <v-select 
+                          :rules="nameRules"
                           v-model="post.post_meta.sexpreference"
                            :items="['Male','Female','Preference']" label="Sex Preference" outlined dense color="green"
                            >
@@ -363,6 +366,7 @@ label="Valid Until"/>
                         <v-col cols="12" sm="12" md="12" class="mt-n3 ml-3" >
                           <v-text-field
                           v-model="post.post_meta.workexperience"
+                          :rules="nameRules"
                           label="Work Experience (month/s): "  required
                             outlined dense color="green" type="number"></v-text-field>
                         </v-col>
@@ -414,6 +418,8 @@ label="Valid Until"/>
                   <v-btn   @click="emitToParent('close')" class="ma-2" color="warning" >
                     Cancel
                   </v-btn>
+
+
                   <v-btn
           color="success"
           :loading="loading"

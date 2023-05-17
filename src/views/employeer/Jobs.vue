@@ -37,35 +37,58 @@
           
         </template>   -->
 
-        <v-row>
+        <v-row  >
+
 
       <v-col cols="12" md="12" lg="12" sm="12">
         
         <v-data-table class="custom-table"  :headers="headers" :items="posts" :search="search"   >
 
           <template v-slot:top>
-           <v-toolbar flat dark color="#1B5E20">
-        <v-toolbar-title>JOB POSTING || Open Contract <span style="font-size: 15px;">{{ status }} </span></v-toolbar-title>
-        <v-spacer></v-spacer>
+
+          <v-card  class="my-5 mt-3" color="#1B5E20"  >
+            
+      <v-row>
+            <v-col cols="12" md="4" lg="4" sm="4" >
+ <v-toolbar  flat dark color="#1B5E20">
+          
+  <v-toolbar-title>JOB POSTING || <span style="font-size: 15px;"><!-- {{ status }} --></span></v-toolbar-title>
+      
+</v-toolbar> 
+</v-col>
 
 
+<v-col cols="12" md="4" lg="4" sm="4" >
+<v-toolbar flat dark color="#1B5E20">
+
+  
         <div class="text-center mt-10" @click="jobform = true, state='new', post={}" style="height: 80px;">
         <v-btn color="success" dark class="mb-2" v-bind="attrs" v-on="on">
               <v-icon> mdi-plus </v-icon> New Job Post
             </v-btn>
           </div>
 
+       
+     
+</v-toolbar>
+</v-col>
 
-        <v-spacer></v-spacer>
-        <v-spacer></v-spacer>
+<v-col cols="12" md="4" lg="4" sm="4" >
+<v-toolbar flat dark color="#1B5E20">
+
         <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details outlined rounded
           dense></v-text-field>
-        <v-divider vertical class="mx-2" inset></v-divider>
-        
-      </v-toolbar>
-      
-  
+     
+      <!--   <v-divider vertical class="mx-2" inset></v-divider> -->    
+</v-toolbar>
+</v-col>
+
+</v-row>
+</v-card> 
+
+
       </template>
+
 
     <template  slot="item.switch1" slot-scope="{ item }">
       <v-switch class="px-5 mt-n1" v-model="item.switch1" color="success" dense></v-switch>
@@ -84,8 +107,10 @@
 
         </v-data-table> 
 
+        
         </v-col>
       </v-row>
+      
 
       <va-job-form :show="jobform" :data="post" :post_state="state" @DialogEvent="formEv"/> 
       <va-job-show :show="JobFormShow" :data="post" :post_state="state"  @DialogEvent="formEv1"/>
@@ -99,6 +124,7 @@
     export default {
       name:'EmployeerPage',
       data: () => ({
+        status: "Open Contract", 
       state:"new",
       post:{},
       search: "",
@@ -107,8 +133,8 @@
       headers: [
 
         { text: 'Positin Title', value: 'title' },
-        { text: 'Salary', value: 'post_meta.salary'  },
-        { text: 'Nature of Work', value: 'post_meta.classificationofwork' },
+        { text: 'Salary', value: 'post_meta.salary'    },
+        { text: 'Nature of Work', value: 'post_meta.classificationofwork'  , align: ' d-none d-md-table-cell '},
         { text: 'Vacancy Count', value: 'post_meta.vacancycount' , align: 'center' },
         { text: 'Job post Status', value: 'switch1' },
         { text: 'Actions', value: 'actions'  , align: 'center'},

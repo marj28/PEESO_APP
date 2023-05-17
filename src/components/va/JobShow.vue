@@ -3,7 +3,7 @@
   <!--  eslint-disable  -->
     <div>
     
-    <v-dialog fullscreen persistent v-model="show" max-width="200px" >
+    <v-dialog fullscreen persistent v-model="show" >
 
       <v-card>
   
@@ -14,9 +14,9 @@
                         mdi-arrow-left
                     </v-icon>JOB POSTING DETAILS
                     <v-spacer></v-spacer>
-                    <v-icon small class="mr-2" @click="editItem(items)" :key="id" color="white">
+                    <!-- <v-icon small class="mr-2" @click="editItem(items)" :key="id" color="white">
                         mdi-pencil
-                    </v-icon>
+                    </v-icon> -->
                 </v-card-title>
 
 <!-- <h1>
