@@ -6,34 +6,34 @@
       </v-card-title>
       <v-divider color="success"></v-divider>
       <v-card-text>
-        <v-container>
-          <v-row>
-            <v-col cols="12" sm="12" md="12">
-              <v-text-field   label="Program Name" color="success" outlined required
-                dense></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="12" md="12">
-              <v-text-field   label="Offering Company" color="success" outlined dense
-                class="mt-n8"></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="6" md="6">
-              <v-text-field   label="Date of Filing" color="success" outlined dense
-                class="mt-n8" type="date"></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="6" md="6">
-              <v-text-field  label="End of Filing" color="success" outlined dense
-                class="mt-n8" type="date"></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="12" md="12">
-              <v-text-field   label="Applicant Count" color="success" outlined dense
-                class="mt-n8" type="number"></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="12" md="12">
-              <v-textarea   label="Program Description" color="success" outlined
-                dense auto-grow clearable class="mt-n8 mb-n12"></v-textarea>
-            </v-col>
-          </v-row>
-        </v-container>
+        <v-form ref="form" v-model="valid" lazy-validation>
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field v-model="post.ProgramName" label="Program Name" color="success" outlined required dense></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field v-model="post.post_meta.OfferingCompany" label="Offering Company" color="success" outlined dense class="mt-n8"></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field v-model="post.post_meta.Date" label="Date of Filing" color="success" outlined dense class="mt-n8"
+                  type="date"></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field v-model="post.post_meta.EndofFilling" label="End of Filing" color="success" outlined dense class="mt-n8"
+                  type="date"></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field v-model="post.post_meta.ApplicantCount"  label="Applicant Count" color="success" outlined dense class="mt-n8"
+                  type="number"></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="12" md="12">
+                <v-textarea v-model="post.post_meta.ProgramDescription" label="Program Description" color="success" outlined dense auto-grow clearable
+                  class="mt-n8 mb-n12"></v-textarea>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-form>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -103,8 +103,12 @@ export default {
         if (response.data.status) {
           this.company = response.data.companies[0]
           this.post.company_id = this.company.id
-          this.post.post_meta.company = this.company.name
-          this.post.post_meta.company_address = this.company.address
+          this.post.post_meta.ProgramName = this.company.ProgramName
+          this.post.post_meta.OfferingCompany = this.company.OfferingCompany
+          this.post.post_meta.Date = this.company.Date
+          this.post.post_meta.EndofFilling = this.company.EndofFilling
+          this.post.post_meta.ApplicantCount = this.company.ApplicantCount
+          this.post.post_meta.ProgramDescription = this.company.ProgramDescription
         }
       }).catch(e => {
         console.log(e)
