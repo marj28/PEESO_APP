@@ -37,16 +37,42 @@
           
         </template>   -->
 
+       <!--  <template v-slot:item="{ item }">
+        <tr  v-for="(item,index) in posts" :key="index + 'post'">
+          <td >{{item.title}}</td>
+          <td >{{item.post_meta.salary}}</td>
+        </tr>
+      </template> -->
+
+
+
+
         <v-row  >
 
 
       <v-col cols="12" md="12" lg="12" sm="12">
         
-        <v-data-table class="custom-table"   :headers="headers" :items="posts" :search="search"   >
+
+        <v-data-table class="custom-table "  
+    
+        
+        :headers="getTableHeaders" :items="posts" :search="search"   >
+         
+      <!--   <template v-slot:item="{ item }">
+        <tr>
+          <td v-for="(value, index) in item" :key="index + 'post'">{{ value }}</td>
+        </tr>
+      </template> -->
+
+      
 
           <template v-slot:top>
 
+            
+
           <v-card  class="my-5 mt-3" color="#1B5E20"  >
+
+       
             
       <v-row>
             <v-col cols="12" md="4" lg="4" sm="4" class="mt-lg-n2 mt-md-n2 mt-sm-n2">
@@ -66,7 +92,13 @@
             </v-btn>
           </div>
 
+          
+
 </v-toolbar>
+
+
+   
+
 </v-col>
 
 <v-col cols="12" md="4" lg="4" sm="4" class="mt-n6 mt-lg-n2 mt-md-n2 mt-sm-n2" >
@@ -79,16 +111,20 @@
 </v-toolbar>
 </v-col>
 
+
 </v-row>
 </v-card> 
 
 
       </template>
 
+      
 
     <template  slot="item.switch1" slot-scope="{ item }">
       <v-switch class="px-5 mt-n1" v-model="item.switch1" color="success" dense></v-switch>
     </template>
+    
+   
 
 
     <template v-slot:item.actions="{ item }">
@@ -100,6 +136,9 @@
       <v-icon @click="deleteItem(item)" color="error" small> mdi-delete </v-icon>
     </template>
 
+ 
+        
+ 
 
         </v-data-table> 
 
@@ -125,14 +164,15 @@
       post:{},
       search: "",
       posts:[],
+      isMobile: false,
 
-      headers: [
+      tableHeaders: [
 
         { text: 'Positin Title', value: 'title' },
-        { text: 'Salary', value: 'post_meta.salary'    },
-        { text: 'Nature of Work', value: 'post_meta.classificationofwork'  , align: ' d-none d-md-table-cell '},
-        { text: 'Vacancy Count', value: 'post_meta.vacancycount' , align: 'center' },
-        { text: 'Job post Status', value: 'switch1' },
+        { text: 'Salary', value: 'post_meta.salary'  , hideOnMobile: true   },
+        { text: 'Nature of Work', value: 'post_meta.classificationofwork' , hideOnMobile: true  },
+        { text: 'Vacancy Count', value: 'post_meta.vacancycount' , align: 'center' , hideOnMobile: true },
+        { text: 'Job post Status', value: 'switch1' , hideOnMobile: true },
         { text: 'Actions', value: 'actions'  , align: 'center'},
 
       ],
@@ -144,11 +184,18 @@
        JobFormShow:false, 
       }),
 
+
+
       computed: {
-      
+        getTableHeaders() {
+      if (this.isMobile) {
+        // Remove the headers you don't want to display in mobile view
+        return this.tableHeaders.filter(header => !header.hideOnMobile);
+      }
+      return this.tableHeaders;
+    },
 
       },
-
 
       created() {
         if (this.$session.exists()) {
@@ -160,7 +207,31 @@
        
       },
 
-      methods: {
+
+      mounted() {
+    // Check if the screen size is mobile
+    this.isMobile = window.innerWidth <= 600;
+    // Update the isMobile value when the screen size changes
+    window.addEventListener('resize', () => {
+      this.isMobile = window.innerWidth <= 600;
+    });
+  },
+
+
+
+  methods: {
+        showHeader(header) {
+      // Show the header unless it has a specific value you want to exclude in mobile view
+      return !this.isMobile ||
+       header.value !== 'post_meta.salary'
+       
+       
+       ;
+      
+    },
+
+    
+   
       /*   goToJobposting(item) {
       this.$router.push(`/JobPostingId/${item.id}/${this.admin}`);
     }, */
@@ -209,6 +280,8 @@
 .custom-table {
   border: 1px solid #1B5E20; 
 }
+
+
 
 
 </style>
