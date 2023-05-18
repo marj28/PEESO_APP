@@ -91,7 +91,7 @@ export default {
     ],
     employeer_menu: [
       {
-        label: 'My Company', icon: 'mdi-card-account-details', route: '/company-page',
+        label: 'My Company', icon: 'mdi-card-account-details', route: '/company-select',
       },
       {
         label: 'Jobs', icon: 'mdi-account-hard-hat', route: '/job-post',

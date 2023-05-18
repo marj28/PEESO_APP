@@ -54,7 +54,7 @@
       </v-col>
 
       <v-col cols="4">
-        <v-card  @click="$router.push({ path: 'training-details' })">
+        <v-card @click="$router.push({ path: 'training-details' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
@@ -94,6 +94,8 @@
                   label="Contact Email Address" />
                 <v-text-field v-model="company.contact_number" class="mb-2" prepend-inner-icon="mdi-phone" dense
                   label="Contact Number" />
+                <v-select label="Select company type" class="mb-2" prepend-inner-icon="mdi-home-modern" dense
+                  v-model="company.company_type" style="width: 60%;" :items="['Private', 'Governement',]"></v-select>
               </v-col>
             </v-row>
 
@@ -125,10 +127,11 @@
                     <v-img :src="item.avatar" />
                   </v-list-item-avatar> -->
                   <v-list-item-content>
-                    <v-list-item-title><a @click="$router.push('post/' + item.id).catch(err => { })">{{ item.title }}</a> -
+                    <v-list-item-title><a @click="$router.push('post/' + item.id).catch(err => { })">{{ item.title }}</a>
+                      -
                       <span class="text-caption">{{ item.status }}</span></v-list-item-title>
-                    <v-list-item-subtitle> <em
-                        class="text-info">{{ $moment(item.created_dt).startOf('hour').fromNow() }}</em> -
+                    <v-list-item-subtitle> <em class="text-info">{{ $moment(item.created_dt).startOf('hour').fromNow()
+                    }}</em> -
                       {{ item.post_meta.company }} - {{ item.post_meta.company_address }} </v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
@@ -146,14 +149,11 @@
             <v-list three-line>
               <template v-for="(item, index) in programs">
                 <v-subheader v-if="item.header" :key="item.header" v-text="item.header" />
-
                 <v-divider v-else-if="item.divider" :key="index" :inset="item.inset" />
-
                 <v-list-item v-else :key="item.title">
                   <v-list-item-avatar>
                     <v-img :src="item.avatar" />
                   </v-list-item-avatar>
-
                   <v-list-item-content>
                     <v-list-item-title v-html="item.title" />
                     <v-list-item-subtitle v-html="item.subtitle" />

@@ -28,26 +28,26 @@
                                 <v-card-text>
                                     <v-container>
                                         <v-row>
-                                            <v-col cols="12" sm="12" md="8">
+                                            <v-col v-model="company.agency_name" cols="12" sm="12" md="8">
                                                 <v-text-field label="Agency Name" :rules="[rules.required]" required
                                                     outlined dense color="green"></v-text-field>
                                             </v-col>
 
-                                            <v-col cols="12" sm="12" md="4">
+                                            <v-col v-model="company.acronym" cols="12" sm="12" md="4">
                                                 <v-text-field label="Acronym / Abbreviation" required outlined dense
                                                     color="green" :rules="[rules.required]"></v-text-field>
                                             </v-col>
-                                            <v-col cols="12" sm="6" md="6">
+                                            <v-col v-model="company.agency_type" cols="12" sm="6" md="6">
                                                 <v-select :items="agency_type" label="Agency Type" outlined dense
                                                     color="green">
                                                 </v-select>
                                             </v-col>
-                                            <v-col cols="12" sm="6" md="6">
+                                            <v-col v-model="company.total_work_force" cols="12" sm="6" md="6">
                                                 <v-select :items="totalworkforce" label="Total Work Force" outlined dense
                                                     color="green">
                                                 </v-select>
                                             </v-col>
-                                            <v-col cols="12" md="3" sm="12">
+                                            <v-col v-model="company.region_name" cols="12" md="3" sm="12">
                                                 <v-combobox v-model="region" :items="address" item-text="region_name"
                                                     outlined dense color="success" label="Region"
                                                     @change="formattype('REGION')" return-object single-line
@@ -55,7 +55,7 @@
                                                 </v-combobox>
 
                                             </v-col>
-                                            <v-col cols="12" md="3" sm="12">
+                                            <v-col v-model="company.province" cols="12" md="3" sm="12">
                                                 <v-combobox v-model="province" :items="provincename"
                                                     :disabled="region == '' ? true : false" outlined dense color="success"
                                                     label="Province" @change="formattype('PROVINCE')" return-object
@@ -63,7 +63,7 @@
 
                                                 </v-combobox>
                                             </v-col>
-                                            <v-col cols="12" md="3" sm="12">
+                                            <v-col v-model="company.city" cols="12" md="3" sm="12">
                                                 <v-combobox v-model="city" :items="cityname"
                                                     :disabled="province == '' ? true : false" outlined dense
                                                     label="Municipality / City" @change="formattype('CITY')" return-object
@@ -71,12 +71,12 @@
 
                                                 </v-combobox>
                                             </v-col>
-                                            <v-col cols="12" md="3" sm="12">
+                                            <v-col v-model="company.baranggay" cols="12" md="3" sm="12">
                                                 <v-combobox label="Baranggay" :disabled="city == '' ? true : false" outlined
                                                     dense color="success" :items="brgyname"
                                                     :rules="[rules.required]"></v-combobox>
                                             </v-col>
-                                            <v-col cols="12" md="12" sm="12">
+                                            <v-col v-model="company.house_no" cols="12" md="12" sm="12">
                                                 <v-text-field label="House No. / Street / Village" required outlined dense
                                                     color="success" :rules="[rules.required]"
                                                     v-model="house"></v-text-field>
@@ -101,31 +101,33 @@
                                     <v-container fluid>
                                         <v-row>
                                             <v-col cols="12" sm="2" md="2">
-                                                <v-select :items="title" label="Title" outlined dense multiple small-chips
-                                                    color="green" :rules="[rules.required]">
+                                                <v-select v-model="company.title" :items="title" label="Title" outlined
+                                                    dense multiple small-chips color="green" :rules="[rules.required]">
                                                 </v-select>
                                             </v-col>
                                             <v-col cols="12" sm="10" md="10">
-                                                <v-text-field label="Contact Person (Full Name)" required outlined dense
+                                                <v-text-field v-model="company.contact_person"
+                                                    label="Contact Person (Full Name)" required outlined dense
                                                     :rules="[rules.required]" color="green"></v-text-field>
                                             </v-col>
                                             <v-col cols="12" sm="3" md="3">
-                                                <v-text-field label="Position" required outlined dense color="green"
-                                                    :rules="[rules.required]"></v-text-field>
+                                                <v-text-field v-model="company.position" label="Position" required outlined
+                                                    dense color="green" :rules="[rules.required]"></v-text-field>
                                             </v-col>
                                             <v-col cols="12" sm="3" md="3">
-                                                <v-text-field label="Telephone Number" required type="number" outlined dense
-                                                    :rules="[rules.required]" color="green"
+                                                <v-text-field v-model="company.telephone_number" label="Telephone Number"
+                                                    required type="number" outlined dense :rules="[rules.required]"
+                                                    color="green" hide-spin-buttons></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="3" md="3">
+                                                <v-text-field v-model="company.mobile_number" label="Mobile Number" required
+                                                    outlined dense type="number" :rules="[rules.required]" color="green"
                                                     hide-spin-buttons></v-text-field>
                                             </v-col>
                                             <v-col cols="12" sm="3" md="3">
-                                                <v-text-field label="Mobile Number" required outlined dense type="number"
-                                                    :rules="[rules.required]" color="green"
-                                                    hide-spin-buttons></v-text-field>
-                                            </v-col>
-                                            <v-col cols="12" sm="3" md="3">
-                                                <v-text-field label="E-mail Address" required outlined dense type="email"
-                                                    :rules=[rules.email] color="green"></v-text-field>
+                                                <v-text-field v-model="company.e_mail_address" label="E-mail Address"
+                                                    required outlined dense type="email" :rules=[rules.email]
+                                                    color="green"></v-text-field>
                                             </v-col>
                                         </v-row>
                                     </v-container>
@@ -146,13 +148,13 @@
                                     <v-container fluid>
                                         <v-row>
                                             <v-col cols="12" sm="12" md="6">
-                                                <v-file-input v-model="files" color="green accent-4" counter
+                                                <v-file-input v-model="company.files" color="green accent-4" counter
                                                     label="Business License" multiple dense placeholder="Select your files"
                                                     prepend-icon="mdi-paperclip" outlined :show-size="1000" :rules=rules>
                                                 </v-file-input>
                                             </v-col>
                                             <v-col cols="12" sm="12" md="6">
-                                                <v-file-input v-model="files_permit" color="green accent-4" counter
+                                                <v-file-input v-model="company.files_permit" color="green accent-4" counter
                                                     label="Business Permit" multiple dense placeholder="Select your files"
                                                     prepend-icon="mdi-paperclip" outlined :show-size="1000" :rules=rules>
                                                 </v-file-input>

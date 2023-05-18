@@ -30,6 +30,12 @@ export default [
       view: 'ProgramPage'
     },
     {
+      path: '/company-select',
+      name: 'CompanySelect',
+      view: 'CompanySelect'
+    },
+    
+    {
       path: '/job-post',
       name: 'Jobs',
       view: 'employeer/Jobs'
@@ -45,9 +51,15 @@ export default [
       view: 'employeer/Trainings'
     },
     {
-      path: '/company-page',
-      name: 'CompanyPage',
-      view: 'CompanyPage'
+      path: '/company-private',
+      name: 'CompanyPrivate',
+      view: 'CompanyPrivate'
+    },
+    
+    {
+      path: '/company-public',
+      name: 'CompanyPublic',
+      view: 'CompanyPublic'
     },
     {
       path: '/post/:id',
