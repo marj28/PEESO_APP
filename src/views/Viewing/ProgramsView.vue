@@ -1,59 +1,56 @@
 <template>
+  <!--  eslint-disable  -->
   <v-container>
     <v-row>
-      <v-col cols="12"> PROGRAM LIST </v-col>
-    </v-row>
-    <v-row>
-        <v-col cols="12">
-        <v-card class="mb-4">
-          
-          <v-card-text>
-            <v-list three-line>
-              <template v-for="(item, index) in programs">
-                <v-list-item :key="index + '-programs'">
-                  <v-list-item-avatar tile size="62">
-                    <v-img
-                      :src="item.medias != null ? item.medias.logo : noImage"
-                    />
-                  </v-list-item-avatar>
-
-                  <v-list-item-content>
-                    <v-list-item-title
-                      ><a
-                        @click="
-                          $router.push('post/' + item.id).catch((err) => {})
-                        "
-                        >{{ item.title }}</a
-                      >
-                      <span class="text-caption">{{ item.status }}</span>
-                    </v-list-item-title>
-                    <v-list-item-subtitle v-html="item.subtitle" />
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list>
-          </v-card-text>
-      </v-card>
+      <v-col cols="12">
+        <v-card-title class="green--text">
+          PROGRAM LIST
+          <v-spacer></v-spacer>
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            dense
+            outlined
+            hide-details
+          ></v-text-field>
+        </v-card-title>
+        <v-data-table
+          :headers="headers"
+          :items="programs"
+          v-model="selected"
+          :search="search"
+          @click:row="handleRowClick"
+        >
+        </v-data-table>
+        <v-card> </v-card>
       </v-col>
     </v-row>
-    <va-program-form
-      :show="popupform"
-      :data="post"
-      :post_state="state"
-      @DialogEvent="formEv"
-    />
   </v-container>
 </template>
   <script>
 import { mapMutations } from "vuex";
 export default {
-  name: "EmployeerPage",
+  name: "ProgramsView",
   data: () => ({
     state: "new",
     post: {},
     posts: [],
     programs: [],
+    selected: [],
     popupform: false,
+    search: "",
+    headers: [
+      { text: "Program Title", value: "title", sortable: false },
+      { text: "Offering Company", value: "post_meta.company", sortable: false },
+      {
+        text: "Date of Filing",
+        value: "post_meta.placeofwork",
+        sortable: false,
+      },
+    ],
   }),
   computed: {},
   created() {
@@ -68,6 +65,10 @@ export default {
   },
   methods: {
     ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
+    handleRowClick(item) {
+      console.log("item=", item);
+      this.$router.push("post/" + item.id).catch((err) => {});
+    },
     imageUrl(data) {
       this.company.medias.logo = data;
     },

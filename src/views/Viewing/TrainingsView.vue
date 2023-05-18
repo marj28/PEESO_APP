@@ -1,81 +1,33 @@
 <template>
+  <!--  eslint-disable  -->
   <v-container>
     <v-row>
-      <v-col cols="12"> TRAININGS LIST </v-col>
-    </v-row>
-    <v-row>
-      <!-- <v-col cols="4">
-        <v-card color="tertiary" dark>
-          <v-card-text
-            class="text-center"
-            @click="(popupform = true), (state = 'new'), (post = {})"
-            style="height: 100px"
-          >
-            <div style="margin-top: 20px">
-              <v-icon large left>mdi-plus-circle</v-icon> POST TRAINING
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col> -->
-      <!-- <template v-for="(item, index) in posts">
-        <v-col cols="4" :key="index + 'post'">
-          <v-card>
-            <v-card-text class="text-center">
-              <span class="font-weight-bold text-h6">{{ item.title }}</span>
-             
-            </v-card-text>
-            <v-card-actions dense>
-              <span class="text-caption text-info">{{ item.status }}</span>
-              <v-spacer></v-spacer>
-              <v-btn
-                text
-                x-small
-                color="warning"
-                @click="(popupform = true), (state = 'update'), (post = item)"
-                ><v-icon left small>mdi-pencil</v-icon> Edit</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </template> -->
       <v-col cols="12">
-      <v-card class="mb-4" >
-          
-          <v-card-text>
-            <v-list three-line>
-              <template v-for="(item, index) in trainings">
-                <v-list-item :key="index + '-programs'">
-                  <v-list-item-avatar tile size="62">
-                    <v-img
-                      :src="item.medias != null ? item.medias.logo : noImage"
-                    />
-                  </v-list-item-avatar>
-
-                  <v-list-item-content>
-                    <v-list-item-title
-                      ><a
-                        @click="
-                          $router.push('post/' + item.id).catch((err) => {})
-                        "
-                        >{{ item.title }}</a
-                      >
-                      <span class="text-caption">{{ item.status }}</span>
-                    </v-list-item-title>
-                    <v-list-item-subtitle v-html="item.subtitle" />
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list>
-          </v-card-text>
-      </v-card>
+        <v-card-title class="green--text">
+          TRAINING LIST
+          <v-spacer></v-spacer>
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            dense
+            outlined
+            hide-details
+          ></v-text-field>
+        </v-card-title>
+        <v-data-table
+          :headers="headers"
+          :items="trainings"
+          v-model="selected"
+          :search="search"
+          @click:row="handleRowClick"
+        >
+        </v-data-table>
+        <v-card> </v-card>
       </v-col>
     </v-row>
-    <va-training-form
-      :show="popupform"
-      :data="post"
-      :post_state="state"
-      @DialogEvent="formEv"
-    />
   </v-container>
 </template>
   <script>
@@ -84,9 +36,26 @@ export default {
   name: "EmployeerPage",
   data: () => ({
     state: "new",
+    search: "",
     post: {},
     posts: [],
     trainings: [],
+    selected: [],
+    headers: [
+      { text: "Training Title", value: "title", sortable: false },
+      { text: "Trainor", value: "post_meta.company", sortable: false },
+      {
+        text: "Trainor Address",
+        value: "post_meta.company_address",
+        sortable: false,
+      },
+      { text: "Training Place", value: "post_meta.place_training", sortable: false },
+      {
+        text: "Date of Training",
+        value: "post_meta.date_training",
+        sortable: false,
+      },
+    ],
     popupform: false,
   }),
   computed: {},
@@ -102,6 +71,10 @@ export default {
   },
   methods: {
     ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
+    handleRowClick(item) {
+      console.log("item=", item);
+      this.$router.push("post/" + item.id).catch((err) => {});
+    },
     imageUrl(data) {
       this.company.medias.logo = data;
     },
@@ -112,16 +85,17 @@ export default {
 
     myJobs() {
       this.$http
-        .post("post/my_post", { type: "training" })
+        .post("post/list", { type: "training" })
         .then((response) => {
           response.data.status
-            ? (this.posts = response.data.posts)
+            ? ((this.posts = response.data.posts),
+            console.log("response=", response.data.posts))
             : (this.posts = []);
         })
         .catch((e) => {
           console.log(e);
         });
-      console.log("post=", this.posts);
+      console.log("post=", this.trainings);
     },
     trainingposts() {
       this.$http

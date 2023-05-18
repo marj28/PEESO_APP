@@ -125,16 +125,13 @@ export default {
       {
         label: "Jobs",
         icon: "mdi-account-hard-hat",
-        route: "/job-post",
+        route: "/jobview",
       },
       {
         label: "Trainings",
         icon: "mdi-forum",
-        route: "/training-details",
+        route: "/trainingview",
       },
-      // {
-      //   label: 'PDS', icon: 'mdi-text-box-check', route: '/job-post',
-      // }
     ],
 
     student_menu: [
@@ -146,17 +143,17 @@ export default {
       {
         label: "Programs",
         icon: "mdi-note-plus",
-        route: "/program-page",
+        route: "/programview",
       },
       {
         label: "Trainings",
         icon: "mdi-forum",
-        route: "/training-details",
+        route: "/trainingview",
       },
       {
         label: "Jobs",
         icon: "mdi-account-hard-hat",
-        route: "/job-post",
+        route: "/jobview",
       },
     ],
 
@@ -230,7 +227,7 @@ export default {
       this.setLoggedIn(false);
       this.setNavBar(false);
       sessionStorage.clear();
-      this.$router.push("home");
+      this.$router.push("login");
       //setTimeout(()=>{ location.reload() }, 1000)
     },
     menuItems() {
