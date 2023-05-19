@@ -78,15 +78,15 @@
             <v-col cols="12" md="4" lg="4" sm="4" class="mt-lg-n2 mt-md-n2 mt-sm-n2">
  <v-toolbar  flat dark color="#1B5E20">
           
-  <v-toolbar-title >JOB POSTING || <span style="font-size: 15px;"><!-- {{ status }} --></span></v-toolbar-title>
+  <v-toolbar-title class="gotocenter">JOB POSTING || <span style="font-size: 15px;"><!-- {{ status }} --></span></v-toolbar-title>
       
 </v-toolbar> 
 </v-col>
 
-<v-col cols="12" md="4" lg="4" sm="4" class="mt-n6 mt-lg-n2 mt-md-n2 mt-sm-n2" >
+<v-col cols="12" md="4" lg="4" sm="4" class=" mt-n6 mt-lg-n2 mt-md-n2 mt-sm-n2" >
 <v-toolbar flat dark color="#1B5E20" >
 
-        <div class="text-center mt-10 " @click="jobform = true, state='new', post={}" style="height: 80px;">
+        <div class="gotocenter text-center mt-10 " @click="jobform = true, state='new', post={}" style="height: 80px;">
         <v-btn color="success" dark class="mb-2" v-bind="attrs" v-on="on">
               <v-icon> mdi-plus </v-icon> New Job Post
             </v-btn>
@@ -282,6 +282,11 @@
 }
 
 
+@media screen and (max-width: 600px) {
+  .gotocenter {
+    margin-left: 20%;
+  }
+}
 
 
 </style>
