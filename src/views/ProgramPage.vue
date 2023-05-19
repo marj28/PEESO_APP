@@ -1,6 +1,6 @@
 <template>
     <!-- eslint-disable -->
-    <v-data-table :headers="headers" :search="search" :items="desserts" sort-by="calories" class="elevation-1">
+    <v-data-table :headers="headers" :search="search" :items="desserts" sort-by="calories" class="elevation-1 m-9 w-90" >
         <template v-slot:top>
             <v-card flat color="#FFFFFFF">
                 <v-card-title class="white--black">STUDENT PROGRAMS
@@ -52,7 +52,6 @@
                                     </v-row>
                                 </v-container>
                             </v-card-text>
-
                             <v-card-actions>
                                 <v-spacer></v-spacer>
                                 <v-btn color="orange darken-1" text @click="close">
