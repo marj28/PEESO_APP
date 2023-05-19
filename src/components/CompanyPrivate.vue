@@ -88,11 +88,6 @@ export default {
 
 
 
-
-
-
-
-
 <!-- <template>
   <v-container>
     <v-row>
@@ -244,7 +239,7 @@ export default {
 
 <template>
   <v-container>
-      <v-row>
+      <!-- <v-row>
           <v-col cols="12">
               <v-card>
                   <v-card-text>
@@ -260,7 +255,7 @@ export default {
                   </v-card-text>
               </v-card>
           </v-col>
-      </v-row>
+      </v-row> -->
 
 
 
@@ -314,7 +309,7 @@ export default {
                                       <v-card class="mb-12" height="100%">
                                           <v-row>
                                               <v-col cols="12" sm="12" md="8">
-                                                  <v-text-field v-model="company.establishment_name"
+                                                  <v-text-field v-model="company.name"
                                                       label="Establishment Name" required outlined dense
                                                       :rules="[rules.required]" color="green"></v-text-field>
                                               </v-col>
@@ -559,6 +554,7 @@ export default {
           if (this.state == 'exist') {
               method = 'company/update'
           }
+          console.log("Save my company=", this.company)
           this.$http.post(method, this.company).then(response => {
               console.log(response.data)
               response.data.status ? this.VA_ALERT('success', response.data.message) : this.VA_ALERT('error', response.data.message)
@@ -576,6 +572,7 @@ export default {
           }).catch(e => {
               console.log(e)
           })
+          console.log("my company=", this.company)
       }
   },
 }
