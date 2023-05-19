@@ -1,23 +1,22 @@
 
 <template>
   <!--  eslint-disable  -->
-  <div>
-    <v-dialog fullscreen persistent v-model="show" max-width="200px">
+    <div>
+    
+    <v-dialog fullscreen persistent v-model="show" >
+
       <v-card>
         <v-card-title class="green darken-4 white--text">
-          <v-icon
-            small
-            class="mr-2"
-            @click="$router.push({ name: 'job-post' })"
-            color="white"
-          >
-            mdi-arrow-left </v-icon
-          >JOB POSTING DETAILS
-          <v-spacer></v-spacer>
-          <v-icon small class="mr-2" @click="editItem(items)" color="white">
-            mdi-pencil
-          </v-icon>
-        </v-card-title>
+          
+
+                    <v-icon small class="mr-2" @click="emitToParent('close')" color="white">
+                        mdi-arrow-left
+                    </v-icon>JOB POSTING DETAILS
+                    <v-spacer></v-spacer>
+                    <!-- <v-icon small class="mr-2" @click="editItem(items)" :key="id" color="white">
+                        mdi-pencil
+                    </v-icon> -->
+                </v-card-title>
 
         <!-- <h1>
   {{item.title}}
@@ -30,29 +29,43 @@
 </h1>
  -->
 
-        <v-row>
-          <v-col cols="12" md="12" lg="12">
-            <v-list-item three-line>
-              <v-list-item-content>
-                <div class="text-overline mb-4">
-                  PHP {{ post.post_meta.salary }} //
-                  {{ post.post_meta.classificationofwork }}
+
+                      <v-row>
+                    <v-col cols="12" md="12" lg="12">
+                        <v-list-item three-line>
+                            <v-list-item-content>
+                                <div class="text-overline mb-4">
+                                    PHP {{ data.post_meta.salary }} // {{ data.post_meta.classificationofwork }}
+                                </div>
+                                
+                                <v-list-item-title class="text-h5 mb-12 green--text">
+                                    {{ post.title }}
+                                </v-list-item-title>
+                             <!--    <p class="pl-12 pr-12 pt-5" justify="center">{{ post.content }}</p> -->
+
+                                <p class="mt-n8">
+               <v-icon  left color="success">mdi-account-hard-hat</v-icon> Job Description
+              </p> 
+                <div  class="mb-2">
+               <!--    <v-tiptap readonly v-model="post.content"/> -->
+                  <div class="tiptap-vuetify-editor__content" v-html="post.content"/>
+                <!--  <p>{{ post.content }}</p> -->
                 </div>
 
-                <v-list-item-title class="text-h5 mb-12 green--text">
-                  {{ post.title }}
-                </v-list-item-title>
-                <!--    <p class="pl-12 pr-12 pt-5" justify="center">{{ post.content }}</p> -->
+                                <v-list-item-title class="text-h8 mb-1 mt-4">
+                                    <b color="#1B5E20">Purpose of Vacancy:</b> {{ data.post_meta.purposeofvacancy }}
+                                </v-list-item-title>
+                                <v-list-item-title class="text-h8 mb-1">
+                                    <b>Classification of Vacancy:</b> {{ data.post_meta.classificationofvacancy }}
+                                </v-list-item-title>
+                                <v-list-item-title class="text-h8 mb-2">
+                                    <b>Place of Work:</b> {{ data.post_meta.placeofwork }}
+                                </v-list-item-title>
+                                <v-divider></v-divider>
+                                <h3 class="mt-2 green--text">PREFERENCES:</h3>
+                                <v-row>
 
-                <p class="mt-n8">
-                  <v-icon left color="success">mdi-account-hard-hat</v-icon> Job
-                  Description
-                </p>
-                <div class="mb-2">
-                  <v-tiptap readonly v-model="post.content" />
-                </div>
-
-                <v-list-item-title class="text-h8 mb-1 mt-4">
+                <!-- <v-list-item-title class="text-h8 mb-1 mt-4">
                   <b color="#1B5E20">Purpose of Vacancy:</b>
                   {{ post.post_meta.purposeofvacancy }}
                 </v-list-item-title>
@@ -65,7 +78,7 @@
                 </v-list-item-title>
                 <v-divider></v-divider>
                 <h3 class="mt-2 green--text">PREFERENCES:</h3>
-                <v-row>
+                <v-row> -->
                   <v-col cols="12" md="6" lg="6" sm="12">
                     <v-list-item-title class="text-h8 mb-1 mt-2">
                       <b>Educational Level:</b>
@@ -104,44 +117,44 @@
                     </v-list-item-title>
                   </v-col>
                 </v-row>
-              </v-list-item-content>
-            </v-list-item>
-          </v-col>
-        </v-row>
-      </v-card>
-    </v-dialog>
-  </div>
+       
+                <v-row class="pa-2">
+          <v-col lg="6" cols="12" md="6">
+             <v-card color="#1B5E20">
+                <v-card-title  class="subtitle-2">
+                <h4 style="color:white;" > APPLICANT LIST </h4>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+            <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details outlined
+              rounded dark dense></v-text-field>
+          </v-card-title>
+          <v-card-text>
+            <v-data-table :headers="headers" :items="desserts" :search="search" @click:row="editItem"
+              class="btn-hover elevation-1 pa-4">
+    
+            </v-data-table>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      </v-row>
+
+
+</v-card>
+  
+
+
+
+
+</v-dialog> 
+
+
+
+
+</div>
 </template>
 
-<!-- <script>
-// eslint-disable 
-export default {
-    
-  
-    components: {
-  
-    },
-  props:{
-    show: {
-      type: Boolean,
-      default: false
-    },
-  },
-    data () {
-      return {
-        
-
-      
-      }
-  
-    }
-    
-  
-      };
-  
-</script> -->
-  
-   
  -  <script>
 /*    eslint-disable */
 import { mapMutations } from "vuex";
@@ -165,25 +178,65 @@ export default {
     loading: false,
     valid: true,
 
-    company: {},
-    post: { post_meta: { salary: "" } },
-    state: "new",
-    nameRules: [(v) => !!v || "Field is required"],
-  }),
-  watch: {
-    show(v) {
-      v ? (this.show = true) : (this.show = false);
-      if (v) {
-        this.state = this.post_state;
-        this.myCompany();
-        if (this.state == "update") {
-          this.post = this.data;
+      company: {},
+      post: {post_meta: {salary:""}},
+      state: 'new',
+      nameRules: [
+        v => !!v || 'Field is required'
+      ],
+
+      headers: [
+        {
+          text: 'First Name',
+          align: 'left',
+          sortable: false,
+          value: 'firstname',
+        },
+        {
+          text: 'Last Name',
+          align: 'left',
+          sortable: false,
+          value: 'lastname',
+        },
+        {
+          text: 'Job Posting Applied',
+          align: 'left',
+          sortable: false,
+          value: 'jobpostingapplied',
+        },
+        {
+          text: 'Contact Number',
+          align: 'left',
+          sortable: false,
+          value: 'contact_number',
+        },
+        {
+          text: 'Remarks',
+          align: 'left',
+          sortable: false,
+          value: 'remark',
+        },
+      ],
+
+    }),
+    watch: {
+        show(v) {
+          v?this.show=true:this.show=false
+          if(v){
+            this.state = this.post_state
+            this.myCompany()
+            if(this.state == 'update') {
+              this.post = this.data
+            }
+          } else {
+            this.post = {post_meta: {salary:""}}
+          }
         }
-      } else {
-        this.post = { post_meta: { salary: "" } };
-      }
+      // } else {
+      //   this.post = { post_meta: { salary: "" } };
+      // }
     },
-  },
+  
   created() {},
   methods: {
     emitToParent(action) {
