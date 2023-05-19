@@ -227,7 +227,7 @@
         this.setLoggedIn(false);
         this.setNavBar(false);
         sessionStorage.clear();
-        this.$router.push("login");
+        this.$router.push("Home");
         //setTimeout(()=>{ location.reload() }, 1000)
       },
       menuItems() {
