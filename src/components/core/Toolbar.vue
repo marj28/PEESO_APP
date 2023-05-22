@@ -42,7 +42,7 @@ export default {
       return this.$store.state.is_logged;
     },
     MENUS() {
-      if (this..exists()) {
+      if (this.$session.exists()) {
         if (this.user.role == "Employeer") {
           return this.employeer_menu;
         } else if (this.user.role == "Student") {
