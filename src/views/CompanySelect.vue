@@ -109,8 +109,8 @@
                         <CompanyPrivate />
                     </div>
                     <div v-if="public_company">
-                        {{ this.private_company=false }}
-                        <CompanyPublic style="margin-top: -2%; margin-left: -1%;" />
+                        
+                        <CompanyPublic  />
                     </div>
                     <!-- <CompanyPrivate /> -->
                     <!-- <CompanyPublic /> -->
@@ -132,10 +132,12 @@ export default {
     },
     methods: {
         private_compay_button() {
-            this.private_company = !this.private_company;
+            this.private_company = true;
+            this.public_company=false
         },
         public_company_button() {
-            this.public_company = !this.public_company;
+            this.public_company = true;
+            this.private_company=false
         }
     }
 };

@@ -244,7 +244,7 @@ export default {
 
 <template>
   <v-container>
-    <v-row>
+    <!-- <v-row>
       <v-col cols="12">
         <v-card>
           <v-card-text>
@@ -260,7 +260,7 @@ export default {
           </v-card-text>
         </v-card>
       </v-col>
-    </v-row>
+    </v-row> -->
 
 
 
@@ -314,7 +314,7 @@ export default {
                     <v-card class="mb-12" height="100%">
                       <v-row>
                         <v-col cols="12" sm="12" md="8">
-                          <v-text-field v-model="company.agency_name" label="Agency Name" :rules="[rules.required]"
+                          <v-text-field v-model="company.name" label="Agency Name" :rules="[rules.required]"
                             required outlined dense color="green"></v-text-field>
                         </v-col>
 
@@ -484,6 +484,14 @@ export default {
     overview: '',
     company: { medias: { logo: "" } },
     jobs: [],
+    agency_type: [
+            "State/Local University or College",
+            "National Agency",
+            "Government Office",
+            "Government-owned and Controlled Corporation",
+            "Government Financial Institution",
+            "Infrastructure and Utilities Group",
+        ],
     programs: [
       {
         avatar: 'https://image-service-cdn.seek.com.au/d1c627a5352a1bff446757186007f79f838186dc/ee4dce1061f3f616224767ad58cb2fc751b8d2dc',
@@ -526,7 +534,7 @@ export default {
       })
     },
     saveCompany() {
-      console.log(this.company)
+      console.log("save=",this.company)
       let method = 'company/register'
       if (this.state == 'exist') {
         method = 'company/update'
@@ -543,7 +551,7 @@ export default {
         if (response.data.status) {
           this.company = response.data.company
           this.state = 'exist'
-          console.log(this.company)
+          console.log("this company=",this.company)
         }
       }).catch(e => {
         console.log(e)

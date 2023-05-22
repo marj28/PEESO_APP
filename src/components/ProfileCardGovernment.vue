@@ -28,8 +28,8 @@
                                 <v-card-text>
                                     <v-container>
                                         <v-row>
-                                            <v-col v-model="company.agency_name" cols="12" sm="12" md="8">
-                                                <v-text-field label="Agency Name" :rules="[rules.required]" required
+                                            <v-col cols="12" sm="12" md="8">
+                                                <v-text-field v-model="company.name"  label="Agency Name" :rules="[rules.required]" required
                                                     outlined dense color="green"></v-text-field>
                                             </v-col>
 
@@ -37,49 +37,49 @@
                                                 <v-text-field label="Acronym / Abbreviation" required outlined dense
                                                     color="green" :rules="[rules.required]"></v-text-field>
                                             </v-col>
-                                            <v-col v-model="company.agency_type" cols="12" sm="6" md="6">
-                                                <v-select :items="agency_type" label="Agency Type" outlined dense
+                                            <v-col  cols="12" sm="6" md="6">
+                                                <v-select label="Agency Type" :items="agencies" v-model="company.agency_type"  outlined dense
                                                     color="green">
                                                 </v-select>
                                             </v-col>
-                                            <v-col v-model="company.total_work_force" cols="12" sm="6" md="6">
-                                                <v-select :items="totalworkforce" label="Total Work Force" outlined dense
+                                            <v-col  cols="12" sm="6" md="6">
+                                                <v-select :items="totalworkforce" v-model="company.total_work_force" label="Total Work Force" outlined dense
                                                     color="green">
                                                 </v-select>
                                             </v-col>
-                                            <v-col v-model="company.region_name" cols="12" md="3" sm="12">
-                                                <v-combobox v-model="region" :items="address" item-text="region_name"
+                                            <v-col  cols="12" md="3" sm="12">
+                                                <v-combobox v-model="company.region_name" :items="address" item-text="region_name"
                                                     outlined dense color="success" label="Region"
                                                     @change="formattype('REGION')" return-object single-line
                                                     :rules="[rules.required]">
                                                 </v-combobox>
 
                                             </v-col>
-                                            <v-col v-model="company.province" cols="12" md="3" sm="12">
-                                                <v-combobox v-model="province" :items="provincename"
+                                            <v-col cols="12" md="3" sm="12">
+                                                <v-combobox v-model="company.province" :items="provincename"
                                                     :disabled="region == '' ? true : false" outlined dense color="success"
                                                     label="Province" @change="formattype('PROVINCE')" return-object
                                                     single-line :rules="[rules.required]">
 
                                                 </v-combobox>
                                             </v-col>
-                                            <v-col v-model="company.city" cols="12" md="3" sm="12">
-                                                <v-combobox v-model="city" :items="cityname"
+                                            <v-col  cols="12" md="3" sm="12">
+                                                <v-combobox v-model="company.city" :items="cityname"
                                                     :disabled="province == '' ? true : false" outlined dense
                                                     label="Municipality / City" @change="formattype('CITY')" return-object
                                                     color="success" :rules="[rules.required]" single-line>
 
                                                 </v-combobox>
                                             </v-col>
-                                            <v-col v-model="company.baranggay" cols="12" md="3" sm="12">
-                                                <v-combobox label="Baranggay" :disabled="city == '' ? true : false" outlined
+                                            <v-col  cols="12" md="3" sm="12">
+                                                <v-combobox v-model="company.baranggay" label="Baranggay" :disabled="city == '' ? true : false" outlined
                                                     dense color="success" :items="brgyname"
                                                     :rules="[rules.required]"></v-combobox>
                                             </v-col>
-                                            <v-col v-model="company.house_no" cols="12" md="12" sm="12">
+                                            <v-col  cols="12" md="12" sm="12">
                                                 <v-text-field label="House No. / Street / Village" required outlined dense
                                                     color="success" :rules="[rules.required]"
-                                                    v-model="house"></v-text-field>
+                                                    v-model="company.house_no"></v-text-field>
                                             </v-col>
                                         </v-row>
                                     </v-container>
@@ -219,7 +219,7 @@ export default {
             "Mr.",
             "Mrs."
         ],
-        agency_type: [
+        agencies: [
             "State/Local University or College",
             "National Agency",
             "Government Office",
