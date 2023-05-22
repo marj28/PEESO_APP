@@ -18,6 +18,7 @@ export default {
     // admin: false,
     confirm: false,
     listing: false,
+    role:[]
     // title: null,
   }),
   created() {
@@ -61,7 +62,8 @@ export default {
       return this.$route.name;
     },
     user() {
-      if (this.$session.get("user")) {
+      
+      if (this.$session.exists()) {
         return this.$session.get("user");
       }
       return null;
