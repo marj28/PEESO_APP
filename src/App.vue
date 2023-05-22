@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <core-toolbar />
-    <!-- <core-student-toolbar v-if="student"/> -->
     <!-- <core-drawer /> -->
     <core-view />
     <core-footer />
@@ -25,7 +24,6 @@ export default {
   }
 },
   data: () => ({
-    // student:false
   }),
   computed: {
     showAlert: {
@@ -43,11 +41,6 @@ export default {
           return this.$store.state.alert_color
       },
   },
-  // created(){
-  //   console.log("role=",this.$session.user.role)
-  //   if(this.$session.user.role == 'Student')
-  //     this.student=true
-  // },
   mounted () {
     //this.onResponsiveInverted()
     //window.addEventListener('resize', this.onResponsiveInverted)
