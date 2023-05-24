@@ -15,106 +15,11 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row>
-      <!-- <v-col cols="4">
-        <v-card @click="$router.push({ path: 'program-page' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'program.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6">2</div>
-                Programs
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col> -->
-      <v-col cols="4">
-        <v-card
-          color="primary"
-          dark
-          @click="$router.push({ path: 'job-post' })"
-        >
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'job.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6" >{{ jobs.length }}</div>
-                Job Posts
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-
-      <v-col cols="4">
-        <v-card
-          color="primary"
-          dark
-          @click="$router.push({ path: 'training-details' })"
-        >
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6">888</div>
-                Applicant List
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
+    <widget-employer-card />
 
     <v-row>
       <v-col cols="8">
-        <!-- <v-card>
-          <v-toolbar dense elevation="1">
-            <span class="text-primary">
-              <v-icon left color="success">mdi-domain</v-icon> Company
-              Profile</span
-            >
-            <v-spacer />
-            <v-btn small color="success" @click="saveCompany()"
-              ><v-icon left>mdi-domain</v-icon>Save</v-btn
-            >
-          </v-toolbar>
-          <v-card-text>
-            <v-row>
-              <v-col cols="4">
-                <va-file-upload
-                  :preset="company.medias.logo"
-                  @UploadEvent="imageUrl"
-                />
-              </v-col>
-              <v-col cols="8">
-                <v-text-field v-model="company.name" class="mb-2" prepend-inner-icon="mdi-rename-outline" dense
-                  label="Company Name" />
-                <v-text-field v-model="company.address" class="mb-2"
-                  prepend-inner-icon="mdi-office-building-marker-outline" dense label="Address" />
-                <v-text-field v-model="company.email" class="mb-2" prepend-inner-icon="mdi-email" dense
-                  label="Contact Email Address" />
-                <v-text-field v-model="company.contact_number" class="mb-2" prepend-inner-icon="mdi-phone" dense
-                  label="Contact Number" />
-                <v-select label="Select company type" class="mb-2" prepend-inner-icon="mdi-home-modern" dense
-                  v-model="company.company_type" style="width: 60%;" :items="['Private', 'Governement',]"></v-select>
-              </v-col>
-            </v-row>
-
-            <p>
-              <v-icon left color="success">mdi-domain</v-icon> Company Overview
-            </p>
-            <div>
-              <v-tiptap v-model="company.overview" />
-            </div>
-          </v-card-text>
-        </v-card> -->
+      
       </v-col>
       <v-col cols="12" md="8">
         <v-card class="mb-4">

@@ -139,14 +139,14 @@ export default {
               this.setLoggedIn(true);
 
               if (response.data.account.role == "Employeer") {
-                this.$router.push("employeer");
+                this.$router.push("employer");
                 //setTimeout(()=>{ location.reload() }, 1000)
               } else if (response.data.account.role == "Student") {
                 this.$router.push("Student");
               } else if (response.data.account.role == "Admin") {
                 this.$router.push("admin");
               } else {
-                this.$router.push("home");
+                this.$router.push("jobseeker");
               }
             }, 1000);
           } else {

@@ -12,7 +12,7 @@
 
           <v-divider></v-divider>
 
-          <v-navigation-drawer permanent>
+          <v-navigation-drawer permanent class="hidden-md-and-down">
             <v-list-item link @click="view()"
               ><v-icon left small>mdi-eye</v-icon
               >View</v-list-item
@@ -30,6 +30,28 @@
               Information</v-list-item
             >
           </v-navigation-drawer>
+          <v-menu >
+          <!-- Sa icon diay ibutang ang class para ma-hide -->
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon color="primary" dark v-bind="attrs" v-on="on" class="hidden-lg-and-up">
+              mdi-menu
+            </v-icon>
+          </template>
+          <v-list>
+            <v-list-item @click="view()">
+              <v-list-item-title>View</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="personalinformation()">
+              <v-list-item-title>Personal Information</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="educationalattainment()">
+              <v-list-item-title>Educational Attainment</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="otherinformation()">
+              <v-list-item-title>Other Information</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         </v-card>
       </v-col>
       <v-col cols="9">

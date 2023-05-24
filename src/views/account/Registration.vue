@@ -28,11 +28,11 @@
             @click="account_type = 'Employeer'"
           >
             <v-card-text class="text-center">
-              <span><v-icon left>mdi-account-tie</v-icon> As Employeer</span>
+              <span><v-icon left>mdi-account-tie</v-icon> As Employer</span>
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="12" >
+        <v-col cols="12">
           <v-card
             tile
             :dark="account_type == 'Student' ? true : false"
@@ -42,24 +42,12 @@
           >
             <v-card-text class="text-center">
               <span
-                ><v-icon left>mdi-account-school</v-icon> As Scholarship Seeker</span>
+                ><v-icon left>mdi-account-school</v-icon> As Scholarship
+                Seeker</span
+              >
             </v-card-text>
           </v-card>
         </v-col>
-        <!-- <v-col cols="6">
-          <v-card
-            tile
-            :dark="account_type == 'Admin' ? true : false"
-            :color="account_type == 'Admin' ? 'success' : ''"
-            @click="account_type = 'Admin'"
-            class="align-center"
-          >
-            <v-card-text class="text-center">
-              <span
-                ><v-icon left>mdi-account-tie</v-icon> As Admin</span>
-            </v-card-text>
-          </v-card>
-        </v-col> -->
       </v-row>
       <v-form
         v-if="account_type != ''"
@@ -67,9 +55,18 @@
         v-model="valid"
         lazy-validation
       >
+        <v-radio-group
+          row
+          v-if="account_type == 'Employeer'"
+          class="text-center mb-n6"
+          >
+          <v-spacer></v-spacer>
+          <v-radio label="Public" value="1" @click="company_type = 'Public'"></v-radio>
+          <v-radio label="Private" value="2" @click="company_type = 'Private'"></v-radio>
+          <v-spacer></v-spacer
+        ></v-radio-group>
         <h5 class="mb-8 green--text" style="margin-top: 20px">Information</h5>
         <v-row>
-          
           <v-col cols="12" md="6" lg="6">
             <v-text-field
               v-model="account.firstname"
@@ -212,11 +209,12 @@ import { mapMutations } from "vuex";
 export default {
   name: "RegistrationPage",
   data: () => ({
-    suffix: ["N/A", "Jr.", "Sr.", "III." ],
+    suffix: ["N/A", "Jr.", "Sr.", "III."],
     loading: false,
     alertColor: "success",
     snackbar: false,
     account_type: "",
+    company_type:"",
     account: {},
     nameRules: [(v) => !!v || "Field is required"],
     emailRule: [
@@ -270,6 +268,7 @@ export default {
           return;
         } else {
           this.account.role = this.account_type;
+          this.account.companytype=this.company_type;
           this.account.password = this.password;
           this.userReg();
         }

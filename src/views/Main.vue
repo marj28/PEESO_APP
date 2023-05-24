@@ -33,22 +33,6 @@
               </v-col>
             </v-row>
           </v-card-text>
-          <v-card
-            height="70"
-            width="100%"
-            class="pa-2"
-            align="right"
-            style="background: white; color: green"
-            @click="$router.push({ path: 'ScholarshipApplied' })"
-          >
-            <h4 class="ma-1">
-              <v-icon style="color: green" right size="20">
-                mdi-post-outline
-              </v-icon>
-              224
-            </h4>
-            <p class="ma-2">Applied Jobs</p>
-          </v-card>
         </v-card>
       </v-col>
 
@@ -69,22 +53,6 @@
               </v-col>
             </v-row>
           </v-card-text>
-          <v-card
-            height="70"
-            width="100%"
-            class="pa-2"
-            align="right"
-            style="background: white; color: green"
-            @click="$router.push({ path: 'ScholarshipApplied' })"
-          >
-            <h4 class="ma-1">
-              <v-icon style="color: green" right size="20">
-                mdi-post-outline
-              </v-icon>
-              224
-            </h4>
-            <p class="ma-2">Applied Trainings</p>
-          </v-card>
         </v-card>
       </v-col>
 
@@ -98,7 +66,7 @@
               </v-col>
               <v-col cols="8">
                 <div class="text-h6" >{{ programs.length }}</div>
-                Announcement
+                Programs
               </v-col>
             </v-row>
           </v-card-text>
@@ -110,7 +78,7 @@
       <v-col cols="12" md="8">
         <v-card>
           <v-toolbar dense elevation="0">
-            <span class="text-primary">LATEST JOBS</span>
+            <span class="text-primary mb-n6">TOP JOB VACANCIES</span>
             <v-spacer />
           </v-toolbar>
           <v-card-text>
@@ -150,7 +118,7 @@
         <div class="mb-4">
           <widget-training-widget></widget-training-widget>
         </div>
-        <!-- <widget-program-widget></widget-program-widget> -->
+        <widget-program-widget></widget-program-widget>
       </v-col>
     </v-row>
   </v-container>

@@ -19,7 +19,7 @@
               @click="pickFile"
               style="width: 100%">
             </div>
-              <span class="text-xs-center text-caption">Upload Company Logo</span>
+              <span class="text-xs-center text-caption">Upload Photo / Logo</span>
             </template>
             
            
