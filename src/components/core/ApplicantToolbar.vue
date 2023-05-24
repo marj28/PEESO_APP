@@ -161,7 +161,7 @@
         {
           label: "My Company",
           icon: "mdi-card-account-details",
-          route: "/employeer",
+          route: "/company-select",
         },
         {
           label: "Jobs",

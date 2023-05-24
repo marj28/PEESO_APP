@@ -7,7 +7,7 @@ export default [
     {
       path: '/login',
       name: 'Login',
-      view: 'Login'
+      view: 'account/Login'
     },
     {
       path: '/home',
@@ -15,9 +15,9 @@ export default [
       view: 'Main'
     },
     {
-      path: '/employeer',
-      name: 'Employeer',
-      view: 'Employeer'
+      path: '/employer',
+      name: 'Employer',
+      view: 'dashboard/Employeer'
     },
     {
       path: '/training-details',
@@ -94,7 +94,12 @@ export default [
     {
       path: '/student',
       name: 'Student',
-      view: 'Student'
+      view: 'dashboard/Student'
+    },
+    {
+      path: '/jobseeker',
+      name: 'Jobseeker',
+      view: 'dashboard/JobSeeker'
     },
     {
       path: '/studentprofile',
@@ -104,7 +109,7 @@ export default [
     {
       path: '/admin',
       name: 'AdminDashboard',
-      view: 'AdminDashboard'
+      view: 'dashboard/AdminDashboard'
     },
     // Viewing for Student and Applicant Only
     {
@@ -121,6 +126,16 @@ export default [
       path: '/trainingview',
       name: 'TrainingsView',
       view: 'Viewing/TrainingsView'
+    },
+    {
+      path: '/applicantlist',
+      name: 'ApplicantList',
+      view: 'employeer/ApplicantList'
+    },
+    {
+      path: '/hiredapplicant',
+      name: 'HiredApplicant',
+      view: 'employeer/HiredApplicant'
     },
   ]
   

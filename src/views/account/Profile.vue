@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="3">
-        <v-card width="256">
+      <v-col cols="3" md="3" sm="3">
+        <v-card width="256"> 
           <div class="pa-3">
             <va-file-upload
               :preset="company.medias.logo"
@@ -12,7 +12,7 @@
 
           <v-divider></v-divider>
 
-          <v-navigation-drawer permanent class="">
+          <v-navigation-drawer permanent class="hidden-md-and-down">
             <v-list-item link @click="view()" color="success"
               ><v-icon left small>mdi-eye</v-icon
               >View</v-list-item
@@ -50,6 +50,43 @@
               Requirements</v-list-item
             >
           </v-navigation-drawer>
+          <v-menu >
+          <!-- Sa icon diay ibutang ang class para ma-hide -->
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon color="primary" dark v-bind="attrs" v-on="on" class="hidden-lg-and-up">
+              mdi-menu
+            </v-icon>
+          </template>
+          <v-list>
+            <v-list-item @click="view()">
+              <v-list-item-title>View</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="personalinformation()">
+              <v-list-item-title>Personal Information</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="employmentstatus()">
+              <v-list-item-title>Employment Status</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="educationalbackground()">
+              <v-list-item-title>Educational Background</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="clientsclassification()">
+              <v-list-item-title>Clients Classification</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="technicaltraining()">
+              <v-list-item-title>Training</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="eligibilitylicense()">
+              <v-list-item-title>License</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="otherskills()">
+              <v-list-item-title>Other Skills</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="jobrequirement()">
+              <v-list-item-title>Requirements</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
           <!-- navigation for job seeker -->
         </v-card>
       </v-col>

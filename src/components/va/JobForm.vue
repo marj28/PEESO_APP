@@ -246,7 +246,7 @@
                       <v-col class="ml-0 mt-n7  ml-lg-7 mt-lg-n7 ml-md-7 mt-md-n7 ml-sm-7 mt-sm-n7" cols="12" sm="11"
                         md="11">
                         <v-select :rules="nameRules" v-model="post.post_meta.sexpreference"
-                          :items="['Male', 'Female', 'Preference']" label="Sex Preference" outlined dense color="green">
+                          :items="['N/A','Male', 'Female', 'Preference']" label="Sex Preference" outlined dense color="green">
                         </v-select>
                       </v-col>
                     </v-row>

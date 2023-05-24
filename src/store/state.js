@@ -12,6 +12,7 @@ export default {
     alert_color: "secondary",
     alert_text: "No message",
     month_daily_sales:[],
-    navBar: false
+    navBar: false,
+    user:'Jobseekers'
   }
   
