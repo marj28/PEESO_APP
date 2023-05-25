@@ -177,6 +177,14 @@ export default {
   }),
   computed: {},
   created() {
+    // (function () {
+    //   if (window.localStorage) {
+    //     if (!localStorage.getItem("firstLoad")) {
+    //       localStorage["firstLoad"] = true;
+    //       window.location.reload();
+    //     } else localStorage.removeItem("firstLoad");
+    //   }
+    // })();
     // this.setLoggedIn(true)
     this.setAppBar(true);
     this.jobposts();

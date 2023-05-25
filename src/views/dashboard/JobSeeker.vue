@@ -166,11 +166,29 @@
     }),
     computed: {},
     created() {
+      
       // this.setLoggedIn(true)
       this.setAppBar(true);
       this.jobposts();
       //this.trainingposts()
       this.programposts();
+     
+    // if (this.$session.exists()) {
+    //   this.$http.defaults.headers.common["Authorization"] =
+    //     "Bearer " + this.$session.get("jwt");
+    //   this.setLoggedIn(true);
+    //   this.setAppBar(true);
+    //   this.myCompany();
+    //   this.myJobs();
+    //   (function () {
+    //   if (window.localStorage) {
+    //     if (!localStorage.getItem("firstLoad")) {
+    //       localStorage["firstLoad"] = true;
+    //       window.location.reload();
+    //     } else localStorage.removeItem("firstLoad");
+    //   }
+    // })();
+    // }
     },
     methods: {
       ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),

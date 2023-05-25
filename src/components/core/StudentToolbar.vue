@@ -116,30 +116,12 @@
 </template>
   
   <script>
+  import { eventBus } from "@/views/eventBus";
 import { mapMutations } from "vuex";
 export default {
   data: () => ({
     confirm: false,
     listing: false,
-    // title: null,
-    seeker_menu: [
-      {
-        label: "My Account",
-        icon: "mdi-card-account-details",
-        route: "/profile",
-      },
-      {
-        label: "Jobs",
-        icon: "mdi-account-hard-hat",
-        route: "/jobview",
-      },
-      {
-        label: "Trainings",
-        icon: "mdi-forum",
-        route: "/trainingview",
-      },
-    ],
-
     student_menu: [
       {
         label: "My Account",
@@ -162,42 +144,6 @@ export default {
         route: "/jobview",
       },
     ],
-
-    employeer_menu: [
-      {
-        label: "My Company",
-        icon: "mdi-card-account-details",
-        route: "/company-select",
-      },
-      {
-        label: "Jobs",
-        icon: "mdi-account-hard-hat",
-        route: "/job-post",
-      },
-    ],
-
-    admin_menu: [
-      {
-        label: "My Account",
-        icon: "mdi-card-account-details",
-        route: "/admin",
-      },
-      {
-        label: "Jobs",
-        icon: "mdi-account-hard-hat",
-        route: "/job-post",
-      },
-      {
-        label: "Trainings",
-        icon: "mdi-forum",
-        route: "/training-details",
-      },
-      {
-        label: "Programs",
-        icon: "mdi-note-plus",
-        route: "/program-page",
-      },
-    ],
   }),
 
   computed: {
@@ -205,14 +151,7 @@ export default {
       return this.$store.state.is_logged;
     },
     MENUS() {
-      if (this.user.role == "Employeer") {
-        return this.employeer_menu;
-      } else if (this.user.role == "Student") {
         return this.student_menu;
-      } else if (this.user.role == "Jobseeker") {
-        return this.seeker_menu;
-      }
-      return this.admin_menu;
     },
     currentRouteName() {
       return this.$route.name;
@@ -233,7 +172,8 @@ export default {
       this.setLoggedIn(false);
       this.setNavBar(false);
       sessionStorage.clear();
-      this.$router.push("login");
+      eventBus.$emit("reloadToolbar");
+      this.$router.push("/");
       //setTimeout(()=>{ location.reload() }, 1000)
     },
     menuItems() {

@@ -18,11 +18,13 @@
 
     <v-row>
       <v-col cols="12">
+        Master supposedly dria unta nato makita if ang company type is public or
+        private
         <v-card>
-          <div >
+          <div>
             <CompanyPrivate />
           </div>
-          <div  >
+          <div>
             <CompanyPublic />
           </div>
         </v-card>
@@ -42,16 +44,16 @@ export default {
       public_company: false,
     };
   },
-  created() {if (this.$session.exists()) {
+  created() {
+    if (this.$session.exists()) {
       this.$http.defaults.headers.common["Authorization"] =
         "Bearer " + this.$session.get("jwt");
       this.setLoggedIn(true);
       this.setAppBar(true);
       this.myCompany();
-      
     }
-    
-    console.log (this.company);
+
+    console.log(this.company);
   },
   methods: {
     ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
@@ -65,17 +67,19 @@ export default {
     },
 
     myCompany() {
-      this.$http.get('company/my_company').then(response => {
-        if (response.data.status) {
-          this.company = response.data.company
-          this.state = 'exist'
-          console.log(this.company)
-        }
-      }).catch(e => {
-        console.log(e)
-      })
-      
-    }
+      this.$http
+        .get("company/my_company")
+        .then((response) => {
+          if (response.data.status) {
+            this.company = response.data.company;
+            this.state = "exist";
+            console.log(this.company);
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
   },
 };
 </script>
