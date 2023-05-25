@@ -238,17 +238,30 @@ export default {
   }),
   computed: {},
   created() {
+    // location.reload();
+    // response.setIntHeader("Refresh", 1);
+    // window.location.reload();
+    // window.localStorage.setItem('refresh', "1");
+
+    // (function () {
+    //   if (window.localStorage) {
+    //     if (!localStorage.getItem("firstLoad")) {
+    //       localStorage["firstLoad"] = true;
+    //       window.location.reload();
+    //     } else localStorage.removeItem("firstLoad");
+    //   }
+    // })();
     this.jobposts();
     this.programposts();
     this.trainingposts();
-    if (this.$session.exists()) {
-      this.$http.defaults.headers.common["Authorization"] =
-        "Bearer " + this.$session.get("jwt");
-      this.setLoggedIn(true);
-      this.setAppBar(true);
-      this.myCompany();
-      this.myJobs();
-    }
+    // if (this.$session.exists()) {
+    //   this.$http.defaults.headers.common["Authorization"] =
+    //     "Bearer " + this.$session.get("jwt");
+    //   this.setLoggedIn(true);
+    //   this.setAppBar(true);
+    //   this.myCompany();
+    //   this.myJobs();
+    // }
   },
   methods: {
     ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),

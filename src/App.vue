@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <core-toolbar />
+    <core-toolbar :key="toolbarKey"/>
     <!-- <core-drawer /> -->
     <core-view />
     <core-footer />
@@ -17,6 +17,7 @@
   </v-app>
 </template>
 <script>
+import { eventBus } from '@/views/eventBus';
 export default {
   metaInfo () {
   return {
@@ -24,7 +25,16 @@ export default {
   }
 },
   data: () => ({
+    toolbarKey: 0
   }),
+  created(){
+    eventBus.$on('reloadToolbar', this.reloadToolbar);
+  },
+  methods: {
+    reloadToolbar(){
+      this.toolbarKey++;
+    }
+  },
   computed: {
     showAlert: {
         get () {

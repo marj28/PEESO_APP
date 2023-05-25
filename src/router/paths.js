@@ -10,7 +10,7 @@ export default [
       view: 'account/Login'
     },
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       view: 'Main'
     },

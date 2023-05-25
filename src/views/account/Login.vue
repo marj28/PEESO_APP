@@ -69,6 +69,7 @@
 </template>
   <script>
 import md5 from "md5";
+import { eventBus } from '@/views/eventBus';
 import { mapMutations } from "vuex";
 export default {
   data: () => ({
@@ -114,12 +115,19 @@ export default {
       "setLoggedIn",
       "setNavBar",
     ]),
+    reloadToolbar() {
+      // Emit the reload event to trigger toolbar reload in App.vue
+      eventBus.$emit('reloadToolbar');
+    },
 
     validate() {
       if (this.$refs.form.validate()) {
         // this.$router.push('/home')
         this.login();
+        this.reloadToolbar()
+        
       }
+      
     },
     login() {
       this.loading = true;
@@ -143,6 +151,7 @@ export default {
                 //setTimeout(()=>{ location.reload() }, 1000)
               } else if (response.data.account.role == "Student") {
                 this.$router.push("Student");
+               
               } else if (response.data.account.role == "Admin") {
                 this.$router.push("admin");
               } else {
