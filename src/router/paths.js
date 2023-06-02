@@ -14,6 +14,21 @@ export default [
       name: 'Home',
       view: 'Main'
     },
+
+    {
+      path: '/ContactUs',
+      name: 'ContactUs',
+      view: 'ContactUs'
+    },
+
+    {
+      path: '/WhatisPeeso',
+      name: 'WhatisPeeso',
+      view: 'WhatisPeeso'
+    },
+
+
+
     {
       path: '/employeer',
       name: 'Employeer',

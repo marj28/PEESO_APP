@@ -16,25 +16,28 @@
       >
         Home
       </v-btn>
-      <v-btn
+     <!--  <v-btn
         text
         tile
       >
       What is PEESO?
-      </v-btn>
+      </v-btn> -->
+
+
       <v-btn
         text
         tile
-        @click="$router.push('/home').catch(err => {})"
+        @click="$router.push('/WhatisPeeso').catch(err => {})"
       >
-       Company Profiles
+      What is PEESO?
       </v-btn>
+      
       <v-btn
         text
         tile
-        @click="$router.push('/home').catch(err => {})"
+        @click="$router.push('ContactUs').catch(err => {})"
       >
-        Contact Us
+        Contact Us 
       </v-btn>
       
       <v-spacer />
