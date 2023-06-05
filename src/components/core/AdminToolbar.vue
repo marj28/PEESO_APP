@@ -3,7 +3,7 @@
     <v-app-bar dense elevation="1">
       <img :src="$store.state.systemlogo" class="mr-2" width="40px" />
       <v-toolbar-items class="hidden-md-and-down">
-        <v-btn text tile @click="$router.push('/home').catch((err) => {})">
+        <v-btn text tile @click="$router.push('/admin').catch((err) => {})">
           Admin
         </v-btn>
         <v-btn text tile> What is PEESO? </v-btn>

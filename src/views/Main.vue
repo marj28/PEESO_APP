@@ -84,7 +84,7 @@
           <v-card-text>
             <v-list three-line>
               <template v-for="(item, index) in jobs">
-                <v-list-item :key="index + '-job'" v-if="index <=4">
+                <v-list-item :key="index + '-job'" v-if="index <=8">
                   <v-list-item-avatar tile size="62">
                     <v-img
                       :src="item.medias != null ? item.medias.logo : noImage"
@@ -137,7 +137,7 @@ export default {
     // this.setLoggedIn(true)
     this.setAppBar(true);
     this.jobposts();
-    //this.trainingposts()
+    this.trainingposts()
     this.programposts();
   },
   methods: {

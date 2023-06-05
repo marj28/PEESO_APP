@@ -1,39 +1,24 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12"> TRAININGS LIST </v-col>
+      <v-col cols="12"> TRAINING LIST </v-col>
     </v-row>
     <v-row class="training-button">
       <v-col cols="4">
         <v-card color="tertiary" dark>
           <v-card-text
             class="text-center"
-            @click="(popupform = true), (state = 'new'), (post = {})"
+            @click="(trainingform = true), (state = 'new'), (post = {})"
             style="height: 100px"
           >
-            <div style="margin-top: 20px">
+            <div style="margin-top: 10px">
               <v-icon large left>mdi-plus-circle</v-icon>
-              <span style="font-size: 20px; color: black">POST TRAINING</span>
+              <span style="font-size: 15px; color: white" class="">POST TRAINING</span>
             </div>
           </v-card-text>
         </v-card>
       </v-col>
-      <!-- <template v-for="(item, index) in posts">
-        <v-col cols="4" :key="index + 'post'">
-          <v-card>
-            <v-card-text class="text-center">
-              <span class="font-weight-bold text-h6">{{ item.title }}</span>
-
-            </v-card-text>
-            <v-card-actions dense>
-              <span class="text-caption text-info">{{ item.status }}</span>
-              <v-spacer></v-spacer>
-              <v-btn text x-small color="warning" @click="popupform = true, state = 'update', post = item"><v-icon left
-                  small>mdi-pencil</v-icon> Edit</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </template> -->
+      
 
       <!-- eslint-disable -->
     </v-row>
@@ -42,12 +27,12 @@
       <v-col cols="12" md="12" lg="12" sm="12">
         <v-data-table
           class="custom-table"
-          :headers="headers"
+          :headers="getTableHeaders"
           :items="posts"
           :search="search"
         >
           <template v-slot:top>
-            <v-toolbar flat dark color="#FFFFFF">
+            <v-toolbar flat color="#FFFFFF">
               <v-spacer></v-spacer>
               <v-spacer></v-spacer>
               <v-spacer></v-spacer>
@@ -59,7 +44,8 @@
                 hide-details
                 outlined
                 dense
-                style="background-color: grey"
+                class="black--text"
+                color="green"
               ></v-text-field>
               <v-divider vertical class="mx-2" inset></v-divider>
             </v-toolbar>
@@ -77,7 +63,7 @@
             <v-icon
               small
               class="mr-2"
-              @click="(JobFormShow = true), (state = 'update'), (post = item)"
+              @click="(TrainingFormShow = true), (state = 'update'), (post = item)"
               color="success"
             >
               mdi-eye
@@ -87,7 +73,7 @@
               text
               x-small
               color="warning"
-              @click="(jobform = true), (state = 'update'), (post = item)"
+              @click="(trainingform = true), (state = 'update'), (post = item)"
               ><v-icon left small>mdi-pencil</v-icon> Edit</v-btn
             >
             <v-icon @click="deleteItem(item)" color="error" small>
@@ -99,10 +85,16 @@
     </v-row>
 
     <va-training-form
-      :show="popupform"
+      :show="trainingform"
       :data="post"
       :post_state="state"
       @DialogEvent="formEv"
+    />
+    <va-training-show
+      :show="TrainingFormShow"
+      :data="post"
+      :post_state="state"
+      @DialogEvent="formEv1"
     />
   </v-container>
 </template>
@@ -114,11 +106,12 @@ export default {
     state: "new",
     post: {},
     posts: [],
-    popupform: false,
+    trainingform: false,
+    TrainingFormShow: false,
     search: "",
 
-    headers: [
-      { text: "Training title", value: "title" },
+    tableHeaders: [
+      { text: "Training title", value: "post_meta.title" },
       { text: "Nature of training", value: "post_meta.nature_of_training" },
       { text: "Place of training", value: "post_meta.venue" },
       { text: "Date", value: "post_meta.date" },
@@ -128,8 +121,12 @@ export default {
     ],
   }),
   computed: {
-    formTitle() {
-      return this.editedIndex === -1 ? "New Training" : "Edit Training";
+    getTableHeaders() {
+      if (this.isMobile) {
+        // Remove the headers you don't want to display in mobile view
+        return this.tableHeaders.filter((header) => !header.hideOnMobile);
+      }
+      return this.tableHeaders;
     },
   },
 
@@ -148,7 +145,7 @@ export default {
       this.company.medias.logo = data;
     },
     formEv() {
-      this.popupform = false;
+      this.trainingform = false;
       this.myJobs();
     },
 
@@ -163,6 +160,10 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+    },
+    formEv1() {
+      this.TrainingFormShow = false;
+      this.myJobs();
     },
   },
 };
