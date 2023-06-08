@@ -16,10 +16,17 @@ export default [
     },
 
     {
+      path: '/GrossChart',
+      name: 'GrossChart',
+      view: 'chart/GrossChart'
+    },
+
+    {
       path: '/ContactUs',
       name: 'ContactUs',
       view: 'ContactUs'
     },
+
 
     {
       path: '/WhatisPeeso',
