@@ -10,6 +10,16 @@ export default [
       view: 'account/Login'
     },
     {
+      path: '/WhatisPeeso',
+      name: 'WhatisPeeso',
+      view: 'WhatisPeeso'
+    },
+    {
+      path: '/ContactUs',
+      name: 'ContactUs',
+      view: 'ContactUs'
+    },
+    {
       path: '/',
       name: 'Home',
       view: 'Main'
@@ -111,6 +121,45 @@ export default [
       name: 'AdminDashboard',
       view: 'dashboard/AdminDashboard'
     },
+    //Viewing for Admin
+    // {
+    //   path: '/studentview',
+    //   name: 'StudentsView',
+    //   view: 'Viewing/StudentsView'
+    // },
+    // {
+    //   path: '/jobseekerview',
+    //   name: 'JobseekersView',
+    //   view: 'Viewing/JobseekersView'
+    // },
+    // {
+    //   path: '/ofwview',
+    //   name: 'OfwView',
+    //   view: 'Viewing/OfwView'
+    // },
+    {
+      path: '/Adminpage',
+      name: 'AdminPage',
+      view: 'dashboard/AdminPage',
+      children: [
+        {
+          path: 'Adminpage/studentview',
+          name: 'StudentsView',
+          view: 'Viewing/StudentsView'
+        },
+        {
+          path: 'Adminpage/jobseekerview',
+          name: 'JobseekersView',
+          view: 'Viewing/JobseekersView'
+        },
+        {
+          path: 'Adminpage/ofwview',
+          name: 'OfwView',
+          view: 'Viewing/OfwView'
+        },
+      ]
+    },
+
     // Viewing for Student and Applicant Only
     {
       path: '/jobview',
@@ -137,5 +186,10 @@ export default [
       name: 'HiredApplicant',
       view: 'employeer/HiredApplicant'
     },
+    // {
+    //   path: '/grosschart',
+    //   name: 'GrossChart',
+    //   view: 'chart/GrossChart'
+    // }
   ]
   

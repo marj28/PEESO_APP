@@ -3,7 +3,7 @@
     <core-student-toolbar v-if="currentuser === 'Student'" />
     <core-employer-toolbar v-if="currentuser === 'Employeer'" />
     <core-applicant-toolbar v-if="currentuser === 'Jobseeker'" />
-    <core-admin-toolbar v-if="currentuser === 'Admin'" />
+    <!-- <core-admin-toolbar v-if="currentuser === 'Admin'" /> -->
     <core-default-toolbar v-if="currentuser === ' '" />
   </div>
 </template>

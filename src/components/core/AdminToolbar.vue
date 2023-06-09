@@ -116,7 +116,7 @@
 </template>
   
   <script>
-  import { eventBus } from "@/views/eventBus";
+import { eventBus } from "@/views/eventBus";
 import { mapMutations } from "vuex";
 export default {
   data: () => ({
@@ -152,7 +152,6 @@ export default {
       return this.$store.state.is_logged;
     },
     MENUS() {
-      
       return this.admin_menu;
     },
     currentRouteName() {
@@ -166,7 +165,6 @@ export default {
     },
   },
   created() {
-    
     if (this.$session.exists()) {
       this.$http.defaults.headers.common["Authorization"] =
         "Bearer " + this.$session.get("jwt");
@@ -175,13 +173,13 @@ export default {
       this.myCompany();
       this.myJobs();
       (function () {
-      if (window.localStorage) {
-        if (!localStorage.getItem("firstLoad")) {
-          localStorage["firstLoad"] = true;
-          window.location.reload();
-        } else localStorage.removeItem("firstLoad");
-      }
-    })();
+        if (window.localStorage) {
+          if (!localStorage.getItem("firstLoad")) {
+            localStorage["firstLoad"] = true;
+            window.location.reload();
+          } else localStorage.removeItem("firstLoad");
+        }
+      })();
     }
   },
   methods: {
@@ -211,3 +209,27 @@ export default {
 }
 </style>
    
+<v-list>
+  <v-list-group
+    v-for="item in items"
+    :key="item.title"
+    v-model="item.active"
+    :prepend-icon="item.action"
+    no-action
+  >
+    <template v-slot:activator>
+      <v-list-item-content>
+        <v-list-item-title v-text="item.title"></v-list-item-title>
+      </v-list-item-content>
+    </template>
+
+    <v-list-item
+      v-for="child in item.items"
+      :key="child.title"
+    >
+      <v-list-item-content>
+        <v-list-item-title v-text="child.title"></v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+  </v-list-group>
+</v-list>

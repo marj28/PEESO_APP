@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <core-new-toolbar />
     <v-row>
       <v-col cols="12">
         <v-card>
@@ -17,16 +18,23 @@
     </v-row>
     <!-- <admin-status-card /> -->
     <v-row>
-      <v-col cols="6" md="4
-      ">
-        <v-card color="primary" dark @click="$router.push({ path: 'job-post' })">
+      <v-col
+        cols="6"
+        md="4
+      "
+      >
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'job-post' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{ jobs.length }}</div>
+                <div class="text-h6">{{ jobs.length }}</div>
                 Job Posts
               </v-col>
             </v-row>
@@ -35,14 +43,18 @@
       </v-col>
 
       <v-col cols="6" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'program-post' })">
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'program-post' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{programs.length}}</div>
+                <div class="text-h6">{{ programs.length }}</div>
                 Programs
               </v-col>
             </v-row>
@@ -51,30 +63,38 @@
       </v-col>
 
       <v-col cols="6" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'training-post' })">
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'training-post' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'training.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{trainings.length}}</div>
+                <div class="text-h6">{{ trainings.length }}</div>
                 Trainings
               </v-col>
             </v-row>
           </v-card-text>
         </v-card>
       </v-col>
-    
+
       <v-col cols="6" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'job-post' })">
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'job-post' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{ jobseekers.length }}</div>
+                <div class="text-h6">{{ jobseekers.length }}</div>
                 Employer
               </v-col>
             </v-row>
@@ -83,14 +103,18 @@
       </v-col>
 
       <v-col cols="6" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'program-post' })">
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'program-post' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{scholarshipseekers.length}}</div>
+                <div class="text-h6">{{ scholarshipseekers.length }}</div>
                 Scholar
               </v-col>
             </v-row>
@@ -99,80 +123,41 @@
       </v-col>
 
       <v-col cols="6" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'training-post' })">
+        <v-card
+          color="primary"
+          dark
+          @click="$router.push({ path: 'training-post' })"
+        >
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'training.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{employers.length}}</div>
+                <div class="text-h6">{{ employers.length }}</div>
                 Job Seeker
               </v-col>
             </v-row>
           </v-card-text>
         </v-card>
       </v-col>
-
-      <v-col cols="6" md="3">
-        <v-card color="primary" dark @click="$router.push({ path: 'training-post' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6" >{{employers.length}}</div>
-                Male
-              </v-col>
-            </v-row>
-          </v-card-text>
+      <v-col cols="6" md="4">
+        <v-card color="" class="pa-2">
+          <chart-bar-chart />
         </v-card>
       </v-col>
-      <v-col cols="6" md="3">
-        <v-card color="primary" dark @click="$router.push({ path: 'training-post' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6" >{{employers.length}}</div>
-                Female
-              </v-col>
-            </v-row>
-          </v-card-text>
+      <v-col cols="6" md="4">
+        <v-card class="pa-2">
+          <chart-gender-chart />
         </v-card>
       </v-col>
-      <v-col cols="6" md="3">
-        <v-card color="primary" dark @click="$router.push({ path: 'training-post' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6" >{{employers.length}}</div>
-                Single
-              </v-col>
-            </v-row>
-          </v-card-text>
+      <v-col cols="6" md="4">
+        <v-card class="pa-2">
+          <chart-user-chart />
         </v-card>
       </v-col>
-      <v-col cols="6" md="3">
-        <v-card color="primary" dark @click="$router.push({ path: 'training-post' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6" >{{employers.length}}</div>
-                Married
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
+      <v-col cols="6" md="12">
+        <chart-hiring-chart />
       </v-col>
     </v-row>
 
@@ -186,7 +171,7 @@
           <v-card-text>
             <v-list three-line>
               <template v-for="(item, index) in jobs">
-                <v-list-item :key="index + '-job'" v-if="index <=4">
+                <v-list-item :key="index + '-job'" v-if="index <= 4">
                   <v-list-item-avatar tile size="62">
                     <v-img
                       :src="item.medias != null ? item.medias.logo : noImage"
@@ -235,7 +220,7 @@ export default {
     programs: [],
     jobseekers: [],
     scholarshipseekers: [],
-    employers: []
+    employers: [],
   }),
   computed: {},
   created() {
