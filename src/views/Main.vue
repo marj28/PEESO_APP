@@ -28,7 +28,7 @@
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{ jobs.length }}</div>
+                <div class="text-h6" ></div>
                 Job Posts
               </v-col>
             </v-row>
@@ -48,7 +48,7 @@
                 <img :src="$store.state.img_dir + 'training.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{ trainings.length }}</div>
+                <div class="text-h6" ></div>
                 Trainings
               </v-col>
             </v-row>
@@ -65,7 +65,7 @@
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" >{{ programs.length }}</div>
+                <div class="text-h6" ></div>
                 Programs
               </v-col>
             </v-row>
@@ -82,7 +82,7 @@
             <v-spacer />
           </v-toolbar>
           <v-card-text>
-            <v-list three-line>
+            <v-list three-line v-if="jobs.length >0 ">
               <template v-for="(item, index) in jobs">
                 <v-list-item :key="index + '-job'" v-if="index <=4">
                   <v-list-item-avatar tile size="62">
@@ -115,10 +115,10 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <div class="mb-4">
-          <widget-training-widget></widget-training-widget>
-        </div>
-        <widget-program-widget></widget-program-widget>
+          <div class="mb-4">
+            <widget-training-widget></widget-training-widget>
+          </div>
+         <widget-program-widget></widget-program-widget>
       </v-col>
     </v-row>
   </v-container>
@@ -143,12 +143,12 @@ export default {
   methods: {
     ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
     jobposts() {
+      this.jobs = []
       this.$http
         .post("post/list", { type: "job" })
         .then((response) => {
-          response.data.status
-            ? (this.jobs = response.data.posts)
-            : (this.jobs = []);
+          response.data.status?this.jobs = response.data.posts:this.jobs = []
+            console.log(response.data.posts)
         })
         .catch((e) => {
           console.log(e);

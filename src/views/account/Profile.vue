@@ -91,7 +91,7 @@
         </v-card>
       </v-col>
       <v-col cols="9" >
-        <v-card v-show="personalInformation">
+        <v-card v-show="personalInformation" class="mb-4">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Personal
             Information
@@ -105,13 +105,15 @@
             ></v-toolbar
           >
           <v-card-text>
+           
             <pi-personal-information
+              v-bind:account = "user"
               v-bind:personalInformations="!personalInformationForm"
               v-bind:personalInformationForms="personalInformationForm"
             />
           </v-card-text>
         </v-card>
-        <v-card v-show="employmentStatus">
+         <v-card v-show="employmentStatus" class="mb-4">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Employment Status
             <v-icon
@@ -130,7 +132,7 @@
             />
           </v-card-text>
         </v-card>
-        <v-card v-show="educationalBackground">
+        <!--<v-card v-show="educationalBackground">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Educational
             Background<v-icon
@@ -244,7 +246,7 @@
               v-bind:jobRequirementsForms="jobRequirementsForm"
             />
           </v-card-text>
-        </v-card>
+        </v-card> -->
       </v-col>
     </v-row>
   </v-container>
@@ -272,6 +274,7 @@ export default {
     jobRequirementsForm: false,
     state: "new",
     overview: "",
+    personal_info:{},
     company: { medias: { logo: "" } },
     jobs: [],
 
@@ -285,14 +288,21 @@ export default {
       { divider: true, inset: true },
     ],
   }),
-  computed: {},
+  computed: {
+    user() {
+      if (this.$session.exists()) {
+        return this.$session.get("user");
+      }
+      return null;
+    },
+  },
   created() {
     if (this.$session.exists()) {
       this.$http.defaults.headers.common["Authorization"] =
         "Bearer " + this.$session.get("jwt");
       this.setLoggedIn(true);
       this.setAppBar(true);
-      // this.myCompany();
+      //this.getPersonalInfo();
       // this.myJobs();
     }
   },
@@ -301,17 +311,17 @@ export default {
     imageUrl(data) {
       this.company.medias.logo = data;
     },
-    myJobs() {
-      this.$http
-        .post("post/my_post", { type: "job" })
-        .then((response) => {
-          response.data.status
-            ? (this.jobs = response.data.posts)
-            : (this.jobs = []);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    getPersonalInfo() {
+      this.$http.post('user/details', {id: this.$IsNum(this.user.id)}).then(response => {  
+        
+        if(response.data.status) {
+          this.personal_info =  response.data.account.profile
+        }  
+        
+       }).catch(e => {
+         console.log(e)
+    });
+
     },
     saveCompany() {
       console.log(this.company);

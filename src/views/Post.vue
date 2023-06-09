@@ -10,7 +10,13 @@
           >
           <div class="text-h6">{{post.title}}</div>
           <v-spacer />
-            <v-btn color="success" v-if="post.type=='job'">Apply Now</v-btn>
+          <template v-if="can_apply">
+            <v-btn color="success" v-if="post.type=='job'" @click="loading=true, applyJob()">Apply Now</v-btn>
+          </template>
+          <template v-else>
+            <v-btn color="warning" :disabled="true" v-if="post.type=='job'" @click="loading=true, applyJob()">Applied</v-btn>
+          </template>
+            
           </v-toolbar>
             <v-card-text style="min-height: 130px;">
                 <div style="float: left; width:100px; margin-right: 12px;">
@@ -34,6 +40,24 @@
           </v-toolbar>
             <v-card-text>
                 <div v-html="post.content" id="post"></div>
+              <!-- Post meta section -->
+                <div class="mt-8">
+                  <p class="font-weight-bold">ADDITIONAL INFORMATION:</p> 
+                  <v-row>
+                      <v-col cols="6">
+                        <p>Education Level <br/><span class="font-weight-bold">{{post.post_meta.educationallevel}}</span></p>
+                        <p>Preferred Course<br/><span class="font-weight-bold"> {{post.post_meta.courserequirements}}</span></p>
+                        <p>Vacancies <br/><span class="font-weight-bold">{{post.post_meta.vacancycount}}</span> </p>
+                        <p>Purposeof Vacancy <br/><span class="font-weight-bold"> {{post.post_meta.purposeofvacancy}}</span></p>
+                      </v-col>
+                      <v-col cols="6">
+                          <p>Classification of Work <br/><span class="font-weight-bold">{{post.post_meta.classificationofwork}}</span> </p>
+                          <p>Classification of Vacancy <br/><span class="font-weight-bold"> {{post.post_meta.classificationofvacancy}}</span></p>
+                          <p>Expected Salary <br/><span class="font-weight-bold"> {{post.post_meta.salary}}</span></p>
+                      </v-col>
+                   </v-row> 
+               
+                </div>
             </v-card-text>
           </v-card>
         </v-col>
@@ -54,41 +78,62 @@
     export default {
         name: 'PostPage',
       data: () => ({
-        post: {post_meta:{}},
+        post: {post_meta:{},type:""},
+        loading: false,
+        can_apply: true,
         company: {medias:{}},
-        trainings: [
        
-       {
-         avatar: 'https://www.sei.dost.gov.ph/templates/gwt-joomla/images/transparency-seal.png',
-         title: 'STEM Teach: Learning the Basics of GeoGebra as a Tool in Teaching Mathematics',
-         subtitle: `<span class="text--primary">27 April 2023</span> &mdash; In partnership with the University of the Philippines - National Institute for Science and Mathematics Education Development (UP NISMED), the Department of Science and Technology – Science Education Institute held its third face-to-face training for science teachers this year in Panglao, Bohol, focusing on the basics of GeoGebra, an interactive geometry, algebra, statistics and calculus application used for teaching Mathematics`,
-       },
-       { divider: true, inset: true },
-       
-      ],
-        programs: [
-       
-       {
-         avatar: 'https://image-service-cdn.seek.com.au/d1c627a5352a1bff446757186007f79f838186dc/ee4dce1061f3f616224767ad58cb2fc751b8d2dc',
-         title: 'IT Consultant',
-         subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-       },
-       
-       
-     ],
       }),
       computed: {
         HEADERTEXT() {
            return this.post.type.toUpperCase()
-        }
+        },
+        user() {
+          if (this.$session.exists()) {
+            return this.$session.get("user");
+          }
+          return null;
+    },
       },
       created() {
+        if (this.$session.exists()) {
+            this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.$session.get('jwt')
+          } 
         this.setLoggedIn(true)
         this.setAppBar(true)
         this.getpost(this.$route.params.id) 
+        this.checkAppplied(this.$route.params.id)
       },
       methods: {
         ...mapMutations(['setLoggedIn', 'setAppBar', 'setMonthDailySales']),
+        applyJob(){
+            var params = {
+              post_id: this.post.id,
+              posted_by: this.post.created_by,
+              post_type: this.post.type
+            }
+           
+            console.log(params)
+            this.$http.post('new/application', params).then(response => {
+            this.loading = false
+            response.data.status ? this.VA_ALERT('success', response.data.message) : this.VA_ALERT('error', response.data.message)
+            this.checkAppplied(this.$route.params.id)
+            }).catch(e => {
+              console.log(e)
+            })
+        },
+        checkAppplied(){
+            var params = {
+              post_id: this.$IsNum(this.$route.params.id),
+            }
+           
+            console.log(params)
+            this.$http.post('chech_applied', params).then(response => {
+              this.can_apply = response.data.status
+            }).catch(e => {
+              console.log(e)
+            })
+        },
         getpost(id) {
             this.$http.post('post/get', {id:this.$IsNum(id)}).then(response => {  
                 console.log( response.data)

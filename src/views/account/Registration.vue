@@ -1,7 +1,8 @@
 <template>
   <div>
-    <v-col cols="10" md="4" class="mx-auto">
+    <v-col cols="10" md="6" class="mx-auto">
       <v-row>
+        <v-col cols="12" class="text-center text-h5">  <img :src="$store.state.systemlogo" width="180px" /> </v-col>
         <v-col cols="12" class="text-center text-h5"> Create Account </v-col>
       </v-row>
       <v-row>
@@ -55,7 +56,7 @@
         v-model="valid"
         lazy-validation
       >
-        <v-radio-group
+        <!-- <v-radio-group
           row
           v-if="account_type == 'Employeer'"
           class="text-center mb-n6"
@@ -64,7 +65,7 @@
           <v-radio label="Public" value="1" @click="company_type = 'Public'"></v-radio>
           <v-radio label="Private" value="2" @click="company_type = 'Private'"></v-radio>
           <v-spacer></v-spacer
-        ></v-radio-group>
+        ></v-radio-group> -->
         <h5 class="mb-8 green--text" style="margin-top: 20px">Information</h5>
         <v-row>
           <v-col cols="12" md="6" lg="6">

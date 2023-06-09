@@ -1,154 +1,88 @@
 <template>
   <!--  eslint-disable  -->
     <v-container>
-      
-  <!--     <v-row>
-
-        <v-col cols="12" md="4" sm="4"> 
-
-          <v-card color="#1B5E20" dark>
-              <v-card-text class="text-center" @click="jobform = true, state='new', post={}" style="height: 80px;">
-                    <div style="margin-top: 10px;"><v-icon large left>mdi-plus-circle</v-icon> POST A JOB</div>
-              </v-card-text>
-
-          </v-card>
-        </v-col> 
-
-      </v-row> -->
-
-       <!--  <template v-for="(item,index) in posts">
-
-          <v-col cols="4" :key="index + 'post'">
-
-            <v-card>
-              
-                <v-card-text class="text-center">
-                     <span class="font-weight-bold text-h6">{{item.title}}</span>
-                     <p>SALARY: {{item.post_meta.salary}}</p>
-              </v-card-text>
-              <v-card-actions dense>
-                <span class="text-caption text-info">{{item.status}}</span>
-                <v-spacer></v-spacer>
-                <v-btn text x-small color="warning" @click="jobform = true, state='update', post=item"><v-icon left small>mdi-pencil</v-icon> Edit</v-btn>
-              </v-card-actions>
-
-          </v-card>
-          </v-col>
-          
-        </template>   -->
-
-       <!--  <template v-slot:item="{ item }">
-        <tr  v-for="(item,index) in posts" :key="index + 'post'">
-          <td >{{item.title}}</td>
-          <td >{{item.post_meta.salary}}</td>
-        </tr>
-      </template> -->
-
-
-
-
-        <v-row  >
-
-
-      <v-col cols="12" md="12" lg="12" sm="12">
-        
-
-        <v-data-table class="custom-table "  
-    
-        
-        :headers="getTableHeaders" :items="posts" :search="search"   >
-         
-      <!--   <template v-slot:item="{ item }">
-        <tr>
-          <td v-for="(value, index) in item" :key="index + 'post'">{{ value }}</td>
-        </tr>
-      </template> -->
-
-      
-
-          <template v-slot:top>
-
-            
-
-          <v-card  class="my-5 mt-3" color="#1B5E20"  >
-
-       
-            
+   
       <v-row>
-            <v-col cols="12" md="4" lg="4" sm="4" class="mt-lg-n2 mt-md-n2 mt-sm-n2">
- <v-toolbar  flat dark color="#1B5E20">
-          
-  <v-toolbar-title >JOB POSTING || <span style="font-size: 15px;"><!-- {{ status }} --></span></v-toolbar-title>
-      
-</v-toolbar> 
-</v-col>
-
-<v-col cols="12" md="4" lg="4" sm="4" class="mt-n6 mt-lg-n2 mt-md-n2 mt-sm-n2" >
-<v-toolbar flat dark color="#1B5E20" >
-
-        <div class="text-center mt-10 " @click="jobform = true, state='new', post={}" style="height: 80px;">
-        <v-btn color="success" dark class="mb-2" v-bind="attrs" v-on="on">
-              <v-icon> mdi-plus </v-icon> New Job Post
-            </v-btn>
-          </div>
-
-          
-
-</v-toolbar>
-
-
-   
-
-</v-col>
-
-<v-col cols="12" md="4" lg="4" sm="4" class="mt-n6 mt-lg-n2 mt-md-n2 mt-sm-n2" >
-<v-toolbar flat dark color="#1B5E20">
-
-        <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details outlined rounded
-          dense></v-text-field>
-     
-      <!--   <v-divider vertical class="mx-2" inset></v-divider> -->    
-</v-toolbar>
-</v-col>
-
-
-</v-row>
-</v-card> 
-
-
-      </template>
-
-      
-
-    <template  slot="item.switch1" slot-scope="{ item }">
-      <v-switch class="px-5 mt-n1" v-model="item.switch1" color="success" dense></v-switch>
-    </template>
-    
-   
-
-
-    <template v-slot:item.actions="{ item }">
-      <v-icon small class="mr-2" @click="JobFormShow = true, state='update', post=item" color="success">
-      mdi-eye  
-      </v-icon>
-
-      <v-btn text x-small color="warning" @click="jobform = true, state='update', post=item"><v-icon left small>mdi-pencil</v-icon> Edit</v-btn>
-      <v-icon @click="deleteItem(item)" color="error" small> mdi-delete </v-icon>
-    </template>
-
- 
-        
- 
-
-        </v-data-table> 
-
-        
-        </v-col>
+          <v-col cols="8">
+            <v-card>
+               <v-toolbar elevation="1" dense>
+                 <v-icon left color="primary">mdi-briefcase</v-icon> Jobs
+                 <v-spacer/>
+                 <span style="width: 290px;">
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            dense
+                            outlined
+                            hide-details
+                        ></v-text-field>
+                 </span>
+                 <v-divider vertical inset class="ml-5 mr-2"/>
+                        <v-btn text small color="success"  @click="post={}, state='new', jobform=true"><v-icon small left color="success">mdi-plus</v-icon>  Post a Job</v-btn>
+               </v-toolbar>
+               <v-card-text>
+                <v-data-table
+                    dense
+                    :headers="headers"
+                    :search="search"
+                    :items="posts"
+                    >
+                    <template v-slot:body="{ items }">
+                        <tbody>
+                        <tr v-for="(item,index) in items" :key="index">
+                            <td>
+                              <!-- <v-icon  small left color="warning" @click="post=item, state='update', jobform=true" >mdi-pencil</v-icon> -->
+                              <v-icon  small left color="warning" @click="post=item, state='update', jobform=true" >mdi-open-in-new</v-icon>
+                            {{ item.title }}
+                            </td>
+                            <td>{{ item.post_meta.salary }}</td>
+                            <td>{{ item.post_meta.classificationofvacancy }}</td>
+                            <td class="text-center">{{ item.post_meta.vacancycount }}</td>
+                            <!-- <td class="text-right">{{ item.status }}</td> -->
+                        </tr>
+                        </tbody>
+                    </template>
+                    </v-data-table>
+               </v-card-text>
+             </v-card>
+          </v-col>
+          <v-col cols="4">
+            <v-card flat>
+               <v-toolbar elevation="1" dense>
+                 <v-icon left color="success">mdi-file-account</v-icon> Applicants
+                 <v-spacer/>
+                
+               </v-toolbar>
+               <v-card-text>
+                <v-data-table
+                    dense
+                    hide-default-header
+                    :search="search"
+                    :items="applicants"
+                    >
+                    <template v-slot:body="{ items }">
+                        <tbody>
+                        <tr v-for="(item,index) in items" :key="index">
+                            <td>
+                             <strong> {{ item.applicant.lastname }},  {{ item.applicant.firstname }}</strong>
+                              <br /><span class="text-info">Applying for {{ item.title}}</span>
+                              <br /><em class="text-warning">{{ $moment(item.applied_dt).fromNow()}}</em>
+                            </td>
+                            
+                        </tr>
+                        </tbody>
+                    </template>
+                    </v-data-table>
+               </v-card-text>
+             </v-card>
+          </v-col>
       </v-row>
       
 
       <va-job-form :show="jobform" :data="post" :post_state="state" @DialogEvent="formEv"/> 
-      <va-job-show :show="JobFormShow" :data="post" :post_state="state"  @DialogEvent="formEv1"/>
+      <!-- <va-job-show :show="JobFormShow" :data="post" :post_state="state"  @DialogEvent="formEv1"/> -->
     </v-container>
   </template>
   <script>
@@ -159,21 +93,20 @@
     export default {
       name:'EmployeerPage',
       data: () => ({
-        status: "Open Contract", 
+      status: "Open Contract", 
       state:"new",
       post:{},
       search: "",
       posts:[],
+      applicants: [],
       isMobile: false,
-
-      tableHeaders: [
+      headers: [
 
         { text: 'Positin Title', value: 'title' },
         { text: 'Salary', value: 'post_meta.salary'  , hideOnMobile: true   },
         { text: 'Nature of Work', value: 'post_meta.classificationofwork' , hideOnMobile: true  },
         { text: 'Vacancy Count', value: 'post_meta.vacancycount' , align: 'center' , hideOnMobile: true },
-        { text: 'Job post Status', value: 'switch1' , hideOnMobile: true },
-        { text: 'Actions', value: 'actions'  , align: 'center'},
+        // { text: 'Status',  align: 'right' , hideOnMobile: true },
 
       ],
     
@@ -203,6 +136,7 @@
             this.setLoggedIn(true)
             this.setAppBar(true)
             this.myJobs()
+            this.getApplicants()
           } 
        
       },
@@ -220,22 +154,6 @@
 
 
   methods: {
-        showHeader(header) {
-      // Show the header unless it has a specific value you want to exclude in mobile view
-      return !this.isMobile ||
-       header.value !== 'post_meta.salary'
-       
-       
-       ;
-      
-    },
-
-    
-   
-      /*   goToJobposting(item) {
-      this.$router.push(`/JobPostingId/${item.id}/${this.admin}`);
-    }, */
-  
         ...mapMutations(['setLoggedIn', 'setAppBar', 'setMonthDailySales']),
 
         imageUrl(data) {
@@ -253,6 +171,21 @@
           this.myJobs()
         }, 
         
+        getApplicants() {
+          this.$http.get('get_applicants').then(response => {  
+            response.data.status?this.applicants = response.data.applicants:this.applicants=[]
+           }).catch(e => {
+           console.log(e)
+           })
+
+     
+
+           .catch((error) => {
+          console.error(error);
+          this.isLoading = false;
+        });
+
+        },
 
         myJobs() {
           this.$http.post('post/my_post', {type:'job'}).then(response => {  

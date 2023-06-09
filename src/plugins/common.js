@@ -27,3 +27,5 @@ Vue.prototype.$groupBy = key => array =>
     objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj)
     return objectsByKeyValue
   }, {})
+
+

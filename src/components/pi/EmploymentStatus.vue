@@ -3,14 +3,14 @@
   <v-container>
     <v-row v-show="employmentStatuss">
       <v-col cols="12" md="6" sm="12">
-        <p>Employment Status:</p>
-        <p>Employment Type:</p>
-        <p>PESLA Attendee:</p>
+        <p>Employment Status: {{employment.employmentstatus}}</p>
+        <p>Employment Type: {{employment.employedstatus}}</p>
+        <p>PESLA Attendee: {{employment.attendpesla}}</p>
       </v-col>
       <v-col cols="12" md="6" sm="6">
-        <p>Former OFW:</p>
-        <p>4ps Beneficiary:</p>
-        <p>First Time Job Seeker:</p>
+        <p>Former OFW: {{employment.formerofw}}</p>
+        <p>4ps Beneficiary: {{employment.fourps}}</p>
+        <p>First Time Job Seeker: {{employment.ftjs}}</p>
       </v-col>
     </v-row>
     <v-row v-show="employmentStatusForms">
@@ -18,7 +18,7 @@
         <v-form ref="forms" v-model="valid" lazy-validation>
           <v-row>
             <v-col cols="12" sm="6" md="6" id="step2">
-              <v-radio-group v-model="post.post_meta.employmentstatus" row>
+              <v-radio-group v-model="employment.employmentstatus" row>
                 <v-radio
                   label="Employed"
                   color="success"
@@ -38,7 +38,7 @@
                 </v-radio>
 
                 <v-container v-show="employed">
-                  <v-radio-group row v-model="post.post_meta.employedstatus">
+                  <v-radio-group row v-model="employment.employedstatus">
                     <v-radio
                       class="ma-2 pa-2"
                       label="Wage Employed"
@@ -58,7 +58,7 @@
                     ></v-radio>
                     <v-container v-show="wage_employed">
                       <v-text-field
-                        v-model="post.post_meta.companyname"
+                        v-model="employment.companyname"
                         class="pa-2"
                         style="margin-top: -10px; margin-left: "
                         outlined
@@ -67,7 +67,7 @@
                         color="success"
                       ></v-text-field>
                       <v-text-field
-                        v-model="post.post_meta.companyaddress"
+                        v-model="employment.companyaddress"
                         class="pa-2"
                         style="margin-top: -30px; margin-left: "
                         outlined
@@ -76,7 +76,7 @@
                         color="success"
                       ></v-text-field>
                       <v-text-field
-                        v-model="post.post_meta.occupation"
+                        v-model="employment.occupation"
                         class="pa-2"
                         style="margin-top: -30px; margin-left: "
                         outlined
@@ -88,7 +88,7 @@
 
                     <v-container v-show="self_employed">
                       <v-select
-                        v-model="post.post_meta.selfemployed"
+                        v-model="employment.selfemployed"
                         class="pa-2"
                         style="margin-left: "
                         dense
@@ -107,7 +107,7 @@
 
                 <v-container v-show="unemployed">
                   <v-checkbox
-                    v-model="post.post_meta.freshgraduate"
+                    v-model="employment.freshgraduate"
                     class="ma-2 pa-2"
                     label="Fresh Graduate"
                     color="success"
@@ -115,7 +115,7 @@
                     hide-details
                   ></v-checkbox>
                   <v-checkbox
-                    v-model="post.post_meta.finishedcontract"
+                    v-model="employment.finishedcontract"
                     class="ma-2 pa-2"
                     label="Finished Contract"
                     color="success"
@@ -123,7 +123,7 @@
                     hide-details
                   ></v-checkbox>
                   <v-checkbox
-                    v-model="post.post_meta.resigned"
+                    v-model="employment.resigned"
                     class="ma-2 pa-2"
                     label="Resigned"
                     color="success"
@@ -131,7 +131,7 @@
                     hide-details
                   ></v-checkbox>
                   <v-checkbox
-                    v-model="post.post_meta.terminated"
+                    v-model="employment.terminated"
                     class="ma-2 pa-2"
                     label="Terminated"
                     color="success"
@@ -139,7 +139,7 @@
                     hide-details
                   ></v-checkbox>
                   <v-checkbox
-                    v-model="post.post_meta.retiree"
+                    v-model="employment.retiree"
                     class="ma-2 pa-2"
                     label="Retiree"
                     color="success"
@@ -147,7 +147,7 @@
                     hide-details
                   ></v-checkbox>
                   <v-text-field
-                    v-model="post.post_meta.others"
+                    v-model="employment.others"
                     label="Others: "
                     class="ma-2 pa-2"
                     outlined
@@ -164,7 +164,7 @@
                 Have you attended Pre-Employment Seminar for Local Applicants
                 (PESLA)?
               </p>
-              <v-radio-group row v-model="post.post_meta.pesla">
+              <v-radio-group row v-model="employment.pesla">
                 <v-radio
                   label="Yes"
                   value="yes"
@@ -190,7 +190,7 @@
                     Facebook page.
                   </p>
                   <p class="">Willing to attend PESLA?</p>
-                  <v-radio-group row v-model="post.post_meta.attendpesla">
+                  <v-radio-group row v-model="employment.attendpesla">
                     <v-radio label="Yes" value="yes" color="success"> </v-radio>
                     <v-radio label="No" value="no" color="success"> </v-radio>
                   </v-radio-group>
@@ -212,7 +212,7 @@
                               </v-container>
                             </v-radio-group> -->
                   <p style="" class="">Are you a former OFW?</p>
-                  <v-radio-group row v-model="post.post_meta.formerofw">
+                  <v-radio-group row v-model="employment.formerofw">
                     <v-radio
                       label="Yes"
                       value="yes"
@@ -230,14 +230,14 @@
                     ></v-radio>
                     <v-container v-show="former_ofw">
                       <v-text-field
-                        v-model="post.post_meta.lcd"
+                        v-model="employment.lcd"
                         label="Latest Country of Deployment: "
                         outlined
                         dense
                         color="success"
                       ></v-text-field>
                       <v-text-field
-                        v-model="post.post_meta.myrp"
+                        v-model="employment.myrp"
                         label="Month and Year of Return to Philippines: "
                         outlined
                         dense
@@ -252,7 +252,7 @@
 
             <v-col cols="12" sm="12" md="6">
               <p class="">Are you a 4Ps beneficiary?</p>
-              <v-radio-group row v-model="post.post_meta.fourps">
+              <v-radio-group row v-model="employment.fourps">
                 <v-radio
                   label="Yes"
                   value="yes"
@@ -270,7 +270,7 @@
                 ></v-radio>
                 <v-container v-show="fourPs_beneficiary">
                   <v-text-field
-                    v-model="post.post_meta.householdid"
+                    v-model="employment.householdid"
                     label="Household ID No. "
                     outlined
                     dense
@@ -281,8 +281,8 @@
               <v-spacer></v-spacer>
             </v-col>
             <v-col cols="12" md="6">
-              <p class="">First Time Job Seeker?</p>
-              <v-radio-group row v-model="post.post_meta.ftjs">
+              <p class="">First Time Job Seeker? </p>
+              <v-radio-group row v-model="employment.ftjs">
                 <v-radio
                   label="Yes"
                   value="yes"
@@ -324,6 +324,7 @@ export default {
     employmentStatusForms: false,
   },
   data: () => ({
+    valid: true,
     post: { post_meta: {} },
     employed: false,
     unemployed: false,
@@ -333,17 +334,49 @@ export default {
     former_ofw: false,
     fourPs_beneficiary: false,
     selfemployed: [],
+    employment: {}
   }),
-  methods: {
-    validate() {
-      this.$refs.forms.validate();
-      let v = this.$refs.forms.validate();
-      if (v) {
-        this.employmentStatuss = true,
-        this.employmentStatusForms = false
-        
+  created() {
+    this.getPersonalInfo()
+  },
+  computed:{
+    user() {
+      if (this.$session.exists()) {
+        return this.$session.get("user");
       }
+      return null;
     },
   },
-};
+  methods: {
+    validate() {
+      let v = this.$refs.forms.validate();
+      if (v) {
+       this.SaveInfo() 
+      }
+    },
+     getPersonalInfo() {
+      console.log("getPersonalInfo")
+      this.$http.post('user/details', {id: this.$IsNum(this.user.id)}).then(response => {  
+          console.log(response.data.account.profile)
+            if(response.data.status) {
+              if(response.data.account.profile.personal != null) {
+                this.employment =  response.data.account.profile.employment
+              }
+            }  
+            
+           }).catch(e => {
+             console.log(e)
+        });
+    },
+    SaveInfo() {
+      console.log(this.user)
+        this.$http.post('account/update', {type:'employment', user_id: this.$IsNum(this.user.id), data: this.employment}).then(response => {  
+            console.log(response.data)
+            response.data.status?this.VA_ALERT("success", response.data.message):this.VA_ALERT("error", response.data.message)
+           }).catch(e => {
+             console.log(e)
+        });
+  },
+}
+}
 </script>

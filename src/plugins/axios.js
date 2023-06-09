@@ -14,5 +14,8 @@ if(production) {
 Vue.prototype.$http = axios.create({
   baseURL: SERVER + '/api/'
 })
+Vue.prototype.$httplocal = axios.create({
+  baseURL: '/'
+})
 
 Vue.prototype.$fileserver = SERVER + '/public/'

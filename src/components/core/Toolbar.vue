@@ -1,10 +1,10 @@
 <template>
   <div v-if="currentRouteName !== 'Login' && currentRouteName !== 'Register'">
-    <core-student-toolbar v-if="currentuser === 'Student'" />
+    <!-- <core-student-toolbar v-if="currentuser === 'Student'" />
     <core-employer-toolbar v-if="currentuser === 'Employeer'" />
     <core-applicant-toolbar v-if="currentuser === 'Jobseeker'" />
-    <core-admin-toolbar v-if="currentuser === 'Admin'" />
-    <core-default-toolbar v-if="currentuser === ' '" />
+    <core-admin-toolbar v-if="currentuser === 'Admin'" /> -->
+    <core-default-toolbar />
   </div>
 </template>
 

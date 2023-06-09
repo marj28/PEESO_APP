@@ -138,25 +138,25 @@ export default {
       this.$http
         .post("user/login", param)
         .then((response) => {
-          console.log(response.data.status);
+          console.log(response.data);
           if (response.data.status == true) {
             this.$session.start();
             this.$session.set("jwt", response.data.account.token);
             this.$session.set("user", response.data.account);
             setTimeout(() => {
               this.setLoggedIn(true);
-
-              if (response.data.account.role == "Employeer") {
-                this.$router.push("employer");
-                //setTimeout(()=>{ location.reload() }, 1000)
-              } else if (response.data.account.role == "Student") {
-                this.$router.push("Student");
+              this.$router.push("home");
+              // if (response.data.account.role == "Employeer") {
+              //   this.$router.push("employer");
+              //   //setTimeout(()=>{ location.reload() }, 1000)
+              // } else if (response.data.account.role == "Student") {
+              //   this.$router.push("Student");
                
-              } else if (response.data.account.role == "Admin") {
-                this.$router.push("admin");
-              } else {
-                this.$router.push("jobseeker");
-              }
+              // } else if (response.data.account.role == "Admin") {
+              //   this.$router.push("admin");
+              // } else {
+              //   this.$router.push("jobseeker");
+              // }
             }, 1000);
           } else {
             this.loading = false;

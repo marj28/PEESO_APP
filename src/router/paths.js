@@ -10,7 +10,7 @@ export default [
       view: 'account/Login'
     },
     {
-      path: '/',
+      path: '/home',
       name: 'Home',
       view: 'Main'
     },
@@ -113,7 +113,7 @@ export default [
     },
     // Viewing for Student and Applicant Only
     {
-      path: '/jobview',
+      path: '/job-listing',
       name: 'JobsView',
       view: 'Viewing/JobsView'
     },

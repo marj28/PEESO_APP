@@ -7,9 +7,9 @@
             Home
           </v-btn>
           <v-btn text tile> What is PEESO? </v-btn>
-          <!-- <v-btn text tile @click="$router.push('/home').catch((err) => {})">
+          <v-btn text tile @click="$router.push('/home').catch((err) => {})">
             Company Profiles
-          </v-btn> -->
+          </v-btn>
           <v-btn text tile @click="$router.push('/home').catch((err) => {})">
             Contact Us
           </v-btn>
@@ -118,13 +118,13 @@
       // title: null,
       seeker_menu: [
         {
-          label: "My Account",
+          label: "My Profile",
           icon: "mdi-card-account-details",
           route: "/profile",
         },
         {
-          label: "Jobs",
-          icon: "mdi-account-hard-hat",
+          label: "My Applications",
+          icon: "mdi-text-box-check-outline",
           route: "/jobview",
         },
         {
@@ -136,7 +136,7 @@
   
       student_menu: [
         {
-          label: "My Account",
+          label: "My Profile",
           icon: "mdi-card-account-details",
           route: "/studentprofile",
         },
@@ -164,8 +164,8 @@
           route: "/company-select",
         },
         {
-          label: "Jobs",
-          icon: "mdi-account-hard-hat",
+          label: "Job Posts",
+          icon: "mdi-briefcase",
           route: "/job-post",
         },
       ],
