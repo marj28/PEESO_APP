@@ -20,7 +20,7 @@
         <v-card
           color="primary"
           dark
-          @click="$router.push({ path: 'jobview' })"
+          @click="$router.push({ path: 'job-post' })"
         >
           <v-card-text>
             <v-row>

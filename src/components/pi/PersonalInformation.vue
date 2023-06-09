@@ -438,10 +438,12 @@ export default {
       console.log(this.user.id)
         this.$http.post('account/update', {type:'personal', user_id: this.$IsNum(this.user.id), data: this.personal_info}).then(response => {  
             console.log(response.data)
-            response.data.status?this.VA_ALERT("success", response.data.message):this.VA_ALERT("error", response.data.message)
+            response.data.status?this.VA_ALERT("success", "Your Account has been Updated!"):this.VA_ALERT("error", response.data.message)
            }).catch(e => {
              console.log(e)
+             
         });
+       
     }
   },
 };

@@ -256,6 +256,7 @@
                                 <v-text-field
                                   v-model="company.mobile_number"
                                   label="Mobile Number"
+                                 
                                   required
                                   outlined
                                   dense

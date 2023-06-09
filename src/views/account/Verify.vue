@@ -53,7 +53,7 @@
           </v-card>
         </v-form>
         <v-col class="pt-4 text-center">
-          <span>Don't have account yet?</span> <v-btn
+          <span>Don't have an account yet?</span> <v-btn
             text
             color="warning"
             @click="$router.push('/register').catch(err => {})"
