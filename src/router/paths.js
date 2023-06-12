@@ -10,6 +10,21 @@ export default [
       view: 'account/Login'
     },
     {
+      path: '/WhatisPeeso',
+      name: 'WhatisPeeso',
+      view: 'WhatisPeeso'
+    },
+    {
+      path: '/PeesoServices',
+      name: 'PeesoServices',
+      view: 'PeesoServices'
+    },
+    {
+      path: '/ContactUs',
+      name: 'ContactUs',
+      view: 'ContactUs'
+    },
+    {
       path: '/home',
       name: 'Home',
       view: 'Main'
@@ -126,6 +141,11 @@ export default [
       path: '/trainingview',
       name: 'TrainingsView',
       view: 'Viewing/TrainingsView'
+    },
+    {
+      path: '/myapplication',
+      name: 'MyApplication',
+      view: 'Viewing/MyApplication'
     },
     {
       path: '/applicantlist',
