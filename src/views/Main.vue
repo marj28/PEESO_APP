@@ -17,19 +17,15 @@
     </v-row>
     <v-row>
       <v-col cols="6" md="4">
-        <v-card
-          color="primary"
-          dark
-          @click="$router.push({ path: 'job-listing' })"
-        >
+        <v-card color="primary" dark @click="$router.push({ path: 'job-listing' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
-                Employment
+                <div class="text-h6"></div>
+                Job Posts
               </v-col>
             </v-row>
           </v-card-text>
@@ -37,18 +33,14 @@
       </v-col>
 
       <v-col cols="6" md="4">
-        <v-card
-          color="primary"
-          dark
-          @click="$router.push({ path: 'trainingview' })"
-        >
+        <v-card color="primary" dark @click="$router.push({ path: 'trainingview' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'training.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
+                <div class="text-h6"></div>
                 Trainings
               </v-col>
             </v-row>
@@ -57,16 +49,15 @@
       </v-col>
 
       <v-col cols="12" md="4">
-        <v-card color="primary"
-          dark @click="$router.push({ path: 'programview' })">
+        <v-card color="primary" dark @click="$router.push({ path: 'programview' })">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
-                Education
+                <div class="text-h6"></div>
+                Programs
               </v-col>
             </v-row>
           </v-card-text>
@@ -82,32 +73,17 @@
             <v-spacer />
           </v-toolbar>
           <v-card-text>
-            <!-- <div v-if="isLoading">Loading...</div> -->
-            <v-progress-linear
-              color="green accent-6"
-              indeterminate
-              rounded
-              height="6"
-              v-if="isLoading"
-            ></v-progress-linear>
-            <v-list three-line v-if="jobs.length >0 ">
+            <v-list three-line v-if="jobs.length > 0">
               <template v-for="(item, index) in jobs">
-                <v-list-item :key="index + '-job'" v-if="index <=4">
+                <v-list-item :key="index + '-job'" v-if="index <= 4">
                   <v-list-item-avatar tile size="62">
-                    <v-img
-                      :src="item.medias != null ? item.medias.logo : noImage"
-                    />
+                    <v-img :src="item.medias != null ? item.medias.logo : noImage" />
                   </v-list-item-avatar>
 
                   <v-list-item-content>
-                    <v-list-item-title
-                      ><a
-                        @click="
-                          $router.push('post/' + item.id).catch((err) => {})
-                        "
-                        >{{ item.title }}</a
-                      ></v-list-item-title
-                    >
+                    <v-list-item-title><a @click="
+                      $router.push('post/' + item.id).catch((err) => { })
+                      ">{{ item.title }}</a></v-list-item-title>
                     <v-list-item-subtitle>
                       <em class="text-info">{{
                         $moment(item.created_dt).startOf("day").fromNow()
@@ -125,10 +101,10 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-          <div class="mb-4">
-            <widget-training-widget></widget-training-widget>
-          </div>
-         <widget-program-widget></widget-program-widget>
+        <div class="mb-4">
+          <widget-training-widget></widget-training-widget>
+        </div>
+        <widget-program-widget></widget-program-widget>
       </v-col>
     </v-row>
   </v-container>
@@ -165,8 +141,8 @@ export default {
       this.$http
         .post("post/list", { type: "job" })
         .then((response) => {
-          response.data.status?this.jobs = response.data.posts:this.jobs = []
-            console.log(response.data.posts)
+          response.data.status ? this.jobs = response.data.posts : this.jobs = []
+          console.log(response.data.posts)
         })
         .catch((e) => {
           console.log(e);
