@@ -24,8 +24,8 @@
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
-                Employment
+                <div class="text-h6"></div>
+                Job Posts
               </v-col>
             </v-row>
           </v-card-text>
@@ -56,8 +56,8 @@
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
-                Education
+                <div class="text-h6"></div>
+                Programs
               </v-col>
             </v-row>
           </v-card-text>
@@ -73,15 +73,7 @@
             <v-spacer />
           </v-toolbar>
           <v-card-text>
-            <!-- <div v-if="isLoading">Loading...</div> -->
-            <v-progress-linear
-              color="green accent-6"
-              indeterminate
-              rounded
-              height="6"
-              v-if="isLoading"
-            ></v-progress-linear>
-            <v-list three-line v-if="jobs.length >0 ">
+            <v-list three-line v-if="jobs.length > 0">
               <template v-for="(item, index) in jobs">
                 <v-list-item :key="index + '-job'" v-if="index <= 4">
                   <v-list-item-avatar tile size="62">

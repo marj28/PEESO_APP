@@ -18,16 +18,22 @@
                     </v-toolbar>
                     <v-card-text style="min-height: 130px;">
                         <div style="float: left; width:100px; margin-right: 12px;">
+
                             <v-img :src="company.medias.logo" />
                         </div>
+
                         <div class="font-weight-bold">{{ post.post_meta.company }}</div>
                         <div>{{ post.post_meta.company_address }}</div>
                         <div>{{ post.post_meta.salary }}</div>
                         <div class="text-info"><em>POSTED ON {{ $moment(post.created_td).format('MMM DD, YYYY') }}</em>
                         </div>
+
+
                         <v-btn color="primary" dark @click="dialogschedule = true" style="margin-left: 50%;">
                             Add Schedule
                         </v-btn>
+
+
                         <v-dialog v-model="dialogschedule" persistent max-width="60%">
                             <v-card style="padding: 3%;">
 
@@ -36,45 +42,17 @@
                                     <v-container>
                                         <v-row>
                                             <v-col cols="12" md="6">
-                                                <v-text-field v-model="date" label="Date" type="date"></v-text-field>
+                                                <v-text-field v-model="date" label="Date" readonly=""></v-text-field>
                                             </v-col>
                                             <v-col cols="12" md="3">
-                                                <!-- <v-text-field v-model="time" label="Time from" type="date"></v-text-field> -->
-                                                <v-menu ref="timePicker" v-model="timePicker"
-                                                    :close-on-content-click="false" :return-value.sync="selectedTime"
-                                                    transition="scale-transition" offset-y max-width="290px"
-                                                    min-width="290px">
-                                                    <template v-slot:activator="{ on }">
-                                                        <v-text-field v-model="selectedTime" label="Selected Time"
-                                                            prepend-icon="mdi-clock-time-four-outline" readonly
-                                                            v-on="on"></v-text-field>
-                                                    </template>
-                                                    <v-time-picker v-if="timePicker" v-model="selectedTime" full-width
-                                                        @click:minute="$refs.timePicker.save(selectedTime)"
-                                                        @click:second="$refs.timePicker.save(selectedTime)"></v-time-picker>
-                                                </v-menu>
+                                                <v-text-field v-model="time" label="Time from" readonly></v-text-field>
                                             </v-col>
                                             <v-col cols="12" md="3">
-                                                <!-- <v-text-field v-model="time" label="Time too" type="date"></v-text-field> -->
-                                                <v-menu ref="timePicker1" v-model="timePicker1"
-                                                    :close-on-content-click="false" :return-value.sync="selectedTime1"
-                                                    transition="scale-transition" offset-y max-width="290px"
-                                                    min-width="290px">
-                                                    <template v-slot:activator="{ on }">
-                                                        <v-text-field v-model="selectedTime1" label="Selected Time"
-                                                            prepend-icon="mdi-clock-time-four-outline" readonly
-                                                            v-on="on"></v-text-field>
-                                                    </template>
-                                                    <v-time-picker v-if="timePicker1" v-model="selectedTime1" full-width
-                                                        @click:minute="$refs.timePicker.save(selectedTime1)"
-                                                        @click:second="$refs.timePicker.save(selectedTime1)"></v-time-picker>
-                                                </v-menu>
+                                                <v-text-field v-model="time" label="Time too" readonly></v-text-field>
                                             </v-col>
                                             <v-col cols="12" md="6">
-                                                <v-text-field v-model="location" label="Localtion"></v-text-field>
-                                            </v-col><v-col cols="12" md="6">
-                                                <v-text-field v-model="location" label="Number of applicant"
-                                                    type="number"></v-text-field>
+                                                <v-text-field v-model="location" label="Localtion"
+                                                    readonly=""></v-text-field>
                                             </v-col>
                                         </v-row>
                                         <row>
@@ -100,14 +78,12 @@
         <v-card style="padding: 2%;">
             <SelectTenApplicant />
         </v-card>
-        <span style="font-size: 25px; font-weight: 300;">List of Applicants</span>
+        <span style="font-size: 56px; font-weight: 400;">List of Applicants</span>
         <v-card style="margin-top: 3%;padding: 2%;">
             <ListofApplicants />
         </v-card>
     </v-container>
 </template>
-
-
 <script>
 import { relativeTimeThreshold } from 'moment';
 import {
@@ -123,10 +99,6 @@ export default {
         company: { medias: {} },
         applicants: [],
         dialogschedule: false,
-        timePicker: false,
-        selectedTime: null,
-        timePicker1: false,
-        selectedTime1: null,
 
     }),
     computed: {
