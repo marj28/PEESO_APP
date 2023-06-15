@@ -3,9 +3,7 @@
     <v-app-bar dense elevation="1">
       <img :src="$store.state.systemlogo" class="mr-2" width="40px" />
       <v-toolbar-items class="hidden-md-and-down">
-        <v-btn text tile @click="$router.push('/home').catch((err) => {})">
-          Home
-        </v-btn>
+        <router-link :to="getDashboardLink" tag="button" class="dashboard-button black--text ml-3">HOME</router-link>
         <v-btn
           text
           tile
@@ -38,12 +36,12 @@
             <v-list-item-title>HOME</v-list-item-title>
           </v-list-item>
           <v-list-item>
-            <v-list-item-title>WHAT IS PEESO?</v-list-item-title>
+            <v-list-item-title @click="$router.push('/WhatisPeeso').catch((err) => {})">WHAT IS PEESO?</v-list-item-title>
           </v-list-item>
-          <!-- <v-list-item @click="$router.push('/home').catch((err) => {})">
-              <v-list-item-title>COMPANY PROFILES</v-list-item-title>
-            </v-list-item> -->
-          <v-list-item @click="$router.push('/home').catch((err) => {})">
+          <v-list-item>
+            <v-list-item-title @click="$router.push('/PeesoServices').catch((err) => {})">CPEESO SERVICES</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="$router.push('/ContactUs').catch((err) => {})">
             <v-list-item-title>CONTACT US</v-list-item-title>
           </v-list-item>
         </v-list>
@@ -125,6 +123,7 @@
 import { mapMutations } from "vuex";
 export default {
   data: () => ({
+  
     confirm: false,
     listing: false,
     // title: null,
@@ -229,6 +228,37 @@ export default {
       }
       return null;
     },
+    getDashboardLink() {
+      let currentUserRole
+      if(this.isLoggin){
+        // Get the current user role or condition
+      currentUserRole = this.user.role; // Example: Assuming the current user is an admin
+      
+      }
+      else{
+        currentUserRole='home'
+      }
+      
+     
+      console.log("currentuserrole=",currentUserRole);
+      // Set the appropriate route based on the user role or condition
+      let dashboardRoute;
+      if (currentUserRole == 'Employeer') {
+        dashboardRoute = { name: 'Employer' };
+      } 
+      else if (currentUserRole == 'Jobseeker') {
+        dashboardRoute = { name: 'Jobseeker' };
+      } 
+      else  {
+        dashboardRoute = { path: '/home' };
+      } 
+      
+      // else {
+      //   dashboardRoute = { name: 'Admin' };
+      // }
+
+      return dashboardRoute;
+    }
   },
   methods: {
     ...mapMutations(["setNavBar", "setOpenMachine", "setLoggedIn"]),
@@ -245,7 +275,11 @@ export default {
     menuItems() {
       return this.menu;
     },
+    getCurrentUserRole(){    }
   },
+  mounted() {
+    this.getCurrentUserRole();
+  }
 };
 </script>
   <style>

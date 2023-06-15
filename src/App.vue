@@ -2,7 +2,7 @@
   <v-app>
     <core-toolbar :key="toolbarKey"/>
     <!-- <core-drawer /> -->
-    <core-view />
+    <core-view :key="viewKey"/>
     <core-footer />
     <v-snackbar
       v-model="showAlert"
@@ -25,14 +25,17 @@ export default {
   }
 },
   data: () => ({
-    toolbarKey: 0
+    toolbarKey: 0,
+    viewKey: 0
   }),
   created(){
-    eventBus.$on('reloadToolbar', this.reloadToolbar);
+    eventBus.$on('reloadToolbar', this.reloadToolbar, this.reloadView);
   },
   methods: {
     reloadToolbar(){
-      this.toolbarKey++;
+      this.toolbarKey++,
+      this.viewKey++;
+      
     }
   },
   computed: {

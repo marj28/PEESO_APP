@@ -20,7 +20,7 @@
           <v-card
             color="primary"
             dark
-            @click="$router.push({ path: '/jobview' })"
+            @click="$router.push({ path: '/job-listing' })"
           >
             <v-card-text>
               <v-row>
@@ -39,7 +39,7 @@
               class="pa-2"
               align="right"
               style="background: white; color: green"
-              @click="$router.push({ path: 'ScholarshipApplied' })"
+              @click="$router.push({ path: '/job-listing' })"
             >
               <h4 class="ma-1">
                 <v-icon style="color: green" right size="20">
@@ -75,7 +75,7 @@
               class="pa-2"
               align="right"
               style="background: white; color: green"
-              @click="$router.push({ path: 'ScholarshipApplied' })"
+              @click="$router.push({ path: 'trainingview' })"
             >
               <h4 class="ma-1">
                 <v-icon style="color: green" right size="20">
@@ -108,44 +108,54 @@
   
       <v-row>
         <v-col cols="12" md="8">
-          <v-card>
-            <v-toolbar dense elevation="0">
-              <span class="text-primary">LATEST JOBS</span>
-              <v-spacer />
-            </v-toolbar>
-            <v-card-text>
-              <v-list three-line>
-                <template v-for="(item, index) in jobs">
-                  <v-list-item :key="index + '-job'" v-if="index <=4">
-                    <v-list-item-avatar tile size="62">
-                      <v-img
-                        :src="item.medias != null ? item.medias.logo : noImage"
-                      />
-                    </v-list-item-avatar>
-  
-                    <v-list-item-content>
-                      <v-list-item-title
-                        ><a
-                          @click="
-                            $router.push('post/' + item.id).catch((err) => {})
-                          "
-                          >{{ item.title }}</a
-                        ></v-list-item-title
-                      >
-                      <v-list-item-subtitle>
-                        <em class="text-info">{{
-                          $moment(item.created_dt).startOf("day").fromNow()
-                        }}</em>
-                        - {{ item.post_meta.company }} -
-                        {{ item.post_meta.company_address }}
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
-                  </v-list-item>
-                </template>
-              </v-list>
-            </v-card-text>
-          </v-card>
-        </v-col>
+        <v-card>
+          <v-toolbar dense elevation="0">
+            <span class="text-primary mb-n6">TOP JOB VACANCIES</span>
+            <v-spacer />
+          </v-toolbar>
+          <v-card-text>
+            <!-- <div v-if="isLoading">Loading...</div> -->
+            <v-progress-linear
+              color="green accent-6"
+              indeterminate
+              rounded
+              height="6"
+              v-if="isLoading"
+            ></v-progress-linear>
+            <v-list three-line v-if="jobs.length >0 ">
+              <template v-for="(item, index) in jobs">
+                <v-list-item :key="index + '-job'" v-if="index <=4">
+                  <v-list-item-avatar tile size="62">
+                    <v-img
+                      :src="item.medias != null ? item.medias.logo : noImage"
+                    />
+                  </v-list-item-avatar>
+
+                  <v-list-item-content>
+                    <v-list-item-title
+                      ><a
+                        @click="
+                          $router.push('post/' + item.id).catch((err) => {})
+                        "
+                        >{{ item.title }}</a
+                      ></v-list-item-title
+                    >
+                    <v-list-item-subtitle>
+                      <em class="text-info">{{
+                        $moment(item.created_dt).startOf("day").fromNow()
+                      }}</em>
+                      - {{ item.post_meta.company }} -
+                      {{ item.post_meta.company_address }}
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+              <div v-if="hasMore" ref="lazyLoader"></div>
+            </v-list>
+            
+          </v-card-text>
+        </v-card>
+      </v-col>
         <v-col cols="12" md="4">
           <div class="mb-4">
             <widget-training-widget></widget-training-widget>
@@ -163,6 +173,10 @@
       jobs: [],
       trainings: [],
       programs: [],
+      isLoading: false,
+    // hasMore: true,
+    visibleJobs: [],
+    observer: null,
     }),
     computed: {},
     created() {
@@ -172,38 +186,22 @@
       this.jobposts();
       //this.trainingposts()
       this.programposts();
-     
-    // if (this.$session.exists()) {
-    //   this.$http.defaults.headers.common["Authorization"] =
-    //     "Bearer " + this.$session.get("jwt");
-    //   this.setLoggedIn(true);
-    //   this.setAppBar(true);
-    //   this.myCompany();
-    //   this.myJobs();
-    //   (function () {
-    //   if (window.localStorage) {
-    //     if (!localStorage.getItem("firstLoad")) {
-    //       localStorage["firstLoad"] = true;
-    //       window.location.reload();
-    //     } else localStorage.removeItem("firstLoad");
-    //   }
-    // })();
-    // }
+      this.loadJobs();
+    this.initializeObserver();
     },
     methods: {
       ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
       jobposts() {
-        this.$http
-          .post("post/list", { type: "job" })
-          .then((response) => {
-            response.data.status
-              ? (this.jobs = response.data.posts)
-              : (this.jobs = []);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
-      },
+      this.$http
+        .post("post/list", { type: "job" })
+        .then((response) => {
+          response.data.status?this.jobs = response.data.posts:this.jobs = []
+            console.log(response.data.posts)
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
       trainingposts() {
         this.$http
           .post("post/list", { type: "training" })
@@ -228,6 +226,36 @@
             console.log(e);
           });
       },
+      initializeObserver() {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.loadMoreJobs();
+          }
+        });
+      });
+
+      this.observer.observe(this.$refs.lazyLoader);
+    },
+
+    loadJobs() {
+      this.isLoading = true;
+
+      // Fetch initial set of jobs
+      this.$http
+        .post("post/list", { type: "job" })
+        .then((response) => {
+          if (response.data.status) {
+            this.jobs = response.data.posts;
+            
+            this.isLoading = false;
+          }
+        })
+        .catch((e) => {
+          console.log("output",e);
+          
+        });
+    },
     },
   };
   </script>

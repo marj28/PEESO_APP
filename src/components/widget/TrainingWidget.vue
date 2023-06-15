@@ -5,7 +5,7 @@
               <span
                 class="text-primary
           "
-              >Skills Training</span>
+              >SKILLS TRAINING</span>
             </v-card-title>
             <v-card-text>
               <v-list three-line>

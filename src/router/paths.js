@@ -29,11 +29,11 @@ export default [
       name: 'Home',
       view: 'Main'
     },
-    {
-      path: '/employer',
-      name: 'Employer',
-      view: 'dashboard/Employeer'
-    },
+    // {
+    //   path: '/employer',
+    //   name: 'Employer',
+    //   view: 'dashboard/Employeer'
+    // },
     {
       path: '/training-details',
       name: 'TrainingDetails',
@@ -110,6 +110,11 @@ export default [
       path: '/student',
       name: 'Student',
       view: 'dashboard/Student'
+    },
+    {
+      path: '/employer',
+      name: 'Employer',
+      view: 'dashboard/Employeer'
     },
     {
       path: '/jobseeker',

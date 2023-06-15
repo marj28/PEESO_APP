@@ -124,11 +124,27 @@ export default {
       if (this.$refs.form.validate()) {
         // this.$router.push('/home')
         this.login();
-        this.reloadToolbar()
+        this.reloadToolbar();
         
       }
       
     },
+    // userrole() {
+    //   if (this.$session.get("user")) {
+    //     return this.$session.get("user");
+    //   }
+    //   return null;
+    // },
+    // homebased(){
+    //   console.log("user role=",this.userrole.role)
+    //   if(this.userrole.role == 'Employeer'){
+    //     this.$router.push("Employer");
+    //   }
+    //   else{
+    //     this.$router.push(this.userrole.role);
+    //   }
+    // },
+    
     login() {
       this.loading = true;
       var param = {
@@ -145,7 +161,14 @@ export default {
             this.$session.set("user", response.data.account);
             setTimeout(() => {
               this.setLoggedIn(true);
-              this.$router.push("home");
+              if(response.data.account.role == 'Employeer'){
+                this.$router.push('Employer');
+              }else{
+                this.$router.push(response.data.account.role);
+              }
+              
+              // this.homebased();
+              // this.$router.push("home");
               // if (response.data.account.role == "Employeer") {
               //   this.$router.push("employer");
               //   //setTimeout(()=>{ location.reload() }, 1000)

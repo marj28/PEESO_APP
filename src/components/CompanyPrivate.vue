@@ -326,6 +326,23 @@
                               >
                               </v-file-input>
                             </v-col>
+                            <v-col cols="12" sm="12" md="6">
+                              <v-file-input
+                                v-model="files_permit"
+                                color="green accent-4"
+                                counter
+                                label="Business Permit"
+                                multiple
+                                dense
+                                placeholder="Select your files"
+                                prepend-icon="mdi-paperclip"
+                                outlined
+                                accept=".pdf, .docx"
+                                :show-size="1000"
+                                :rules="[rules.required]"
+                              >
+                              </v-file-input>
+                            </v-col>
                           </v-row>
                         </v-container>
 

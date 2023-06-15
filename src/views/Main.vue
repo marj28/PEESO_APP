@@ -29,7 +29,7 @@
               </v-col>
               <v-col cols="8">
                 <div class="text-h6" ></div>
-                Job Posts
+                Employment
               </v-col>
             </v-row>
           </v-card-text>
@@ -66,7 +66,7 @@
               </v-col>
               <v-col cols="8">
                 <div class="text-h6" ></div>
-                Programs
+                Education
               </v-col>
             </v-row>
           </v-card-text>
@@ -82,6 +82,14 @@
             <v-spacer />
           </v-toolbar>
           <v-card-text>
+            <!-- <div v-if="isLoading">Loading...</div> -->
+            <v-progress-linear
+              color="green accent-6"
+              indeterminate
+              rounded
+              height="6"
+              v-if="isLoading"
+            ></v-progress-linear>
             <v-list three-line v-if="jobs.length >0 ">
               <template v-for="(item, index) in jobs">
                 <v-list-item :key="index + '-job'" v-if="index <=4">
@@ -110,7 +118,9 @@
                   </v-list-item-content>
                 </v-list-item>
               </template>
+              <div v-if="hasMore" ref="lazyLoader"></div>
             </v-list>
+            
           </v-card-text>
         </v-card>
       </v-col>
@@ -131,6 +141,10 @@ export default {
     jobs: [],
     trainings: [],
     programs: [],
+    isLoading: false,
+    // hasMore: true,
+    visibleJobs: [],
+    observer: null,
   }),
   computed: {},
   created() {
@@ -139,9 +153,13 @@ export default {
     this.jobposts();
     //this.trainingposts()
     this.programposts();
+    this.loadJobs();
+    this.initializeObserver();
   },
   methods: {
     ...mapMutations(["setLoggedIn", "setAppBar", "setMonthDailySales"]),
+
+    
     jobposts() {
       this.jobs = []
       this.$http
@@ -178,6 +196,39 @@ export default {
           console.log(e);
         });
     },
+    
+    initializeObserver() {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.loadMoreJobs();
+          }
+        });
+      });
+
+      this.observer.observe(this.$refs.lazyLoader);
+    },
+
+    loadJobs() {
+      this.isLoading = true;
+
+      // Fetch initial set of jobs
+      this.$http
+        .post("post/list", { type: "job" })
+        .then((response) => {
+          if (response.data.status) {
+            this.jobs = response.data.posts;
+            
+            this.isLoading = false;
+          }
+        })
+        .catch((e) => {
+          console.log("output",e);
+          
+        });
+    },
+
+    
   },
 };
 </script>
