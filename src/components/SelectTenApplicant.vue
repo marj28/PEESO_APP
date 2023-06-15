@@ -84,7 +84,7 @@ export default {
                 <v-btn small color="primary" @click="
                     $router.push('/table-passing')
                     ">
-                    <v-icon>mdi-account-multiple-plus</v-icon> Add schedule
+                    <v-icon>mdi-account-multiple-plus</v-icon> Add Applicant
                 </v-btn>
 
 
