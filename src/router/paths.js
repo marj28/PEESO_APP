@@ -70,6 +70,8 @@ export default [
     name: 'CompanyPrivate',
     view: '/viewing/CompanyPrivate'
   },
+
+
   {
     path: '/company-public',
     name: 'CompanyPublic',
@@ -161,4 +163,12 @@ export default [
     name: 'HiredApplicant',
     view: 'employeer/HiredApplicant'
   },
+  
+  {
+    path: '/table-passing',
+    name: 'TablePassingData',
+    view: 'Viewing/TablePassingData'
+  },
+
+  
 ]
