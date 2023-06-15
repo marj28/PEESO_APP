@@ -1,5 +1,5 @@
 <template>
-  <!-- eslint-disable  -->
+  <!-- eslint-disable  -->  
   <v-container>
     <v-row v-show="employmentStatuss">
       <v-col cols="12" md="6" sm="12">
@@ -318,7 +318,7 @@
 <script>
 /* eslint-disable */
 export default {
-  // name: "Employment Status",
+  name: "EmploymentStatus",
   props: {
     employmentStatuss: false,
     employmentStatusForms: false,
@@ -336,9 +336,9 @@ export default {
     selfemployed: [],
     employment: {}
   }),
-  created() {
-    this.getPersonalInfo()
-  },
+  // created() {
+  //   this.getPersonalInfo()
+  // },
   computed:{
     user() {
       if (this.$session.exists()) {
@@ -349,34 +349,36 @@ export default {
   },
   methods: {
     validate() {
+      this.$refs.forms.validate();
       let v = this.$refs.forms.validate();
       if (v) {
-       this.SaveInfo() 
+        this.employmentStatuss = true,
+        this.employmentStatusForms = false
       }
     },
-     getPersonalInfo() {
-      console.log("getPersonalInfo")
-      this.$http.post('user/details', {id: this.$IsNum(this.user.id)}).then(response => {  
-          console.log(response.data.account.profile)
-            if(response.data.status) {
-              if(response.data.account.profile.personal != null) {
-                this.employment =  response.data.account.profile.employment
-              }
-            }  
+    //  getPersonalInfo() {
+    //   console.log("getPersonalInfo")
+    //   this.$http.post('user/details', {id: this.$IsNum(this.user.id)}).then(response => {  
+    //       console.log(response.data.account.profile)
+    //         if(response.data.status) {
+    //           if(response.data.account.profile.personal != null) {
+    //             this.employment =  response.data.account.profile.employment
+    //           }
+    //         }  
             
-           }).catch(e => {
-             console.log(e)
-        });
-    },
-    SaveInfo() {
-      console.log(this.user)
-        this.$http.post('account/update', {type:'employment', user_id: this.$IsNum(this.user.id), data: this.employment}).then(response => {  
-            console.log(response.data)
-            response.data.status?this.VA_ALERT("success", response.data.message):this.VA_ALERT("error", response.data.message)
-           }).catch(e => {
-             console.log(e)
-        });
-  },
+    //        }).catch(e => {
+    //          console.log(e)
+    //     });
+    // },
+  //   SaveInfo() {
+  //     console.log(this.user)
+  //       this.$http.post('account/update', {type:'employment', user_id: this.$IsNum(this.user.id), data: this.employment}).then(response => {  
+  //           console.log(response.data)
+  //           response.data.status?this.VA_ALERT("success", response.data.message):this.VA_ALERT("error", response.data.message)
+  //          }).catch(e => {
+  //            console.log(e)
+  //       });
+  // },
 }
 }
 </script>

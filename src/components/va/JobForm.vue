@@ -4,13 +4,9 @@
       <!--    eslint-disable  -->
       <v-card>
         <v-card-title class="text-h6" dense>
-
-          <v-icon left>
-            mdi-file-document-edit
-          </v-icon> JOB DETAILS
+          <v-icon left> mdi-file-document-edit </v-icon> JOB DETAILS
 
           <v-spacer />
-
         </v-card-title>
         <v-divider />
 
@@ -302,33 +298,29 @@
       </v-card>
     </v-dialog>
 
-
     <!-- 
 <v-dialog v-model="dialogforview" max-width="200px" >
 
 <h1>THIS IS Dialog for view</h1>
 </v-dialog> 
 -->
-
   </div>
 </template>
 <script>
-import {
-  mapMutations
-} from 'vuex'
+import { mapMutations } from "vuex";
 export default {
   props: {
     show: {
       type: Boolean,
-      default: false
+      default: false,
     },
     post_state: {
       type: String,
-      default: 'New'
+      default: "New",
     },
     data: {
       type: Object,
-      default: () => { }
+      default: () => {},
     },
   },
   data: () => ({
@@ -337,75 +329,78 @@ export default {
     valid: true,
     dailog: false,
 
-
     company: {},
     post: { post_meta: { salary: "" } },
-    state: 'new',
-    nameRules: [
-      v => !!v || 'Field is required'
-    ],
+    state: "new",
+    nameRules: [(v) => !!v || "Field is required"],
   }),
   watch: {
     show(v) {
-      v ? this.dailog = true : this.dailog = false
+      v ? (this.dailog = true) : (this.dailog = false);
       if (v) {
-        this.state = this.post_state
-        this.myCompany()
-        if (this.state == 'update') {
-          this.post = this.data
+        this.state = this.post_state;
+        this.myCompany();
+        if (this.state == "update") {
+          this.post = this.data;
         }
       } else {
-        this.post = { post_meta: { salary: "" } }
+        this.post = { post_meta: { salary: "" } };
       }
-    }
+    },
   },
-  created() {
-  },
+  created() {},
   methods: {
     emitToParent(action) {
-      this.$emit('DialogEvent', { action: action })
+      this.$emit("DialogEvent", { action: action });
     },
     openMyCompany() {
       this.emitToParent("close")
       this.$router.push("company-select");
     },
     myCompany() {
-      this.$http.get('company/my_company').then(response => {
-        if (response.data.status) {
-          this.company = response.data.company
-          this.post.company_id = this.company.id
-          this.post.post_meta.company = this.company.name
-          this.post.post_meta.company_address = this.company.address
-        }
-      }).catch(e => {
-        console.log(e)
-      })
+      this.$http
+        .get("company/my_company")
+        .then((response) => {
+          if (response.data.status) {
+            this.company = response.data.company;
+            this.post.company_id = this.company.id;
+            this.post.post_meta.company = this.company.name;
+            this.post.post_meta.company_address = this.company.address;
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
     SavePost() {
       if (this.$refs.form.validate()) {
-        this.loading = true
-        this.Post()
+        this.loading = true;
+        this.Post();
       }
     },
     Post() {
-      console.log(this.post)
-      let method = 'post/new'
-      if (this.state == 'update') {
-        method = 'post/update'
+      console.log(this.post);
+      let method = "post/new";
+      if (this.state == "update") {
+        method = "post/update";
       }
-      this.post.type = "job"
-      console.log(this.post)
+      this.post.type = "job";
+      console.log(this.post);
 
-      this.$http.post(method, this.post).then(response => {
-        console.log(response.data)
-        this.loading = false
-        response.data.status ? this.VA_ALERT('success', response.data.message) : this.VA_ALERT('error', response.data.message)
-        this.emitToParent("close")
-      }).catch(e => {
-        console.log(e)
-      })
-    }
-
+      this.$http
+        .post(method, this.post)
+        .then((response) => {
+          console.log(response.data);
+          this.loading = false;
+          response.data.status
+            ? this.VA_ALERT("success", response.data.message)
+            : this.VA_ALERT("error", response.data.message);
+          this.emitToParent("close");
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
   },
-}
+};
 </script>

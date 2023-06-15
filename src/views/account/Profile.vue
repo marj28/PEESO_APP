@@ -132,7 +132,7 @@
             />
           </v-card-text>
         </v-card>
-        <!--<v-card v-show="educationalBackground">
+        <v-card v-show="educationalBackground">
           <v-toolbar dense elevation="1"
             ><v-icon left small>mdi-briefcase-variant</v-icon>Educational
             Background<v-icon
@@ -246,7 +246,7 @@
               v-bind:jobRequirementsForms="jobRequirementsForm"
             />
           </v-card-text>
-        </v-card> -->
+        </v-card>
       </v-col>
     </v-row>
   </v-container>

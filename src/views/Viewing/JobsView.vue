@@ -17,6 +17,13 @@
             hide-details
           ></v-text-field>
         </v-card-title>
+        <v-progress-linear
+          color="green accent-6"
+          indeterminate
+          rounded
+          height="6"
+          v-if="isLoading"
+        ></v-progress-linear>
         <v-data-table
           :headers="headers"
           :items="jobs"
@@ -56,6 +63,10 @@ export default {
     post: {},
     posts: {},
     jobs: [],
+    isLoading: false,
+    // hasMore: true,
+    visibleJobs: [],
+    observer: null,
     search: "",
 
     switch1: true,
@@ -72,6 +83,8 @@ export default {
       this.setLoggedIn(true);
       this.setAppBar(true);
       this.myJobs();
+      this.loadJobs();
+      this.initializeObserver();
     }
   },
   methods: {
@@ -124,6 +137,35 @@ export default {
         })
         .catch((e) => {
           console.log(e);
+        });
+    },
+    initializeObserver() {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.loadMoreJobs();
+          }
+        });
+      });
+
+      this.observer.observe(this.$refs.lazyLoader);
+    },
+
+    loadJobs() {
+      this.isLoading = true;
+
+      // Fetch initial set of jobs
+      this.$http
+        .post("post/list", { type: "job" })
+        .then((response) => {
+          if (response.data.status) {
+            this.jobs = response.data.posts;
+
+            this.isLoading = false;
+          }
+        })
+        .catch((e) => {
+          console.log("output", e);
         });
     },
   },
