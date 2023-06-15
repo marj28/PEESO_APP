@@ -190,4 +190,12 @@ export default [
 
 
 
+
+  {
+    path: '/table-passing',
+    name: 'TablePassingData',
+    view: 'Viewing/TablePassingData'
+  },
+
+
 ]
