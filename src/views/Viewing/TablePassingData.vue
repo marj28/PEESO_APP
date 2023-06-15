@@ -152,7 +152,7 @@ export default {
                 </v-toolbar> -->
                             </template>
                             <template v-slot:item="{ item }">
-                                <tr>
+                                <tr  @click="passData">
                                     <td>
                                         <v-checkbox v-model="selectedItems" :value="item" @click="passData"></v-checkbox>
                                     </td>
