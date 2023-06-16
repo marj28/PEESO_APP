@@ -106,6 +106,7 @@
 
    <v-col cols="12" lg="3" md="6" sm="6">
     <v-card height="200px" class="elevation-10 rounded-xl"  >
+    
         <div class="text-center" >
             
                 <v-avatar class="mt-n10" size="80" color="indigo lighten-4">
