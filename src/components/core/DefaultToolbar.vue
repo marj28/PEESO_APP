@@ -3,7 +3,12 @@
     <v-app-bar dense elevation="1">
       <img :src="$store.state.systemlogo" class="mr-2" width="40px" />
       <v-toolbar-items class="hidden-md-and-down">
-        <router-link :to="getDashboardLink" tag="button" class="dashboard-button black--text ml-3">HOME</router-link>
+        <router-link
+          :to="getDashboardLink"
+          tag="button"
+          class="dashboard-button black--text ml-3"
+          >HOME</router-link
+        >
         <v-btn
           text
           tile
@@ -11,7 +16,11 @@
         >
           What is PEESO?
         </v-btn>
-        <v-btn text tile @click="$router.push('/PeesoServices').catch((err) => {})">
+        <v-btn
+          text
+          tile
+          @click="$router.push('/PeesoServices').catch((err) => {})"
+        >
           CPEESO Services
         </v-btn>
         <v-btn text tile @click="$router.push('/ContactUs').catch((err) => {})">
@@ -36,10 +45,16 @@
             <v-list-item-title>HOME</v-list-item-title>
           </v-list-item>
           <v-list-item>
-            <v-list-item-title @click="$router.push('/WhatisPeeso').catch((err) => {})">WHAT IS PEESO?</v-list-item-title>
+            <v-list-item-title
+              @click="$router.push('/WhatisPeeso').catch((err) => {})"
+              >WHAT IS PEESO?</v-list-item-title
+            >
           </v-list-item>
           <v-list-item>
-            <v-list-item-title @click="$router.push('/PeesoServices').catch((err) => {})">CPEESO SERVICES</v-list-item-title>
+            <v-list-item-title
+              @click="$router.push('/PeesoServices').catch((err) => {})"
+              >CPEESO SERVICES</v-list-item-title
+            >
           </v-list-item>
           <v-list-item @click="$router.push('/ContactUs').catch((err) => {})">
             <v-list-item-title>CONTACT US</v-list-item-title>
@@ -48,11 +63,22 @@
       </v-menu>
       <v-spacer />
       <template v-if="isLoggin">
+        <v-badge
+          v-if="this.user.role == 'Jobseeker'"         
+          :content="messages"
+          :value="messages"
+          color="green"
+          class="mr-2"
+          overlap
+          dot
+        >
+          <v-icon medium  @click="$router.push('/notification')"> mdi-bell </v-icon>
+        </v-badge>
         <v-menu offset-y>
           <template #activator="{ on, attrs }">
             <span class="caption text-primary" v-bind="attrs" v-on="on"
-              ><v-icon left>mdi-account-circle</v-icon> My Account</span
-            >
+              ><v-icon left>mdi-account-circle</v-icon>
+            </span>
           </template>
           <v-list dense>
             <template v-for="(menu, index) in MENUS">
@@ -123,9 +149,10 @@
 import { mapMutations } from "vuex";
 export default {
   data: () => ({
-  
     confirm: false,
     listing: false,
+    notificationBtn: false,
+
     // title: null,
     seeker_menu: [
       {
@@ -229,36 +256,31 @@ export default {
       return null;
     },
     getDashboardLink() {
-      let currentUserRole
-      if(this.isLoggin){
+      let currentUserRole;
+      if (this.isLoggin) {
         // Get the current user role or condition
-      currentUserRole = this.user.role; // Example: Assuming the current user is an admin
-      
+        currentUserRole = this.user.role; // Example: Assuming the current user is an admin
+      } else {
+        currentUserRole = "home";
       }
-      else{
-        currentUserRole='home'
-      }
-      
-     
-      console.log("currentuserrole=",currentUserRole);
+
+      console.log("currentuserrole=", currentUserRole);
       // Set the appropriate route based on the user role or condition
       let dashboardRoute;
-      if (currentUserRole == 'Employeer') {
-        dashboardRoute = { name: 'Employer' };
-      } 
-      else if (currentUserRole == 'Jobseeker') {
-        dashboardRoute = { name: 'Jobseeker' };
-      } 
-      else  {
-        dashboardRoute = { path: '/home' };
-      } 
-      
+      if (currentUserRole == "Employeer") {
+        dashboardRoute = { name: "Employer" };
+      } else if (currentUserRole == "Jobseeker") {
+        dashboardRoute = { name: "Jobseeker" };
+      } else {
+        dashboardRoute = { path: "/home" };
+      }
+
       // else {
       //   dashboardRoute = { name: 'Admin' };
       // }
 
       return dashboardRoute;
-    }
+    },
   },
   methods: {
     ...mapMutations(["setNavBar", "setOpenMachine", "setLoggedIn"]),
@@ -275,11 +297,11 @@ export default {
     menuItems() {
       return this.menu;
     },
-    getCurrentUserRole(){    }
+    getCurrentUserRole() {},
   },
   mounted() {
     this.getCurrentUserRole();
-  }
+  },
 };
 </script>
   <style>
