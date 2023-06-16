@@ -100,12 +100,14 @@
         <v-card style="padding: 2%;">
             <SelectTenApplicant />
         </v-card>
-        <span style="font-size: 56px; font-weight: 400;">List of Applicants</span>
+        <span style="font-size: 25px; font-weight: 300;">List of Applicants</span>
         <v-card style="margin-top: 3%;padding: 2%;">
             <ListofApplicants />
         </v-card>
     </v-container>
 </template>
+
+
 <script>
 import { relativeTimeThreshold } from 'moment';
 import {
