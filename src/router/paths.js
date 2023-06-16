@@ -162,5 +162,10 @@ export default [
       name: 'HiredApplicant',
       view: 'employeer/HiredApplicant'
     },
+    {
+      path: '/notification',
+      name: 'Notification',
+      view: 'JobseekerFolder/NotifView'
+    },
   ]
   
