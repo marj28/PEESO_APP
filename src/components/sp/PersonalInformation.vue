@@ -3,7 +3,7 @@
   <v-container>
     <v-row v-show="personalInformations">
       <v-col cols="12" md="6">
-        <p>Fullname:</p>
+        <p>Fullname: </p>
         <p>Date of Birth:</p>
         <p>Citizenship:</p>
         <p>Contact Details:</p>

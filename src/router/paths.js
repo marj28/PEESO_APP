@@ -167,5 +167,15 @@ export default [
       name: 'Notification',
       view: 'JobseekerFolder/NotifView'
     },
+    {
+      path: '/inbox',
+      name: 'Inbox',
+      view: 'employeer/InboxView'
+    },
+    {
+      path: '/calendar',
+      name: 'Calendar',
+      view: 'employeer/CalendarView'
+    },
   ]
   
