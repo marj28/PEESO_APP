@@ -7,7 +7,7 @@
       </v-col>
       <v-col cols="12" md="12" class="mt-n3">
         <p class="font-weight-bold">Educational Information</p>
-        <p>Elementary:</p>
+        <p>Elementary: </p>
         <p>Secondary:</p>
         <p>Tertiary:</p>
         <p>Graduate Studies/Post Graduate:</p>

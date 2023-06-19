@@ -27,6 +27,7 @@
               dense
               append-icon="mdi-magnify"
               label="Search"
+              v-model="search"
             >
             </v-text-field>
             <v-divider></v-divider>
@@ -34,6 +35,7 @@
               v-model="selectItemId"
               active-class="selected-item"
             >
+            
               <v-list three-line>
                 <template v-for="(item, index) in items">
                   <v-subheader
@@ -79,19 +81,18 @@
           <v-card v-if="selectedItem">
             <v-card-title v-html="selectedItem.title"></v-card-title>
             <v-card-text v-html="selectedItem.subtitle"></v-card-text>
-            <v-card-action>
-              <v-space></v-space>
-              <v-btn color="green" text > Accept </v-btn>
-              <v-btn color="orange" text > Decline </v-btn>
-            </v-card-action>
-            <!-- <p>{{ this.selected.status }}</p> -->
+            <!-- <v-card-action>
+                <v-space></v-space>
+                <v-btn color="green" text> Accept </v-btn>
+                <v-btn color="orange" text> Decline </v-btn>
+              </v-card-action> -->
           </v-card>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
-<script>
+  <script>
 import { mapMutations } from "vuex";
 export default {
   name: "JobsPage",
@@ -144,12 +145,12 @@ export default {
     },
   },
   computed: {
-    filteredItems() {
+    displayedItems() {
       // Filter the items based on the search query
+      const query = this.search.toLowerCase();
       return this.items.filter((item) => {
         const itemTitle = item.title.toLowerCase();
         const itemSubtitle = item.subtitle.toLowerCase();
-        const query = this.searchQuery.toLowerCase();
         return itemTitle.includes(query) || itemSubtitle.includes(query);
       });
     },

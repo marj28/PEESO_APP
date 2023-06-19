@@ -14,7 +14,7 @@
       <v-col cols="12" md="6" sm="6">
         <p>Ethnic Group: {{personal_info.ethnic_group}}</p>
         <p>Address: {{personal_info.address.street}},  {{personal_info.address.brgy}},  {{personal_info.address.city}}, {{personal_info.address.province}}, {{personal_info.address.region}}</p>
-        <p>Contact No.: {{personal_info.contactno}}</p>
+        <p>Contact No.: {{personal_info.mobile_no}}</p>
         <p>Email: {{personal_info.email}}</p>
         <p>Type of ID: {{personal_info.idtype}}</p>
         <p>SSS: {{personal_info.sss_no}}</p>
@@ -244,7 +244,7 @@
 
             <v-col cols="12" md="6" sm="12" class="mt-n6">
               <v-text-field
-                v-model="personal_info.contactno"
+                v-model="personal_info.mobile_no"
                 label="Contact Number"
                 outlined
                 dense
@@ -327,6 +327,7 @@ export default {
     personal_info:{
         firstname:"",
         lastname:"",
+        middlename: "",
         suffix:"",
         dateofbirth:"",
         age:"",
@@ -357,6 +358,12 @@ export default {
   created() {
     this.getAddress()
     this.getPersonalInfo()
+    if (this.personal_info.firstname == "" ){
+      this.personal_info.firstname = this.$session.get("user").firstname
+      this.personal_info.lastname = this.$session.get("user").lastname
+      this.personal_info.middlename = this.$session.get("user").middlename
+      this.personal_info.email = this.$session.get("user").email
+    }
   },
   computed: {
     user() {
@@ -366,7 +373,7 @@ export default {
       return null;
     },
     fullname() {
-      return this.personal_info.lastname + ", " + this.personal_info.firstname
+      return this.personal_info.firstname + " " + this.personal_info.lastname + " " + this.personal_info.middlename
     }
   },
   methods: {

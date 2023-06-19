@@ -64,7 +64,7 @@
       <v-spacer />
       <template v-if="isLoggin">
         <v-badge
-          v-if="this.user.role == 'Jobseeker'"         
+          v-if="this.user.role == 'Jobseeker' && 'Student'"         
           :content="messages"
           :value="messages"
           color="green"
@@ -73,6 +73,17 @@
           dot
         >
           <v-icon medium  @click="$router.push('/notification')"> mdi-bell </v-icon>
+        </v-badge>
+        <v-badge
+          v-if="this.user.role == 'Employeer'"         
+          :content="messages"
+          :value="messages"
+          color="green"
+          class="mr-2"
+          overlap
+          dot
+        >
+          <v-icon medium  @click="$router.push('/calendar')"> mdi-message </v-icon>
         </v-badge>
         <v-menu offset-y>
           <template #activator="{ on, attrs }">

@@ -121,7 +121,7 @@
           </v-col>
           <v-col cols="12" md="12">
             <v-text-field
-              v-model="account.contact_no"
+              v-model="account.mobile_no"
               class="textbox mt-n6"
               maxlength="11"
               type="text"
