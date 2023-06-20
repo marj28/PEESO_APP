@@ -3,7 +3,7 @@
     <div>
         <v-container class="bg-surface-variant">
             <v-row no-gutters>
-                <v-col order="12" style="border-style: solid; height: 60%;">
+                <v-col order="12" style="border-style: solid; height: 60%; border-radius: 13px;">
                     <v-sheet class="pa-2 ma-2">
                         <!-- <v-btn color="primary" @click="selectAllItems">Select All</v-btn> -->
                         <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
@@ -30,7 +30,7 @@
                         <v-btn color="primary">Send invite</v-btn>
                     </v-sheet>
                 </v-col>
-                <v-col order="12" style="border-style: solid; margin-left: 2%;">
+                <v-col order="12" style="border-style: solid; margin-left: 2%; border-radius: 13px">
 
 
                     <v-container class="bg-surface-variant"> <span
