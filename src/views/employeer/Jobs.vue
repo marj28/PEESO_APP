@@ -115,7 +115,7 @@ export default {
     getTableHeaders() {
       if (this.isMobile) {
         // Remove the headers you don't want to display in mobile view
-        return this.tableHeaders.filter((header) => !header.hideOnMobile);
+        return this.tableHeaders.filter(header => !header.hideOnMobile);
       }
       return this.tableHeaders;
     },
@@ -138,10 +138,12 @@ export default {
     // Check if the screen size is mobile
     this.isMobile = window.innerWidth <= 600;
     // Update the isMobile value when the screen size changes
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       this.isMobile = window.innerWidth <= 600;
     });
   },
+
+
 
   methods: {
     ...mapMutations(['setLoggedIn', 'setAppBar', 'setMonthDailySales']),
