@@ -25,6 +25,8 @@
                                     </td>
                                 </tr>
                             </template>
+
+
                         </v-data-table>
                         <v-spacer></v-spacer>
                         <v-btn color="primary">Send invite</v-btn>
@@ -135,7 +137,7 @@ export default {
                 // Select all items
                 this.selectedItems = [...this.tableData];
             }
-        },
+        }, 
     },
 
 };
