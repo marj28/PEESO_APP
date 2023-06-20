@@ -90,6 +90,7 @@ export default {
 
             </template>
         </v-data-table>
+        
 <!--  <v-dialog v-model="dialogVisible" max-width="60%">
             <v-form v-model="valid">
                 <v-card style="padding:2%"> <v-container>
