@@ -80,7 +80,7 @@ export default {
         <v-data-table :headers="headers" :items="items" :item-key="itemKey" :rows-per-page-items="[5, 10, 15]"
             @click:row="redirecttoformattendance" style="cursor: pointer;">
             <!-- <template v-slot:item.actions="{ item }"> -->
-            <template v-slot:[`item.actions`]>
+            <template v-slot: [`item.actions`]>
                 <v-btn small color="primary" @click="
                     $router.push('/table-passing')
                     ">
