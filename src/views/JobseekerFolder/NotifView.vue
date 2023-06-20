@@ -27,6 +27,7 @@
               dense
               append-icon="mdi-magnify"
               label="Search"
+              v-model="search"
             >
             </v-text-field>
             <v-divider></v-divider>

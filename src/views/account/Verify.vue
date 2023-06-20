@@ -123,6 +123,9 @@
          // this.$router.push('/home')
           this.verify()
          }
+         else {
+          this.$router.push('/verify')
+         }
         },
         verify(){
           this.loading=true
@@ -141,6 +144,7 @@
               }
             }).catch(e => {
               this.loading = false
+              this.$router.push('/verify')
                 this.NETWORK_ERROR(e)
            })
         },
