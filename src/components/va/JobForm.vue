@@ -181,7 +181,7 @@
                     </div>
 
                     <!-- <v-row>
-                    <!-- <v-row>
+                    <v-row>
 
                           <v-col cols="12" md="12">
                             <v-text-field v-model="post.tags" outlined prepend-inner-icon="mdi-tag-search" dense
