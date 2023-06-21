@@ -3,7 +3,7 @@
     <div>
         <v-container class="bg-surface-variant">
             <v-row no-gutters>
-                <v-col order="12" style="border-style: solid; height: 60%;">
+                <v-col order="12" style="border-style: solid; height: 60%; border-radius: 13px;">
                     <v-sheet class="pa-2 ma-2">
                         <!-- <v-btn color="primary" @click="selectAllItems">Select All</v-btn> -->
                         <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
@@ -24,13 +24,19 @@
 
                                     </td>
                                 </tr>
+                            </template> -->
+
+                            <template slot="item.switch1" slot-scope="{ item }">
+                        <v-checkbox v-model="item.switch1" color="black" dense></v-checkbox>
                             </template>
+
+
                         </v-data-table>
                         <v-spacer></v-spacer>
                         <v-btn color="primary">Send invite</v-btn>
                     </v-sheet>
                 </v-col>
-                <v-col order="12" style="border-style: solid; margin-left: 2%;">
+                <v-col order="12" style="border-style: solid; margin-left: 2%; border-radius: 13px">
 
 
                     <v-container class="bg-surface-variant"> <span
@@ -71,17 +77,17 @@
                             <v-col order="12">
                                 <v-sheet class="pa-2 ma-2">
                                     <v-sheet class="pa-2 ma-2">
-                                        <v-text-field label="Employment Status:" readonly></v-text-field>
-                                        <v-text-field label="Employment Type:" readonly></v-text-field>
-                                        <v-text-field label="PESLA Attendance:" readonly></v-text-field>
+                                        <v-text-field v-model="Text_EmployementStatus" label="Employment Status:" readonly></v-text-field>
+                                        <v-text-field v-model="Text_EmployementType" label="Employment Type:" readonly></v-text-field>
+                                        <v-text-field v-model="Text_peslaattendance" label="PESLA Attendance:" readonly></v-text-field>
                                     </v-sheet>
                                 </v-sheet>
                             </v-col>
                             <v-col order="12">
                                 <v-sheet class="pa-2 ma-2" style="margin-top: 6%;">
-                                    <v-text-field label="Former OFW:" readonly></v-text-field>
-                                    <v-text-field label="4ps Beneficiary:" readonly></v-text-field>
-                                    <v-text-field label="First Time Job Seeker:" readonly></v-text-field>
+                                    <v-text-field v-model="Text_formerofw" label="Former OFW:" readonly></v-text-field>
+                                    <v-text-field v-model="Text_Four_pesbeneficiary" label="4ps Beneficiary:" readonly></v-text-field>
+                                    <v-text-field v-model="Text_firsttimejobseekers" label="First Time Job Seeker:" readonly></v-text-field>
                                 </v-sheet>
                             </v-col>
                         </v-row>
@@ -99,6 +105,7 @@
 export default {
     data() {
         return {
+            selectedId: -1,
             search: '',
             tableHeaders: [
 
@@ -135,9 +142,16 @@ export default {
                 // Select all items
                 this.selectedItems = [...this.tableData];
             }
-        },
+        }, 
     },
 
 };
 </script>
   
+<style>
+
+tr.v-data-table__selected {
+  background: #4960d6c0 !important;
+}
+</style>
+

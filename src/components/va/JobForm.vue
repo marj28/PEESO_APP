@@ -32,28 +32,33 @@
               </v-stepper-step>
 
               <v-divider></v-divider>
+              <v-divider></v-divider>
 
               <v-stepper-step :complete="e1 > 2" step="2" color="warning">
                 Preferrence & Qualification Requirements
               </v-stepper-step>
+
+              <v-divider></v-divider>
+
             </v-stepper-header>
 
             <v-stepper-items>
+
               <!-- First Stepper -->
               <v-stepper-content step="1">
+
                 <v-card-text class="mt-4">
+
+
+
                   <v-form ref="form" v-model="valid" lazy-validation>
+
                     <v-row>
+
                       <v-col cols="12" md="12">
-                        <v-text-field
-                          v-model="post.title"
-                          outlined
-                          prepend-inner-icon="mdi-briefcase"
-                          dense
-                          :rules="nameRules"
-                          required
-                          label="Job Title"
-                        />
+
+                        <v-text-field v-model="post.title" outlined prepend-inner-icon="mdi-briefcase" dense
+                          :rules="nameRules" required label="Job Title" />
                       </v-col>
 
                       <v-col cols="12" md="4" class="mt-n6">
@@ -176,6 +181,7 @@
                     </div>
 
                     <!-- <v-row>
+                    <!-- <v-row>
 
                           <v-col cols="12" md="12">
                             <v-text-field v-model="post.tags" outlined prepend-inner-icon="mdi-tag-search" dense
@@ -184,30 +190,47 @@
 
                         </v-row>
  -->
+
+                    <v-row class="mt-n10">
+
+                    </v-row>
+
+
                   </v-form>
                 </v-card-text>
-                <v-card-actions class="mt-n3">
-                  <v-btn
-                    @click="emitToParent('close')"
-                    class="ma-2"
-                    color="warning"
-                    text
-                  >
+                <v-card-actions style="margin-top: 1.5%;">
+
+
+                  <v-btn @click="emitToParent('close')" class="ma-2" color="warning">
                     Cancel
                   </v-btn>
                   <v-spacer />
-                  <v-btn id="v-btn-c" class="ma-2" color="success" @click="e1 = 2">
+                  <v-btn id="v-btn-c" color="success" @click="e1 = 2">
                     Next
                   </v-btn>
+
+
                 </v-card-actions>
+
+
+
+
+
               </v-stepper-content>
+
             </v-stepper-items>
 
+
             <v-stepper-items>
+
+
               <!-- Second Stepper -->
               <v-stepper-content step="2">
+
                 <v-row>
+
                   <v-col cols="12" md="6">
+
                     <h3 class="text-center">Preferrence</h3>
 
                     <v-row class="mt-5">
