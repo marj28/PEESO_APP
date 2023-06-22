@@ -194,20 +194,11 @@ export default [
     name: 'Calendar',
     view: 'employeer/CalendarView'
   },
-
-
-
-
-
   {
     path: '/job-details/:id',
     name: 'JobDetails',
     view: 'JobDetails'
   },
-
-
-
-
   {
     path: '/table-passing',
     name: 'TablePassingData',
