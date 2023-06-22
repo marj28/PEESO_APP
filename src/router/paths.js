@@ -20,6 +20,17 @@ export default [
       view: 'PeesoServices'
     },
     {
+      path: '/SchedDisplay',
+      name: 'SchedDisplay',
+      view: 'SchedDisplay'
+    },
+  
+    {
+      path: '/DisplaySchedView',
+      name: 'DisplaySchedView',
+      view: 'employeer/DisplaySchedView'
+    },
+    {
       path: '/ContactUs',
       name: 'ContactUs',
       view: 'ContactUs'
