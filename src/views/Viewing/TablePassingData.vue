@@ -12,7 +12,7 @@
                         <v-data-table :headers="tableHeaders" :items="tableData" item-key="id" :search="search"
                             :selectable="true" v-model="selectedItems">.
 
-                            <template v-slot:item="{ item }" >
+                            <template v-slot:item="{ item }">
                                 <tr style="cursor: pointer;">
                                     <td>
                                         <v-checkbox v-model="selectedItems" :value="item"></v-checkbox>
