@@ -16,7 +16,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="6" md="4">
+      <!-- <v-col cols="6" md="4">
         <v-card color="primary" dark @click="$router.push({ path: 'job-listing' })">
           <v-card-text>
             <v-row>
@@ -62,49 +62,26 @@
             </v-row>
           </v-card-text>
         </v-card>
-      </v-col>
+      </v-col> -->
     </v-row>
 
     <v-row>
-      <v-col cols="12" md="8">
-        <v-card>
-          <v-toolbar dense elevation="0">
-            <span class="text-primary mb-n6">TOP JOB VACANCIES</span>
-            <v-spacer />
-          </v-toolbar>
-          <v-card-text>
-            <v-list three-line v-if="jobs.length > 0">
-              <template v-for="(item, index) in jobs">
-                <v-list-item :key="index + '-job'" v-if="index <= 4">
-                  <v-list-item-avatar tile size="62">
-                    <v-img :src="item.medias != null ? item.medias.logo : noImage" />
-                  </v-list-item-avatar>
-
-                  <v-list-item-content>
-                    <v-list-item-title><a @click="
-                      $router.push('post/' + item.id).catch((err) => { })
-                      ">{{ item.title }}</a></v-list-item-title>
-                    <v-list-item-subtitle>
-                      <em class="text-info">{{
-                        $moment(item.created_dt).startOf("day").fromNow()
-                      }}</em>
-                      - {{ item.post_meta.company }} -
-                      {{ item.post_meta.company_address }}
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="4">
-        <div class="mb-4">
-          <widget-training-widget></widget-training-widget>
-        </div>
-        <widget-program-widget></widget-program-widget>
-      </v-col>
+      <!--                                                                                                          -->
     </v-row>
+    <v-col cols="12">
+
+      <div>
+    <CarouselHomePage style="margin-bottom: 2%; cursor: pointer;" />
+   
+    <!-- <div>
+      <img src="@/assets/opportunties.jpg" class="picture1" alt="123" style="width: 60%; margin-left: %;" />
+    </div> -->
+   
+
+   
+  </div>
+    </v-col>
+
   </v-container>
 </template>
 <script>
