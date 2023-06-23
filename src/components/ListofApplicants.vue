@@ -1,6 +1,7 @@
 <template>
     <div>
-        <v-text-field v-model="search" label="Search" @input="filterData" style="margin-left: 50%;"></v-text-field>
+        <v-spacer></v-spacer>
+        <v-text-field v-model="search" label="Search" @input="filterData" style="margin-left: 70%;" outlined dense prepend-icon=""></v-text-field>
         <v-data-table :headers="headers" :items="filteredItems" class="elevation-1">
             <template v-slot:items="props">
                 <td>{{ props.item.name }}</td>
