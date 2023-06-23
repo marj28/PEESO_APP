@@ -1,20 +1,29 @@
 <template>
     <v-container>
-
-
         <v-row>
             <v-col cols="12" md="12">
+                <div class="pa-4 text-end">
+                <v-btn
+                class="text-none primary"
+                min-width="92"
+                rounded
+                variant="outlined"
+                @click="$router.push('/job-post').catch((err) => {})"
+                >
+                <v-icon>
+                 mdi-arrow-left
+                </v-icon>
+                Back
+                </v-btn>
+                </div>
                 <v-card>
                     <v-toolbar elevation="0">
                         <div class="text-h6">{{ post.title }}</div>
                         <v-spacer />
                         <template v-if="can_apply">
-
                         </template>
                         <template v-else>
-
                         </template>
-
                     </v-toolbar>
                     <v-card-text style="min-height: 130px;">
                         <div style="float: left; width:100px; margin-right: 12px;">
@@ -25,15 +34,13 @@
                         <div>{{ post.post_meta.salary }}</div>
                         <div class="text-info"><em>POSTED ON {{ $moment(post.created_td).format('MMM DD, YYYY') }}</em>
                         </div>
-                        <v-btn color="primary" dark @click="dialogschedule = true" style="margin-left: 50%;">
+                        <v-btn color="primary" dark @click="dialogschedule = true" class="mt-2">
                             Add Schedule
                         </v-btn>
                         <v-dialog v-model="dialogschedule" persistent max-width="60%">
-                            <v-card style="padding: 3%;">
-
-
+                            
                                 <v-form v-model="valid">
-                                    <v-container>
+                             
                                         <v-row>
                                             <v-col cols="12" md="6">
                                                 <v-text-field v-model="date" label="Date" type="date"></v-text-field>
@@ -80,7 +87,6 @@
                                         <row>
                                             <v-textarea solo name="input-7-4" label="Remarks"></v-textarea>
                                         </row>
-                                    </v-container>
                                 </v-form>
                                 <v-spacer></v-spacer>
                                 <v-btn color="warning darken-1" text @click="dialogschedule = false">
@@ -89,7 +95,7 @@
                                 <v-btn color="primary" dark @click="dialogschedule = false">
                                     Save
                                 </v-btn>
-                            </v-card>
+                            
                         </v-dialog>
                     </v-card-text>
                 </v-card>
@@ -113,9 +119,9 @@
 
 
         </v-card>
-        <span style="font-size: 25px; font-weight: 300;">List of Applicants</span>
-        <v-card style="margin-top: 3%;padding: 2%;">
-            <ListofApplicants />
+        <h2 class="mt-6 mb-2">LIST OF APPLICANTS</h2>
+        <v-card>
+            <ListofApplicants class="pa-6"/>
         </v-card>
     </v-container>
 </template>
