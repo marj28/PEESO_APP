@@ -1,11 +1,11 @@
 <template>
     <div>
-      <v-card>
+      <v-card flat>
             <v-card-title>
               <span
                 class="text-primary
           "
-              >LATEST PROGRAM</span>
+              >Latest Programs</span>
             </v-card-title>
             <v-card-text>
               <v-list three-line>

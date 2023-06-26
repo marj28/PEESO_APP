@@ -100,6 +100,7 @@ export default {
     // this.setNavBar(false)
   },
   mounted() {
+    console.log(this.user)
     if (this.user != null) {
       this.setLoggedIn(true);
       this.$router.push("/home");

@@ -123,6 +123,7 @@
               <v-combobox
                 v-model="personal_info.disability"
                 label="Disability"
+                :items="$store.state.disabilities"
                 outlined
                 dense
                 color="success"

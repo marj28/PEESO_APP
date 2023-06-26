@@ -28,7 +28,7 @@
                 <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
+                <div class="text-h6" >{{ jobs.length }}</div>
                 Job Posts
               </v-col>
             </v-row>
@@ -48,7 +48,7 @@
                 <img :src="$store.state.img_dir + 'training.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
+                <div class="text-h6" >0</div>
                 Trainings
               </v-col>
             </v-row>
@@ -65,7 +65,7 @@
                 <img :src="$store.state.img_dir + 'program.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6" ></div>
+                <div class="text-h6" >0</div>
                 Programs
               </v-col>
             </v-row>
@@ -75,46 +75,38 @@
     </v-row>
 
     <v-row>
-      <v-col cols="12" md="8">
-        <v-card>
-          <v-toolbar dense elevation="0">
-            <span class="text-primary mb-n6">TOP JOB VACANCIES</span>
-            <v-spacer />
-          </v-toolbar>
-          <v-card-text>
-            <v-list three-line v-if="jobs.length >0 ">
-              <template v-for="(item, index) in jobs">
-                <v-list-item :key="index + '-job'" v-if="index <=4">
-                  <v-list-item-avatar tile size="62">
-                    <v-img
-                      :src="item.medias != null ? item.medias.logo : noImage"
+      <v-col cols="12" md="12">
+        <v-row no-gutters><div class="text-h6 text-primary" >Latest Job Posts</div></v-row>
+        <v-row>
+        <template v-for="(item,index) in loadJobs">
+          <v-col cols="3"  :key="index+'-'+item.id">
+          <v-card class="jo-card" flat>
+                    <v-toolbar dense elevation="0"  > 
+                      <a @click="$router.push('/post/'+ item.id).catch((err) => {})">{{ item.title }}</a>
+                    
+                    </v-toolbar>
+                      <v-card-text>
+                      
+                        <v-img
+                        class="mb-2"
+                      width="64"
+                      height="64"
+                      :src=" item.medias.logo != '' ? item.medias.logo : $store.state.noImage"
                     />
-                  </v-list-item-avatar>
-
-                  <v-list-item-content>
-                    <v-list-item-title
-                      ><a
-                        @click="
-                          $router.push('post/' + item.id).catch((err) => {})
-                        "
-                        >{{ item.title }}</a
-                      ></v-list-item-title
-                    >
-                    <v-list-item-subtitle>
-                      <em class="text-info">{{
-                        $moment(item.created_dt).startOf("day").fromNow()
-                      }}</em>
-                      - {{ item.post_meta.company }} -
-                      {{ item.post_meta.company_address }}
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list>
-          </v-card-text>
-        </v-card>
+                       <div> Salary: {{ item.post_meta.salary }}</div>
+                       <div> Nature of Work: {{ item.post_meta.classificationofvacancy }}</div>
+                       <div> Date Posted: <em class="text-warning">{{ $moment(item.created_dt).fromNow()  }}</em></div>
+                      </v-card-text>
+                     
+                  </v-card>
+                </v-col>
+        </template>
+        <v-col cols="12" class="text-center"><v-btn small text tile @click="page+=12">Show More >></v-btn></v-col>
+      </v-row>
+                 
+       
       </v-col>
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="12">
           <div class="mb-4">
             <widget-training-widget></widget-training-widget>
           </div>
@@ -127,12 +119,21 @@
 import { mapMutations } from "vuex";
 export default {
   data: () => ({
-    noImage: require("@/assets/no-image-icon.png"),
+    noImage: "",
+    page: 12,
     jobs: [],
     trainings: [],
     programs: [],
   }),
-  computed: {},
+  computed: {
+    loadJobs() {
+      if(this.jobs.length>12) {
+        return this.jobs.slice(0,this.page)
+      } else {
+       return this.jobs
+      }
+    }
+  },
   created() {
     // this.setLoggedIn(true)
     this.setAppBar(true);

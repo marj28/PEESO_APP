@@ -12,7 +12,9 @@
           </v-icon> JOB DETAILS
 
           <v-spacer />
-
+          <v-icon  @click="emitToParent('close')">
+              mdi-close-box
+            </v-icon>
         </v-card-title>
         <v-divider />
         
@@ -154,18 +156,15 @@
                         </v-row>
  -->
 
-                        <v-row class="mt-n10">
+                        <!-- <v-row class="mt-n10">
 
-                        </v-row>
+                        </v-row> -->
 
 
                       </v-form>
                     </v-card-text>
                     <v-card-actions>
-
-
-                    
-                      <v-btn @click="emitToParent('close')" class="ma-2" color="warning" text>
+                      <v-btn @click="emitToParent('close')"  color="warning" text>
                         Cancel
                       </v-btn>
                       <v-spacer/>

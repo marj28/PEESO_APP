@@ -92,6 +92,11 @@ export default [
       view: 'account/Profile'
     },
     {
+      path: '/messages',
+      name: 'Messages',
+      view: 'account/Messages'
+    },
+    {
       path: '/student',
       name: 'Student',
       view: 'dashboard/Student'

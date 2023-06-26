@@ -122,15 +122,15 @@
           icon: "mdi-card-account-details",
           route: "/profile",
         },
+        // {
+        //   label: "My Applications",
+        //   icon: "mdi-text-box-check-outline",
+        //   route: "/jobview",
+        // },
         {
-          label: "My Applications",
-          icon: "mdi-text-box-check-outline",
-          route: "/jobview",
-        },
-        {
-          label: "Trainings",
-          icon: "mdi-forum",
-          route: "/trainingview",
+          label: "Messages",
+          icon: "mdi-inbox",
+          route: "/messages",
         },
       ],
   
@@ -199,13 +199,15 @@
         return this.$store.state.is_logged;
       },
       MENUS() {
-        if (this.user.role == "Employeer") {
-          return this.employeer_menu;
-        } else if (this.user.role == "Student") {
-          return this.student_menu;
-        } else if (this.user.role == "Jobseeker") {
-          return this.seeker_menu;
-        }
+        if(this.user) {
+          if (this.user.role == "Employeer") {
+            return this.employeer_menu;
+          } else if (this.user.role == "Student") {
+            return this.student_menu;
+          } else if (this.user.role == "Jobseeker") {
+            return this.seeker_menu;
+          }
+        } 
         return this.admin_menu;
       },
       currentRouteName() {
@@ -227,8 +229,9 @@
         this.setLoggedIn(false);
         this.setNavBar(false);
         sessionStorage.clear();
+        localStorage.user = null
         this.$router.push("/");
-        //setTimeout(()=>{ location.reload() }, 1000)
+       // setTimeout(()=>{ location.reload() }, 1000)
       },
       menuItems() {
         return this.menu;

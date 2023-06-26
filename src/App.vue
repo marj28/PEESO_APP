@@ -67,6 +67,9 @@ export default {
             info: '#00d3ee',
             success: '#5cb860',
             warning: '#ffa21a' */
+ .jo-card {
+  border-left: 1px solid #0C8533 !important; 
+ }           
 .text-primary {
   color: #0C8533
 }
