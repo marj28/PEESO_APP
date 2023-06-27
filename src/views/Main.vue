@@ -15,8 +15,8 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row>
-      <!-- <v-col cols="6" md="4">
+    <!-- <v-row>
+      <v-col cols="6" md="4">
         <v-card color="primary" dark @click="$router.push({ path: 'job-listing' })">
           <v-card-text>
             <v-row>
@@ -62,25 +62,89 @@
             </v-row>
           </v-card-text>
         </v-card>
-      </v-col> -->
-    </v-row>
+      </v-col>
+    </v-row> -->
 
     <v-row>
       <!--                                                                                                          -->
     </v-row>
     <v-col cols="12">
-
       <div>
-    <CarouselHomePage style="margin-bottom: 2%; cursor: pointer;" />
-   
-    <!-- <div>
+        <CarouselHomePage style="margin-bottom: 2%; cursor: pointer;" />
+        <!-- <div>
       <img src="@/assets/opportunties.jpg" class="picture1" alt="123" style="width: 60%; margin-left: %;" />
     </div> -->
-   
-
-   
-  </div>
+      </div>
     </v-col>
+
+    <v-row>
+      <v-col cols="3" md="3">
+        <v-card color="primary" dark @click="$router.push({ path: 'coaching-and-education-facilitation' })"
+          style="height: 100%;">
+          <v-card-text>
+            <v-row>
+              <v-col cols="4" class="text-center">
+                <img :src="$store.state.img_dir + 'job.png'" width="48" />
+              </v-col>
+              <v-col cols="8">
+                <div class="text-h6"> Career Guidance and Employment Coaching and Education Facilitation Division</div>
+
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="3" md="3">
+        <v-card color="primary" dark @click="$router.push({ path: 'matching-and-refferal-division' })" style="height: 100%;">
+          <v-card-text>
+            <v-row>
+              <v-col cols="4" class="text-center">
+                <img :src="$store.state.img_dir + 'training.png'" width="48" />
+              </v-col>
+              <v-col cols="8">
+                <div class="text-h6">Livelihood, Entrepreneurship, Skills Development And Project Monitoring And
+                  Evaluation Division</div>
+
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="3" md="3">
+        <v-card color="primary" dark @click="$router.push({ path: 'matching-and-refferal-division' })" style="height: 100%;">
+          <v-card-text>
+            <v-row>
+              <v-col cols="4" class="text-center">
+                <img :src="$store.state.img_dir + 'job.png'" width="48" />
+              </v-col>
+              <v-col cols="8">
+                <div class="text-h6">Labor Market Information, Matching and Referral Division</div>
+
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="3" md="3">
+        <v-card color="primary" dark @click="$router.push({ path: 'labor-market' })" style="height: 100%;">
+          <v-card-text>
+            <v-row>
+              <v-col cols="4" class="text-center">
+                <img :src="$store.state.img_dir + 'training.png'" width="48" />
+              </v-col>
+              <v-col cols="8">
+                <div class="text-h6">Labor Market Information, Matching and Referral Division</div>
+
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+
+    </v-row>
 
   </v-container>
 </template>

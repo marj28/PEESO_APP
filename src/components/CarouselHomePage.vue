@@ -19,7 +19,6 @@
                     educational services such as pre-employment seminars, career guidance, scholarships and others.
                     LEARN. GROW. SUCCEED.</p>
             </div>
-
         </v-carousel-item>
 
         <v-carousel-item src="@/assets/training.png" fill>

@@ -46,6 +46,29 @@ export default [
     name: 'Home',
     view: 'Main'
   },
+  
+  
+  {
+    path: '/monitoring-and-evaluation',
+    name: 'MonitoringAndEvaluation',
+    view: 'HomeCards/MonitoringAndEvaluation'
+  },
+  
+  {
+    path: '/labor-market',
+    name: 'LaborMarket',
+    view: 'HomeCards/LaborMarket'
+  },
+  {
+    path: '/matching-and-refferal-division',
+    name: 'MatchingAndRefferalDivision',
+    view: 'HomeCards/MatchingAndRefferalDivision'
+  },
+  {
+    path: '/coaching-and-education-facilitation',
+    name: 'CoachingAndEducationFacilitation',
+    view: 'HomeCards/CoachingAndEducationFacilitation'
+  },
   {
     path: '/employer',
     name: 'Employer',
