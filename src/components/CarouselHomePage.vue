@@ -1,7 +1,7 @@
 <template>
     <v-carousel cycle height="500" hide-delimiter-background show-arrows="hover">
         <v-carousel-item src="@/assets/opportunties.jpg" class="picture1" fill>
-            <div style="margin-top: 25%;margin-left: 2%;">
+            <div style="margin-top: 25%;margin-left: 2%;background-color: #232629;margin-right:2%;">
                 <p style="font-size: 25px; font-weight: 400; color:white"><span
                         style="font-size: 25;font-weight: 600;">Discover career
                         opportunities.</span> See career opportunities catered to your skills and abilities. Enter the
@@ -11,7 +11,7 @@
         </v-carousel-item>
 
         <v-carousel-item src="@/assets/learnings.jpg" class="picture1" fill>
-            <div style="margin-top: 25%;margin-left: 2%;">
+            <div style="margin-top: 25%;margin-left: 2%;background-color: #232629;margin-right:2%;">
                 <p style="font-size: 25px; font-weight: 400; color:white"><span style="font-size: 25;font-weight: 600;">Gain
                         Lifelong
                         learnings.</span> Give yourself tools and resources
@@ -22,7 +22,7 @@
         </v-carousel-item>
 
         <v-carousel-item src="@/assets/training.png" fill>
-            <div style="margin-top: 25%;margin-left: 2%;">
+            <div style="margin-top: 25%;margin-left: 2%;background-color: #232629;margin-right:2%;">
                 <p style="font-size: 25px; font-weight: 400; color:white">
                     <span style="font-size: 25;font-weight: 600;"> Develop your skills and access livelihood
                         possibilities.</span>
@@ -34,4 +34,5 @@
 
 
         </v-carousel-item>
-    </v-carousel></template>
+    </v-carousel>
+</template>

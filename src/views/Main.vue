@@ -78,7 +78,7 @@
     </v-col>
 
     <v-row>
-      <v-col cols="3" md="3">
+      <v-col cols="4" md="4">
         <v-card color="primary" dark @click="$router.push({ path: 'coaching-and-education-facilitation' })"
           style="height: 100%;">
           <v-card-text>
@@ -95,8 +95,9 @@
         </v-card>
       </v-col>
 
-      <v-col cols="3" md="3">
-        <v-card color="primary" dark @click="$router.push({ path: 'matching-and-refferal-division' })" style="height: 100%;">
+      <v-col cols="4" md="4">
+        <v-card color="primary" dark @click="$router.push({ path: 'matching-and-refferal-division' })"
+          style="height: 100%;">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
@@ -111,8 +112,9 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="3" md="3">
-        <v-card color="primary" dark @click="$router.push({ path: 'matching-and-refferal-division' })" style="height: 100%;">
+      <v-col cols="4" md="4">
+        <v-card color="primary" dark @click="$router.push({ path: 'labor-market' })"
+          style="height: 100%;">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
@@ -127,7 +129,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="3" md="3">
+      <!-- <v-col cols="3" md="3">
         <v-card color="primary" dark @click="$router.push({ path: 'labor-market' })" style="height: 100%;">
           <v-card-text>
             <v-row>
@@ -141,7 +143,7 @@
             </v-row>
           </v-card-text>
         </v-card>
-      </v-col>
+      </v-col> -->
 
 
     </v-row>
