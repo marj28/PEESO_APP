@@ -15,60 +15,22 @@
         </v-card>
       </v-col>
     </v-row> -->
-    <!-- <v-row>
-      <v-col cols="6" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'job-listing' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'job.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6"></div>
-                Job Posts
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-
-      <v-col cols="6" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'trainingview' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6"></div>
-                Trainings
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-
-      <v-col cols="12" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'programview' })">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'program.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6"></div>
-                Programs
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row> -->
-
     <v-row>
-      <!--                                                                                                          -->
+      <v-col cols="12" md="8" class="backgruond"></v-col>
+      <v-col cols="12" md="4" style="">
+        <h3 class="mt-5 weare">#WEARE<span class="tagum">TAGUM</span></h3>
+        <!-- <h1 class="ml-n5 mt-n1 CPEESOFont">CPEESO</h1> -->
+        <p class="mt-5">
+          Public Education and Employment Services Office (P.E.E.S.O.) is a
+          government agency tasked in providing education and employment
+          services under the Department of Labor and Employment (DOLE).
+        </p>
+      </v-col>
+
     </v-row>
-    <v-col cols="12">
+
+
+    <v-col cols="12" style="margin-top: 2%; margin-bottom: 2%;">
       <v-card class="mx-auto" style="height: 101%;">
         <v-card-text style="height: 77%;">
           <p class="text-h4 weare">Accessibility and Inclusivity</p>
@@ -174,23 +136,11 @@
 
     <v-row>
       <v-col cols="4" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'coaching-and-education-facilitation' })"
-          style="height: 100%;">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'job.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6"> Education</div>
 
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
+        <EducationHome />
       </v-col>
 
-      <v-col cols="4" md="4">
+      <!-- <v-col cols="4" md="4">
         <v-card color="primary" dark @click="$router.push({ path: 'matching-and-refferal-division' })"
           style="height: 100%;">
           <v-card-text>
@@ -220,24 +170,31 @@
             </v-row>
           </v-card-text>
         </v-card>
-      </v-col>
+      </v-col> -->
 
-      <!-- <v-col cols="3" md="3">
-        <v-card color="primary" dark @click="$router.push({ path: 'labor-market' })" style="height: 100%;">
+
+
+
+      <v-col cols="4" md="4">
+
+        <ApplicantHome />
+      </v-col>
+      <v-col cols="4" md="4">
+        <!-- <v-card color="primary" dark @click="$router.push({ path: 'labor-market' })" style="height: 100%;">
           <v-card-text>
             <v-row>
               <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
+                <img :src="$store.state.img_dir + 'job.png'" width="48" />
               </v-col>
               <v-col cols="8">
-                <div class="text-h6">Labor Market Information, Matching and Referral Division</div>
+                <div class="text-h6">Training</div>
 
               </v-col>
             </v-row>
           </v-card-text>
-        </v-card>
-      </v-col> -->
-
+        </v-card> -->
+        <TrainingHome />
+      </v-col>
 
     </v-row>
 
@@ -512,7 +469,7 @@
         </div>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card class="mx-auto" style="height: 101%;">
+        <div class="mx-auto" style="height: 101%;">
           <v-card-text style="height: 79%;">
             <!-- <div>How to</div> -->
             <p class="text-h4 weare">Personalized Support</p>
@@ -611,10 +568,10 @@
               </v-card-actions>
             </v-card>
           </v-dialog> -->
-        </v-card>
+        </div>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card class="mx-auto">
+        <div class="mx-auto">
           <v-card-text style="height: 70%;">
             <!-- <div>How to</div> -->
             <p class="text-h4 weare">Opportunities for Lifelong Learning</p>
@@ -714,10 +671,10 @@
               </v-card-actions>
             </v-card>
           </v-dialog>
-        </v-card>
+        </div>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card class="mx-auto" style="height: 101%;">
+        <div class="mx-auto" style="height: 101%;">
           <v-card-text style="height: 78%;">
             <!-- <div>How to</div> -->
             <p class="text-h4 weare">Community Engagement</p>
@@ -816,10 +773,10 @@
               </v-card-actions>
             </v-card>
           </v-dialog> -->
-        </v-card>
+        </div>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card class="mx-auto" style="height: 101%;">
+        <div class="mx-auto" style="height: 101%;">
           <v-card-text style="height: 78%;">
             <!-- <div>How to</div> -->
             <p class="text-h4 weare">Support for Employers</p>
@@ -918,7 +875,7 @@
               </v-card-actions>
             </v-card>
           </v-dialog> -->
-        </v-card>
+        </div>
       </v-col> <v-col cols="12" md="4">
 
       </v-col>
@@ -934,6 +891,7 @@ export default {
     jobs: [],
     trainings: [],
     programs: [],
+    show: false,
   }),
   computed: {},
   created() {
@@ -984,3 +942,40 @@ export default {
   },
 };
 </script>
+
+
+<style>
+/* .v-card--reveal {
+    bottom: 0;
+    opacity: 1 !important;
+    width: 100%;
+  } */
+.backgruond {
+  background-image: url(../assets/kontak.jpg) !important;
+  height: 350px;
+  /* width: 65%; */
+  display: block;
+  /* position: absolute; */
+  top: 8px;
+  right: 16px;
+  background-size: cover;
+  margin-top: 10px;
+}
+
+.CPEESOFont {
+  font-size: 60px;
+  color: #39af37;
+}
+
+#weare {
+  color: #39af37;
+}
+
+.weare {
+  color: #39af37;
+}
+
+.tagum {
+  color: #dfcc03;
+}
+</style>
