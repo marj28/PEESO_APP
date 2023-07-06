@@ -1,25 +1,11 @@
 <template>
   <v-container>
-    <!-- <v-row>
-      <v-col cols="12">
-        <v-card>
-          <v-card-text>
-            <div style="float: left" class="mr-8">
-              <img :src="$store.state.systemlogo" width="110px" />
-            </div>
-            <div style="min-height: 100px">
-              <div class="text-h5 font-weight-bold text-primary">Welcome</div>
-              <div>Welcome to Tagum City - PEESO Program</div>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row> -->
+
     <v-row>
       <v-col cols="12" md="8" class="backgruond"></v-col>
       <v-col cols="12" md="4" style="">
         <h3 class="mt-5 weare">#WEARE<span class="tagum">TAGUM</span></h3>
-        <!-- <h1 class="ml-n5 mt-n1 CPEESOFont">CPEESO</h1> -->
+
         <p class="mt-5">
           Public Education and Employment Services Office (P.E.E.S.O.) is a
           government agency tasked in providing education and employment
@@ -128,9 +114,7 @@
       </v-card>
       <div>
         <CarouselHomePage style="margin-bottom: 2%; cursor: pointer;" />
-        <!-- <div>
-      <img src="@/assets/opportunties.jpg" class="picture1" alt="123" style="width: 60%; margin-left: %;" />
-    </div> -->
+
       </div>
     </v-col>
 
@@ -140,38 +124,6 @@
         <EducationHome />
       </v-col>
 
-      <!-- <v-col cols="4" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'matching-and-refferal-division' })"
-          style="height: 100%;">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'training.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6">Applicant</div>
-
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="4" md="4">
-        <v-card color="primary" dark @click="$router.push({ path: 'labor-market' })" style="height: 100%;">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'job.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6">Training</div>
-
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col> -->
-
 
 
 
@@ -180,19 +132,7 @@
         <ApplicantHome />
       </v-col>
       <v-col cols="4" md="4">
-        <!-- <v-card color="primary" dark @click="$router.push({ path: 'labor-market' })" style="height: 100%;">
-          <v-card-text>
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <img :src="$store.state.img_dir + 'job.png'" width="48" />
-              </v-col>
-              <v-col cols="8">
-                <div class="text-h6">Training</div>
 
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card> -->
         <TrainingHome />
       </v-col>
 
@@ -202,9 +142,9 @@
       <v-col cols="12" md="4">
         <div class="mx-auto" style="height: 101%;">
           <v-card-text style="height: 80%;">
-            <!-- <div>How to</div> -->
+
             <p class="text-h4 weare">Discover fascinating Job Prospects</p>
-            <!-- <p class="mb-6">Applicant Seeker</p> -->
+
             <div class="text--primary">
               Find a world of fascinating career opportunities catered to your talents and interests. Open up a world of
               possibilities and start down the path to a successful career.
@@ -213,80 +153,18 @@
           <v-card-actions>
             <br />
             <br />
-            <!-- <v-btn text color="green accent-4" @click="revealJobseeker = !revealJobseeker">
-              User Guide
-            </v-btn> -->
+
           </v-card-actions>
 
-          <!-- <v-dialog v-model="revealJobseeker" max-width="600px">
-            <v-card class="">
-              <v-card-text class="pb-0 ">
-                <p class="text-h5 weare ">Jobseeker Access</p>
-                <p>
-                  <b>Step 1: Create an Account</b><br />
-                  - Look for the "Sign Up" or "Create Account" button and
-                  click on it. <br />
-                  - Fill out the registration form with your personal
-                  information, such as your name, email address, and a
-                  password.
-                </p>
-                <p>
-                  <b>Step 2: Verify your email</b><br />
-                  - Check your email inbox for a verification email from the
-                  job application system. <br />
-                  - Open the email and click on the verification link
-                  provided.<br />
-                  - This step confirms your email address and activates your
-                  account.
-                </p>
-                <p>
-                  <b>Step 3: Explore available job opportunities</b><br />
-                  - Once your account is activated, log in to the job
-                  application system using your registered email and
-                  password.<br />
-                  - Navigate to the "Job Opportunities" or "Job Listings"
-                  section. <br />
-                  - Browse through the available job openings and click on
-                  the ones that interest you to view the job details.
-                </p>
-                <p>
-                  <b>Step 4: Prepare your application materials</b><br />
-                  - Review the job requirements, qualifications, and any
-                  specific instructions mentioned in the job description.<br />
-                  - Prepare your application materials, which may include a
-                  resume/CV, cover letter, and any additional documents
-                  requested. <br />
-                </p>
-                <p>
-                  <b>Step 5: Submit your application</b><br />
-                  - Locate the "Apply Now" or "Submit Application" button
-                  within the job listing<br />
-                  - Click on the button to initiate the application process.
-                </p>
-                <p>
-                  <b>Step 6: Update your profile and preferences
-                    (optional)</b><br />
-                  - Explore your user profile settings within the job
-                  application system.<br />
-                  - Update your profile information, such as contact
-                  details, education, work experience, and skills.
-                </p>
-              </v-card-text>
-              <v-card-actions class="pt-0">
-                <v-btn text color="green accent-4" @click="revealJobseeker = false">
-                  Close
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog> -->
+
         </div>
       </v-col>
       <v-col cols="12" md="4">
         <div class="mx-auto" style="height: 101%;">
           <v-card-text style="height: 75%;">
-            <!-- <div>How to</div> -->
+
             <p class="text-h4 weare">Develop Your Potential</p>
-            <!-- <p class="mb-6">Applicant Seeker</p> -->
+
             <div class="text--primary">
               Give yourself the tools and resources you need to realize all of your potential. We're here to support you
               in achieving your professional objectives, from skill-development workshops to career counseling
@@ -296,81 +174,18 @@
             <br />
             <br />
             <br />
-            <!-- <v-btn text color="green accent-4" @click="revealStudent = true">
-              User Guide
-            </v-btn> -->
+
           </v-card-actions>
 
-          <!-- <v-dialog v-model="revealStudent" max-width="600px">
-            <v-card class="transition-fast-in-fast-out v-card--reveal">
-              <v-card-text class="pb-0">
-                <p class="text-h5 weare">Student Access</p>
-                <p>
-                  <b>Step 1: Create an Account</b><br />
-                  - Look for the "Sign Up" or "Create Account" button and
-                  click on it. <br />
-                  - Fill out the registration form with your personal
-                  information, such as your name, email address, and a
-                  password.
-                </p>
-                <p>
-                  <b>Step 2: Verify your email</b><br />
-                  - Check your email inbox for a verification email from the
-                  job application system. <br />
-                  - Open the email and click on the verification link
-                  provided.<br />
-                  - This step confirms your email address and activates your
-                  account.
-                </p>
-                <p>
-                  <b>Step 3: Explore available job opportunities /
-                    Scholarships</b><br />
-                  - Once your account is activated, log in to the job
-                  application system using your registered email and
-                  password.<br />
-                  - Navigate to the "Job Opportunities" or "Job Listings"
-                  section. <br />
-                  - Browse through the available job openings and click on
-                  the ones that interest you to view the job details.
-                </p>
-                <p>
-                  <b>Step 4: Prepare your application materials</b><br />
-                  - Review the job requirements, qualifications, and any
-                  specific instructions mentioned in the job description.<br />
-                  - Prepare your application materials, which may include a
-                  resume/CV, cover letter, and any additional documents
-                  requested. <br />
-                </p>
-                <p>
-                  <b>Step 5: Submit your application</b><br />
-                  - Locate the "Apply Now" or "Submit Application" button
-                  within the job listing<br />
-                  - Click on the button to initiate the application process.
-                </p>
-                <p>
-                  <b>Step 6: Update your profile and preferences
-                    (optional)</b><br />
-                  - Explore your user profile settings within the job
-                  application system.<br />
-                  - Update your profile information, such as contact
-                  details, education, work experience, and skills.
-                </p>
-              </v-card-text>
-              <v-card-actions class="pt-0">
-                <v-btn text color="green accent-4" @click="revealStudent = false">
-                  Close
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog> -->
+
         </div>
       </v-col>
       <v-col cols="12" md="4">
         <div class="mx-auto" style="height: 101%;">
           <v-card-text style="height: 80%;">
-            <!-- <div>How to</div> -->
+           
             <p class="text-h4 weare">Connect with Employers</p>
-            <!-- <p class="mb-6">Applicant Seeker</p> -->
+          
             <div class="text--primary">
               Forge meaningful connections with leading employers in your industry. Our extensive network provides
               exclusive access to job openings, internships, and apprenticeships, ensuring you stay ahead in the
@@ -380,100 +195,18 @@
           <v-card-actions>
             <br />
             <br />
-            <!-- <v-btn text color="green accent-4" @click="revealEmployer = true" class="justify-end">
-              User Guide
-            </v-btn> -->
+         
           </v-card-actions>
 
-          <!-- <v-dialog v-model="revealEmployer" max-width="600px">
-            <v-card class="transition-fast-in-fast-out v-card--reveal">
-              <v-card-text class="pb-0">
-                <p class="text-h5 weare">Student Access</p>
-                <p>
-                  <b>Step 1: Create an Account</b><br />
-                  - Look for the "Sign Up" or "Create Account" button and
-                  click on it. <br />
-                  - Fill out the registration form with your personal
-                  information, such as your name, email address, and a
-                  password.
-                </p>
-                <p>
-                  <b>Step 2: Verify your email</b><br />
-                  - Check your email inbox for a verification email from the
-                  job application system. <br />
-                  - Open the email and click on the verification link
-                  provided.<br />
-                  - This step confirms your email address and activates your
-                  account.
-                </p>
-                <p>
-                  <b>Step 3: 3: Navigate to your employer dashboard</b><br />
-                  - Once logged in, you will be redirected to your employer
-                  dashboard or a designated section for employers.<br />
-                  - Navigate to the "Job Opportunities" or "Job Listings"
-                  section. <br />
-                  - Familiarize yourself with the available features and
-                  options specific to employers, such as job postings and
-                  candidate management
-                </p>
-                <p>
-                  <b>Step 4: Create a job posting</b><br />
-                  - Click on the "Post a Job" or "Create Job Listing" button
-                  within your employer dashboard.<br />
-                  - Provide the necessary details for the job posting,
-                  including job title, description, qualifications, and any
-                  other relevant information.<br />
-                  - Set the desired application deadline and any other
-                  specific requirements. <br />
-                  - Review the job posting information for accuracy before
-                  submitting it.
-                </p>
-                <p>
-                  <b>Step 5: Manage candidate applications</b><br />
-                  - View the list of candidates who have applied for your
-                  job posting.<br />
-                  - Click on individual candidate profiles to review their
-                  application materials, such as resumes, cover letters, and
-                  additional documents. <br />
-                  - Use the provided tools to track, organize, and manage
-                  candidate applications effectively.
-                </p>
-                <p>
-                  <b>Step 6: Communicate with candidates</b><br />
-                  - Send messages to candidates regarding application
-                  status, interview invitations, or any other necessary
-                  communication.<br />
-                  - Respond promptly to candidate inquiries or requests for
-                  additional information.
-                </p>
-                <p>
-                  <b>Step 7: Shortlist and select candidates</b><br />
-                  - Review the applications and assess candidates based on
-                  the provided qualifications and requirements.<br />
-                  - Select the candidates you would like to proceed with for
-                  further evaluation or interviews.
-                </p>
-                <p>
-                  <b>Step 8: Schedule interviews and assessments</b><br />
-                  - Coordinate and schedule interviews or assessments with
-                  the selected candidates.<br />
-                </p>
-              </v-card-text>
-              <v-card-actions class="pt-0">
-                <v-btn text color="green accent-4" @click="revealEmployer = false">
-                  Close
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog> -->
+         
         </div>
       </v-col>
       <v-col cols="12" md="4">
         <div class="mx-auto" style="height: 101%;">
           <v-card-text style="height: 79%;">
-            <!-- <div>How to</div> -->
+          
             <p class="text-h4 weare">Personalized Support</p>
-            <!-- <p class="mb-6">Applicant Seeker</p> -->
+           
             <div class="text--primary">
               Our staff of committed career advisors will offer you tailored advice. We are here to offer individualized
               support at every stage of the trip since we recognize that each person's path is unique.
@@ -482,100 +215,18 @@
           <v-card-actions>
             <br />
             <br />
-            <!-- <v-btn text color="green accent-4" @click="revealEmployer = true" class="justify-end">
-              User Guide
-            </v-btn> -->
+           
           </v-card-actions>
 
-          <!-- <v-dialog v-model="revealEmployer" max-width="600px">
-            <v-card class="transition-fast-in-fast-out v-card--reveal">
-              <v-card-text class="pb-0">
-                <p class="text-h5 weare">Student Access</p>
-                <p>
-                  <b>Step 1: Create an Account</b><br />
-                  - Look for the "Sign Up" or "Create Account" button and
-                  click on it. <br />
-                  - Fill out the registration form with your personal
-                  information, such as your name, email address, and a
-                  password.
-                </p>
-                <p>
-                  <b>Step 2: Verify your email</b><br />
-                  - Check your email inbox for a verification email from the
-                  job application system. <br />
-                  - Open the email and click on the verification link
-                  provided.<br />
-                  - This step confirms your email address and activates your
-                  account.
-                </p>
-                <p>
-                  <b>Step 3: 3: Navigate to your employer dashboard</b><br />
-                  - Once logged in, you will be redirected to your employer
-                  dashboard or a designated section for employers.<br />
-                  - Navigate to the "Job Opportunities" or "Job Listings"
-                  section. <br />
-                  - Familiarize yourself with the available features and
-                  options specific to employers, such as job postings and
-                  candidate management
-                </p>
-                <p>
-                  <b>Step 4: Create a job posting</b><br />
-                  - Click on the "Post a Job" or "Create Job Listing" button
-                  within your employer dashboard.<br />
-                  - Provide the necessary details for the job posting,
-                  including job title, description, qualifications, and any
-                  other relevant information.<br />
-                  - Set the desired application deadline and any other
-                  specific requirements. <br />
-                  - Review the job posting information for accuracy before
-                  submitting it.
-                </p>
-                <p>
-                  <b>Step 5: Manage candidate applications</b><br />
-                  - View the list of candidates who have applied for your
-                  job posting.<br />
-                  - Click on individual candidate profiles to review their
-                  application materials, such as resumes, cover letters, and
-                  additional documents. <br />
-                  - Use the provided tools to track, organize, and manage
-                  candidate applications effectively.
-                </p>
-                <p>
-                  <b>Step 6: Communicate with candidates</b><br />
-                  - Send messages to candidates regarding application
-                  status, interview invitations, or any other necessary
-                  communication.<br />
-                  - Respond promptly to candidate inquiries or requests for
-                  additional information.
-                </p>
-                <p>
-                  <b>Step 7: Shortlist and select candidates</b><br />
-                  - Review the applications and assess candidates based on
-                  the provided qualifications and requirements.<br />
-                  - Select the candidates you would like to proceed with for
-                  further evaluation or interviews.
-                </p>
-                <p>
-                  <b>Step 8: Schedule interviews and assessments</b><br />
-                  - Coordinate and schedule interviews or assessments with
-                  the selected candidates.<br />
-                </p>
-              </v-card-text>
-              <v-card-actions class="pt-0">
-                <v-btn text color="green accent-4" @click="revealEmployer = false">
-                  Close
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog> -->
+         
         </div>
       </v-col>
       <v-col cols="12" md="4">
         <div class="mx-auto">
           <v-card-text style="height: 70%;">
-            <!-- <div>How to</div> -->
+            
             <p class="text-h4 weare">Opportunities for Lifelong Learning</p>
-            <!-- <p class="mb-6">Applicant Seeker</p> -->
+            
             <div class="text--primary">
               Take advantage of our extensive selection of training programs to improve your skills. We provide
               possibilities for you to develop your skills and improve your employability, from workshops to online
@@ -585,9 +236,7 @@
           <v-card-actions>
             <br />
             <br />
-            <!-- <v-btn text color="green accent-4" @click="revealEmployer = true" class="justify-end">
-              User Guide
-            </v-btn> -->
+            
           </v-card-actions>
 
           <v-dialog v-model="revealEmployer" max-width="600px">
