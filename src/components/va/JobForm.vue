@@ -14,17 +14,24 @@
         <template v-if="!company.id">
           <div class="pa-4">
             <v-alert dense border="left" type="warning">
-              Please complete you company profile <v-btn small @click="openMyCompany()">here!</v-btn>
+              Please complete you company profile
+              <v-btn small @click="openMyCompany()">here!</v-btn>
             </v-alert>
           </div>
         </template>
         <template v-else>
           <v-stepper v-model="e1">
             <v-stepper-header style="font-size: 14px">
-              <v-stepper-step :complete="e1 > 1" step="1" style="height=" color="warning">
+              <v-stepper-step
+                :complete="e1 > 1"
+                step="1"
+                style="height="
+                color="warning"
+              >
                 Vacancy Details
               </v-stepper-step>
 
+              <v-divider></v-divider>
               <v-divider></v-divider>
 
               <v-stepper-step :complete="e1 > 2" step="2" color="warning">
@@ -54,66 +61,108 @@
                           :rules="nameRules" required label="Job Title" />
                       </v-col>
 
-
-
-
-                      <v-col cols="12" md="4" class="mt-n9">
-
-                        <v-select v-model="post.post_meta.purposeofvacancy" outlined class="mb-2" dense
-                          :items="['Additional Manpower', 'Replacement', 'Expansion']" :rules="nameRules" required
-                          label="Purpose of Vacancy" />
-
+                      <v-col cols="12" md="4" class="mt-n6">
+                        <v-select
+                          v-model="post.post_meta.purposeofvacancy"
+                          outlined
+                          class="mb-2"
+                          dense
+                          :items="[
+                            'Additional Manpower',
+                            'Replacement',
+                            'Expansion',
+                          ]"
+                          :rules="nameRules"
+                          required
+                          label="Purpose of Vacancy"
+                        />
                       </v-col>
 
-                      <v-col cols="12" md="4" class="mt-n9">
-
-
-                        <v-select v-model="post.post_meta.classificationofvacancy" outlined
-                          :items="['Administrative', 'Clerical', 'Managerial', 'Manual Labour', 'Supervisory', 'Technical']"
-                          dense :rules="nameRules" required label="Classification of Vacancy" />
-
+                      <v-col cols="12" md="4" class="mt-n6">
+                        <v-select
+                          v-model="post.post_meta.classificationofvacancy"
+                          outlined
+                          :items="[
+                            'Administrative',
+                            'Clerical',
+                            'Managerial',
+                            'Manual Labour',
+                            'Supervisory',
+                            'Technical',
+                          ]"
+                          dense
+                          :rules="nameRules"
+                          required
+                          label="Classification of Vacancy"
+                        />
                       </v-col>
 
-                      <v-col cols="12" md="4" class="mt-n9">
-
-
-                        <v-text-field v-model="post.post_meta.salary" outlined :rules="nameRules" required dense
-                          label="Expected Salary" />
+                      <v-col cols="12" md="4" class="mt-n6">
+                        <v-text-field
+                          v-model="post.post_meta.salary"
+                          outlined
+                          :rules="nameRules"
+                          required
+                          dense
+                          label="Expected Salary"
+                        />
                       </v-col>
-
                     </v-row>
 
                     <v-row>
-
-                      <v-col cols="12" md="2" class="mt-n9">
-
-                        <v-select v-model="post.post_meta.classificationofwork" outlined
-                          :items="['Permanent', 'Contractual', 'Part-time', 'Project-based', 'Internship/OJT']" dense
-                          :rules="nameRules" required label="Nature of Work" />
+                      <v-col cols="12" md="2" class="mt-n6">
+                        <v-select
+                          v-model="post.post_meta.classificationofwork"
+                          outlined
+                          :items="[
+                            'Permanent',
+                            'Contractual',
+                            'Part-time',
+                            'Project-based',
+                            'Internship/OJT',
+                          ]"
+                          dense
+                          :rules="nameRules"
+                          required
+                          label="Nature of Work"
+                        />
                       </v-col>
 
-
-                      <v-col cols="12" md="2" class="mt-n9">
-
-                        <v-text-field v-model="post.post_meta.vacancycount" outlined dense :rules="nameRules" required
-                          label="Vacancy Count" />
+                      <v-col cols="12" md="2" class="mt-n6">
+                        <v-text-field
+                          v-model="post.post_meta.vacancycount"
+                          outlined
+                          dense
+                          :rules="nameRules"
+                          required
+                          label="Vacancy Count"
+                        />
                       </v-col>
 
-
-                      <v-col cols="12" md="4" class="mt-n9">
-
-                        <v-text-field v-model="post.post_meta.postingdate" outlined type="date" :rules="nameRules"
-                          prepend-inner-icon="mdi-calendar" dense label="Posting Date" />
-
+                      <v-col cols="12" md="4" class="mt-n6">
+                        <v-text-field
+                          v-model="post.post_meta.postingdate"
+                          outlined
+                          type="date"
+                          :rules="nameRules"
+                          prepend-inner-icon="mdi-calendar"
+                          dense
+                          label="Posting Date"
+                        />
                       </v-col>
 
-                      <v-col cols="12" md="4" class="mt-n9">
-                        <v-text-field v-model="post.post_meta.validuntil" outlined type="date" :rules="nameRules"
-                          prepend-inner-icon="mdi-calendar" dense label="Valid Until" />
+                      <v-col cols="12" md="4" class="mt-n6">
+                        <v-text-field
+                          v-model="post.post_meta.validuntil"
+                          outlined
+                          type="date"
+                          :rules="nameRules"
+                          prepend-inner-icon="mdi-calendar"
+                          dense
+                          label="Valid Until"
+                        />
                       </v-col>
-
                     </v-row>
-
 
                     <!-- <v-row>
                           <v-col cols="12" md="12" class="mt-n9">
@@ -123,8 +172,9 @@
                           </v-col>
                         </v-row> -->
 
-                    <p class="mt-n8">
-                      <v-icon left color="success">mdi-account-hard-hat</v-icon> Job Description
+                    <p class="mt-n3">
+                      <v-icon left color="success">mdi-account-hard-hat</v-icon>
+                      Job Description
                     </p>
                     <div class="mb-2">
                       <v-tiptap v-model="post.content" />
@@ -183,24 +233,52 @@
 
                     <h3 class="text-center">Preferrence</h3>
 
-
                     <v-row class="mt-5">
                       <v-col cols="12">
-                        <v-select v-model="post.post_meta.educationallevel"
-                          :items="['Elementary Level', 'Elementary Graduate', 'Junior High School Level', 'Junior High School Level Graduate', 'Senior High School Level', 'Junior High School Graduate', 'TechVoc Level', 'TechVoc Graduate', 'College Level', 'College Graduate', 'Graduate/Post Graduate Studies']"
-                          :rules="nameRules" label="Educational Level" outlined dense color="green">
+                        <v-select
+                          v-model="post.post_meta.educationallevel"
+                          :items="[
+                            'Elementary Level',
+                            'Elementary Graduate',
+                            'Junior High School Level',
+                            'Junior High School Level Graduate',
+                            'Senior High School Level',
+                            'Junior High School Graduate',
+                            'TechVoc Level',
+                            'TechVoc Graduate',
+                            'College Level',
+                            'College Graduate',
+                            'Graduate/Post Graduate Studies',
+                          ]"
+                          :rules="nameRules"
+                          label="Educational Level"
+                          outlined
+                          dense
+                          color="green"
+                        >
                         </v-select>
                       </v-col>
 
                       <v-col cols="12">
-                        <v-text-field v-model="post.post_meta.courserequirements" label="Course Requirement" required
-                          outlined dense color="green">
+                        <v-text-field
+                          v-model="post.post_meta.courserequirements"
+                          label="Course Requirement"
+                          required
+                          outlined
+                          dense
+                          color="green"
+                          class="mt-n6"
+                        >
                         </v-text-field>
                       </v-col>
 
                       <v-col cols="12">
-                        <v-radio-group v-model="post.post_meta.acceptspersonwithdisability"
-                          label="Accepts persons with disabilities (PWD):" row>
+                        <v-radio-group
+                          v-model="post.post_meta.acceptspersonwithdisability"
+                          label="Accepts persons with disabilities (PWD):"
+                          row
+                          class="mt-n3"
+                        >
                           <v-radio label="Yes" value="yes" color="green">
                           </v-radio>
                           <v-radio label="No" value="no" color="green">
@@ -209,17 +287,37 @@
                       </v-col>
 
                       <v-col cols="12">
-                        <v-select v-model="post.post_meta.disability"
-                          :items="['Visual', 'Hearing', 'Speech', 'Physical', 'Mental', 'Others']" label="If 'yes': "
-                          multiple dense color="green" outlined>
+                        <v-select
+                          v-model="post.post_meta.disability"
+                          :items="[
+                            'Visual',
+                            'Hearing',
+                            'Speech',
+                            'Physical',
+                            'Mental',
+                            'Others',
+                          ]"
+                          label="If 'yes': "
+                          multiple
+                          dense
+                          color="green"
+                          outlined
+                          class="mt-n6"
+                        >
                         </v-select>
                       </v-col>
 
-
                       <v-col cols="12">
-                        <v-select :rules="nameRules" v-model="post.post_meta.sexpreference"
-                          :items="['N/A', 'Male', 'Female', 'Preference']" label="Sex Preference" outlined dense
-                          color="green">
+                        <v-select
+                          :rules="nameRules"
+                          v-model="post.post_meta.sexpreference"
+                          :items="['N/A', 'Male', 'Female', 'Preference']"
+                          label="Sex Preference"
+                          outlined
+                          dense
+                          color="green"
+                          class="mt-n6"
+                        >
                         </v-select>
                       </v-col>
                     </v-row>
@@ -230,41 +328,101 @@
 
                     <v-row>
                       <v-col cols="12">
-                        <v-radio-group v-model="post.post_meta.acceptadditional"
-                          label="Accepts Additional Qualification Requirements: " row>
-                          <v-radio label="Required" value="required" color="green">
+                        <v-radio-group
+                          v-model="post.post_meta.acceptadditional"
+                          label="Accepts Additional Qualification Requirements: "
+                          row
+                        >
+                          <v-radio
+                            label="Required"
+                            value="required"
+                            color="green"
+                          >
                           </v-radio>
-                          <v-radio label="Optional" value="optional" color="green">
+                          <v-radio
+                            label="Optional"
+                            value="optional"
+                            color="green"
+                          >
                           </v-radio>
                         </v-radio-group>
                       </v-col>
 
-                      <v-col cols="12" sm="12" md="12" class="mt-n5 ml-4">
+                      <v-col cols="12" sm="12" md="12" class="mt-n6 ml-4">
                         For each identified vacant position.
                       </v-col>
 
-
                       <v-col cols="12">
-                        <v-text-field v-model="post.post_meta.workexperience" :rules="nameRules"
-                          label="Work Experience (month/s): " required outlined dense color="green"
-                          type="number"></v-text-field>
+                        <v-text-field
+                          v-model="post.post_meta.workexperience"
+                          :rules="nameRules"
+                          label="Work Experience (month/s): "
+                          required
+                          outlined
+                          dense
+                          color="green"
+                          type="number"
+                          class="mt-n4"
+                        ></v-text-field>
                       </v-col>
                       <v-col cols="12">
-                        <v-text-field v-model="post.post_meta.requiredlicense" label="Required License: " required
-                          outlined dense color="green"></v-text-field>
+                        <v-text-field
+                          v-model="post.post_meta.requiredlicense"
+                          label="Required License: "
+                          required
+                          outlined
+                          dense
+                          color="green"
+                          class="mt-n6"
+                        ></v-text-field>
                       </v-col>
                       <v-col cols="12">
-                        <v-text-field v-model="post.post_meta.otherqualification" label="Other qualifications: " required
-                          outlined dense color="green"></v-text-field>
+                        <v-text-field
+                          v-model="post.post_meta.otherqualification"
+                          label="Other qualifications: "
+                          required
+                          outlined
+                          dense
+                          color="green"
+                          class="mt-n6"
+                        ></v-text-field>
                       </v-col>
                       <v-col cols="12">
-                        <v-select v-model="post.post_meta.employabilityskills"
-                          :items="['Planning and Organizing', 'Social Perceptiveness', 'Innovation', 'Multi-tasking', 'Work Standards/Ethics', 'Stress Tolerance', 'Self Motivation', 'Problem Sensitivity', 'Creative Problem Solving', 'Teamwork', 'Decision Making', 'Critical Thinking', 'Math Function Skill', 'English Function Skill', 'English Comprehension']"
-                          label="Employability Skills" outlined multiple small-chips dense color="green">
+                        <v-select
+                          v-model="post.post_meta.employabilityskills"
+                          :items="[
+                            'Planning and Organizing',
+                            'Social Perceptiveness',
+                            'Innovation',
+                            'Multi-tasking',
+                            'Work Standards/Ethics',
+                            'Stress Tolerance',
+                            'Self Motivation',
+                            'Problem Sensitivity',
+                            'Creative Problem Solving',
+                            'Teamwork',
+                            'Decision Making',
+                            'Critical Thinking',
+                            'Math Function Skill',
+                            'English Function Skill',
+                            'English Comprehension',
+                          ]"
+                          label="Employability Skills"
+                          outlined
+                          multiple
+                          small-chips
+                          dense
+                          color="green"
+                          class="mt-n6"
+                        >
                         </v-select>
                       </v-col>
-                      <v-col cols="12">
-                        <v-radio-group v-model="post.post_meta.acceptsreturningofws" label="Accepts returning OFWs: " row>
+                      <v-col cols="12" class="mt-n10">
+                        <v-radio-group
+                          v-model="post.post_meta.acceptsreturningofws"
+                          label="Accepts returning OFWs: "
+                          row
+                        >
                           <v-radio label="Yes" value="yes" color="green">
                           </v-radio>
                           <v-radio label="No" value="no" color="green">
@@ -273,29 +431,32 @@
                       </v-col>
                     </v-row>
                   </v-col>
-
                 </v-row>
 
                 <v-toolbar dense flat>
-                  <v-btn @click="e1 = 1">
-                    Back
-                  </v-btn>
-                  <v-btn @click="emitToParent('close')" class="ma-2" color="warning">
+                  <v-btn @click="e1 = 1"> Back </v-btn>
+                  <v-spacer />
+                  <v-btn
+                    @click="emitToParent('close')"
+                    class="ma-2"
+                    color="warning"
+                  >
                     Cancel
                   </v-btn>
-                  <v-spacer />
-                  <v-btn color="success" :loading="loading" dense @click="SavePost()">
-                    {{ state == 'update' ? "Save" : 'Post' }}
+                  
+                  <v-btn
+                    color="success"
+                    :loading="loading"
+                    dense
+                    @click="SavePost()"
+                  >
+                    {{ state == "update" ? "Save" : "Post" }}
                   </v-btn>
                 </v-toolbar>
-
-
-
               </v-stepper-content>
             </v-stepper-items>
           </v-stepper>
         </template>
-
       </v-card>
     </v-dialog>
 
@@ -355,7 +516,7 @@ export default {
       this.$emit("DialogEvent", { action: action });
     },
     openMyCompany() {
-      this.emitToParent("close")
+      this.emitToParent("close");
       this.$router.push("company-select");
     },
     myCompany() {
