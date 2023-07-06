@@ -20,23 +20,28 @@
             <v-data-table dense :headers="headers" :search="search" :items="posts">
               <template v-slot:body="{ items }">
                 <tbody>
-                  <tr v-for="(item, index) in items" :key="index">
+                  <tr v-for="(item, index) in items" :key="index" style="cursor: pointer;">
                     <td>
                       <!-- <v-icon  small left color="warning" @click="post=item, state='update', jobform=true" >mdi-pencil</v-icon> -->
-                      <v-icon small left color="warning"
+                      <v-icon small color="warning"
                         @click="post = item, state = 'update', jobform = true">mdi-open-in-new</v-icon>
+                    </td>
+                    <td @click="
+                      $router.push('job-details/' + item.id).catch((err) => { })
+                      ">
+
                       {{ item.title }}
                     </td>
-                    <td  @click="
+                    <td @click="
                       $router.push('job-details/' + item.id).catch((err) => { })
                       ">{{ item.post_meta.salary }}</td>
-                    <td  @click="
+                    <td @click="
                       $router.push('job-details/' + item.id).catch((err) => { })
                       ">{{ item.post_meta.classificationofvacancy }} </td>
                     <td class="text-center" @click="
                       $router.push('job-details/' + item.id).catch((err) => { })
-                      " >{{ item.post_meta.vacancycount
-                    }}</td>
+                      ">{{ item.post_meta.vacancycount
+  }}</td>
                     <!-- <td class="text-right">{{ item.status }}</td> -->
                   </tr>
                 </tbody>
@@ -93,7 +98,7 @@ export default {
     applicants: [],
     isMobile: false,
     headers: [
-
+      { text: 'Action', value: 'action' },
       { text: 'Positin Title', value: 'title' },
       { text: 'Salary', value: 'post_meta.salary', hideOnMobile: true },
       { text: 'Nature of Work', value: 'post_meta.classificationofwork', hideOnMobile: true },
