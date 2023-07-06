@@ -38,8 +38,6 @@
                 Preferrence & Qualification Requirements
               </v-stepper-step>
 
-              <v-divider></v-divider>
-
             </v-stepper-header>
 
             <v-stepper-items>
