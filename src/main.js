@@ -4,8 +4,8 @@ import vuetify from './plugins/vuetify'
 //Plugins
 import './plugins'
 import './components'
-import Swiper from 'swiper';
-import 'swiper/css';
+// import Swiper from 'swiper';
+// import 'swiper/css';
 
 import router from '@/router'
 import store from '@/store'
@@ -19,6 +19,6 @@ Vue.config.productionTip = false
 new Vue({
   vuetify,
   router,
-  store, Swiper,
+  store, 
   render: h => h(App)
 }).$mount('#app')
