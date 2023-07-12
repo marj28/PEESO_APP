@@ -6,7 +6,7 @@
       <v-col cols="12" md="4" style="">
         <h3 class="mt-5 weare">#WEARE<span class="tagum">TAGUM</span></h3>
         <!-- <h1 class="ml-n5 mt-n1 CPEESOFont">CPEESO</h1> -->
-        <p class="mt-5">
+        <p class="mt-5 mb-n10">
           Public Education and Employment Services Office (P.E.E.S.O.) is a
           government agency tasked in providing education and employment
           services under the Department of Labor and Employment (DOLE).
@@ -15,37 +15,30 @@
 
     </v-row>
 
-
-
-
-
-
-
-
     <v-col cols="12">
       <h5 class="pa-5 weare mt-6">Accessing CPEESO Website ( User Guide )</h5>
-      <h2 class="pa-5 weare mt-2">WELCOME TO OUR PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE PAGE!</h2>
+      <!-- <h2 class="pa-5 weare">WELCOME TO OUR PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE PAGE!</h2> -->
 
       <v-row>
       
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" style="height: 101%;">
+        <v-col cols="12" md="4" class="mb-n10">
+          <v-card class="mx-auto" style="height: 90%;">
             <v-card-text>
               <div>How to</div>
-              <p class="text-h4 weare">JOB SEEKER</p>
-              <p class="mb-6">Applicant</p>
-              <div class="text--primary">
+              <p class="weare" id="js">JOB SEEKER</p>
+              <p class="mb-6" id="ttitle">Applicant</p>
+              <p class="text--primary" id="texts">
                 I am an individual who is actively searching for employment
                 opportunities. I may be currently unemployed or looking to
                 transition from my current job to a new one. My primary focus
                 is on finding a job that aligns with my skills,
                 qualifications, and career aspirations.
-              </div>
+              </p>
             </v-card-text>
             <v-card-actions>
               <br />
               <br />
-              <v-btn text color="green accent-4" @click="revealJobseeker = !revealJobseeker">
+              <v-btn text color="green accent-4" @click="revealJobseeker = !revealJobseeker" class="userGuide">
                 User Guide
               </v-btn>
             </v-card-actions>
@@ -113,24 +106,24 @@
             </v-dialog>
           </v-card>
         </v-col>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" style="height: 101%;">
-            <v-card-text style="height: 78%;">
+        <v-col cols="12" md="4" class="mb-n10">
+          <v-card class="mx-auto" style="height: 90%;">
+            <v-card-text >
               <div>How to</div>
-              <p class="text-h4 weare">STUDENT</p>
-              <p class="mb-6">Scholarship Seeker</p>
-              <div class="text--primary">
+              <p class="weare"  id="js">STUDENT</p>
+              <p class="mb-6" id="ttitle">Scholarship Seeker</p>
+              <p class="text--primary" id="texts">
                 I am currently enrolled in an educational institution,
                 pursuing my academic goals and working towards acquiring
                 knowledge and skills in a specific field. My main focus is on
                 my education and personal development.
-              </div>
+              </p>
             </v-card-text>
             <v-card-actions>
               <br />
               <br />
               <br />
-              <v-btn text color="green accent-4" @click="revealStudent = true">
+              <v-btn text color="green accent-4" @click="revealStudent = true"  class="userGuide">
                 User Guide
               </v-btn>
             </v-card-actions>
@@ -199,25 +192,25 @@
             </v-dialog>
           </v-card>
         </v-col>
-        <v-col cols="12" md="4">
-          <v-card class="mx-auto" style="height: 101%;">
+        <v-col cols="12" md="4" class="mb-n10">
+          <v-card class="mx-auto" style="height: 90%;">
             <v-card-text>
               <div>How to</div>
-              <p class="text-h4 weare">EMPLOYER</p>
-              <p class="mb-6">Applicant Seeker</p>
-              <div class="text--primary">
+              <p class="weare"  id="js">EMPLOYER</p>
+              <p class="mb-6" id="ttitle">Applicant Seeker</p>
+              <p class="text--primary" id="texts">
                 I am responsible for overseeing and managing a company or
                 organization. I have the authority to hire and supervise
                 employees, set company policies and procedures, and make
                 strategic decisions to drive the success of the business. It
                 is my role to create a productive and positive work
                 environment.
-              </div>
+              </p>
             </v-card-text>
             <v-card-actions>
               <br />
               <br />
-              <v-btn text color="green accent-4" @click="revealEmployer = true" class="justify-end">
+              <v-btn text color="green accent-4" @click="revealEmployer = true" class="userGuide" >
                 User Guide
               </v-btn>
             </v-card-actions>
@@ -308,24 +301,12 @@
 
       </v-row>
       <v-col>
-
-        <!-- <p style="font-size: 30px; font-weight: 500; margin-top: 2%; color: green;">Join us today and embark on a
-          rewarding career journey filled with growth, success, and endless possibilities!
-        </p>
-        <p style="font-size: 35px; font-weight: 400;"> LABOR MARKET INFORMATION</p>
-        <p style="font-size: 30px; font-weight: 400; line-height: 70%;">1. In-demand Jobs
-        </p>
-        <p style="font-size: 30px; font-weight: 400; line-height: 70%;">2. Hard to fill-in Jobs
-        </p>
-        <p style="font-size: 30px; font-weight: 400; line-height: 70%;">3. Surplus and shortage in the Labor
-          Market
-        </p> -->
-        <p style="font-size: 30px; font-weight: 500; margin-top: 2%; color: green;">Brief History of CPEESO</p>
-        <p style="font-size: 20px;">PESO is a non-fee charging multi-employment service facility or entity established or
+        <h2 style="margin-top: 2%; color: green;">Brief History of CPEESO</h2>
+        <p >PESO is a non-fee charging multi-employment service facility or entity established or
           accredited pursuant to
           Republic Act No. 8759 otherwise known as the PESO Act of 1999.</p>
 
-        <p style="font-size: 20px;">
+        <p id="texts">
           In 2018, pursuant to the <span style="font-weight: 500;">City Ordinance No. 807 s. 2017,</span> PESO Tagum City
           became a department and was renamed to
           <span style="font-weight: 500;">PEESO</span> or the <span style="font-weight: 500;">Public Education and
@@ -336,21 +317,21 @@
           on
           its innovative efforts and extra-mile programs.
         </p>
-        <p>The office is divided into <span style="font-weight: 500;">four (4) divisions</span> to delivering equally
+        <p id="texts">The office is divided into <span style="font-weight: 500;">four (4) divisions</span> to delivering equally
           important services to Tagumenyos:</p>
-        <p style="font-size: 20px;">1. Labor Market Information, Matching and Referral Division (Employment)</p>
-        <p style="font-size: 20px;">2. Career Guidance and Employment Coaching and Education Facilitation Division
+        <p id="texts">1. Labor Market Information, Matching and Referral Division (Employment)</p>
+        <p id="texts">2. Career Guidance and Employment Coaching and Education Facilitation Division
           (Education)</p>
-        <p style="font-size: 20px;">3. Livelihood, Entrepreneurship, Skills Development And Project Monitoring And
+        <p id="texts">3. Livelihood, Entrepreneurship, Skills Development And Project Monitoring And
           Evaluation Division (Training)</p>
-        <p style="font-size: 20px;">4. Planning, Research and Administrative Division</p>
-        <p style="font-size: 30px; font-weight: 500; margin-top: 2%; color: green;">Vission</p>
-        <p style="font-size: 20px;">The City Public Education and Employment Services Office is an organized, conducive
+        <p id="texts">4. Planning, Research and Administrative Division</p>
+        <h2 style="margin-top: 2%; color: green;" class="mb-6">Vision</h2>
+        <p id="texts">The City Public Education and Employment Services Office is an organized, conducive
           and accessible office,
           governed by motivated, passionate, optimistic, innovative, competent and highly technical personnel for better
           quality of life among Tagumenyos under the guidance of the Divine Providence.</p>
-        <p style="font-size: 30px; font-weight: 500; margin-top: 2%; color: green;">Mission</p>
-        <p style="font-size: 20px;">City Public Education and Employment Services Office is the main intermediary services
+        <h2 style=" margin-top: 2%; color: green;" class="mb-6">Mission</h2>
+        <p id="texts">City Public Education and Employment Services Office is the main intermediary services
           provider of LGU – Tagum
           between the available workforce and the supply and demand of the community, which endeavors to improve the
           Employment, Education and Skills Training Competence of Tagumenyos through the #WeAreTagum programs.</p>
@@ -365,38 +346,74 @@
   
   
 <style>
-/* .v-card--reveal {
-    bottom: 0;
-    opacity: 1 !important;
-    width: 100%;
-  } */
 .backgruond {
   background-image: url(../assets/kontak.jpg) !important;
   height: 350px;
-  /* width: 65%; */
   display: block;
-  /* position: absolute; */
   top: 8px;
   right: 16px;
   background-size: cover;
   margin-top: 10px;
 }
-
 .CPEESOFont {
   font-size: 60px;
   color: #39af37;
 }
-
 #weare {
   color: #39af37;
 }
-
 .weare {
   color: #39af37;
 }
-
 .tagum {
   color: #dfcc03;
+}
+p{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+#texts{
+  text-align: justify;
+ 
+}
+#js{
+  font-size: 30px;
+}
+.userGuide{
+  margin-top: -20%;
+}
+@media screen and (max-width: 600px)  {
+  p{
+    font-size: 13px;
+    padding: 2%;
+  }
+  h2{
+    font-size: 16px;
+    margin-top: -6%;
+  }
+  
+  .backgruond {
+  background-image: url(../assets/kontak.jpg) !important;
+  height: 150px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  background-size: cover;
+}
+#texts{
+  text-align: justify;
+  font-size: 13px;
+  margin-top: -5%;
+  padding: 2% 2% 2% 2%;
+}
+#js{
+  font-size: 20px;
+}
+#ttitle{
+  margin-top: -6%;
+}
 }
 </style>
 <script>

@@ -9,13 +9,11 @@
               <v-card-text>
                 <v-row>
                   <v-col cols="12">
-                    <p class="font-weight-bold" style="font-size: 23px">
-                      CPEESO Services Offered
-                    </p>
+                    <h2>CPEESO Services Offered</h2>
                   </v-col>
 
                   <v-col cols="12">
-                    <p style="font-size: 16px">
+                    <p >
                       The Public Employment Service Office or PESO is a
                       multi-service facility established to provide employment
                       information and assistance to the Department of Labor and
@@ -24,7 +22,7 @@
                     </p>
                   </v-col>
 
-                  <v-col class="mt-n5" cols="12" style="font-size: 16px">
+                  <v-col class="mt-n5" cols="12" >
                     <p>
                       It makes available in one roof the various employment
                       promotion, manpower programs, and services of the DOLE and
@@ -85,6 +83,9 @@
   font-weight: bold;
 }
 
+h2{
+  margin-bottom: 10px;
+}
 .modification1 {
   font-size: 11px;
 }
@@ -95,5 +96,29 @@
 
 .borderradiuscard {
   border-radius: 10px;
+}
+p {
+  font-size: 16px;
+  text-align: justify;
+}
+
+@media screen and (max-width: 600px)  {
+  p{
+    font-size: 13px;
+    padding: 2%;
+    margin-top: -6%;
+  }
+  h2{
+    font-size: 16px;
+  }
+  .backgruond {
+  background-image: url(../assets/kontak.jpg) !important;
+  height: 150px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  background-size: cover;
+}
 }
 </style>

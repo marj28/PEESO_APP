@@ -1,18 +1,17 @@
 <template>
-    <v-carousel cycle height="500" hide-delimiter-background show-arrows="hover">
-        <v-carousel-item src="@/assets/opportunties.jpg" class="picture1" fill>
-            <div style="margin-top: 25%;margin-left: 2%;background-color: #232629;margin-right:2%;">
-                <p style="font-size: 25px; font-weight: 400; color:white"><span
-                        style="font-size: 25;font-weight: 600;">Discover career
+    <v-carousel cycle  hide-delimiter-background show-arrows="hover">
+        <v-carousel-item  class="picture1"  >
+            <div class="CarouselDiv">
+                <p class="CarouselText"><span>Discover career
                         opportunities.</span> See career opportunities catered to your skills and abilities. Enter the
                     world of possibilities towards a successful path. WE ARE HERE TO SUPPORT YOU IN ACHIEVING YOUR
                     PROFESSIONAL OBJECTIVES.</p>
             </div>
         </v-carousel-item>
 
-        <v-carousel-item src="@/assets/learnings.jpg" class="picture1" fill>
-            <div style="margin-top: 25%;margin-left: 2%;background-color: #232629;margin-right:2%;">
-                <p style="font-size: 25px; font-weight: 400; color:white"><span style="font-size: 25;font-weight: 600;">Gain
+        <v-carousel-item  class="picture2" >
+            <div class="CarouselDiv">
+                <p class="CarouselText"><span >Gain
                         Lifelong
                         learnings.</span> Give yourself tools and resources
                     to realize your potential. We offer a range of
@@ -21,10 +20,10 @@
             </div>
         </v-carousel-item>
 
-        <v-carousel-item src="@/assets/training.png" fill>
-            <div style="margin-top: 25%;margin-left: 2%;background-color: #232629;margin-right:2%;">
-                <p style="font-size: 25px; font-weight: 400; color:white">
-                    <span style="font-size: 25;font-weight: 600;"> Develop your skills and access livelihood
+        <v-carousel-item class="picture3">
+            <div class="CarouselDiv">
+                <p class="CarouselText">
+                    <span > Develop your skills and access livelihood
                         possibilities.</span>
                     Make good use of our extensive selection of
                     training and entrepreneurship programs to gain or improve your skills. Acquire livelihood opportunities
@@ -36,3 +35,58 @@
         </v-carousel-item>
     </v-carousel>
 </template>
+<style>
+.picture1{
+background-image: url(../assets/opportunties.jpg);
+height: 350px;
+display: block;
+top: 8px;
+background-size: cover;
+}
+.picture2{
+background-image: url(../assets/learnings.jpg);
+height: 350px;
+display: block;
+top: 8px;
+background-size: cover;
+}
+.picture3{
+background-image: url(../assets/training.png);
+height: 350px;
+display: block;
+top: 8px;
+background-size: cover;
+}
+.CarouselText{
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+    padding:  1% 1% 1% 1%;
+    text-align: justify;
+}
+.CarouselDiv{
+    margin-top: 25%;
+    margin-left: 2%;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-right:2%;
+}
+@media screen and (max-width: 600px)  {
+.picture1{
+background-image: url(../assets/opportunties.jpg);
+height: 150px;
+display: block;
+position: absolute;
+top: 0;
+background-size: cover;
+}
+.CarouselText{
+    font-size: 16px !important;
+}
+.CarouselDiv{
+    margin-top: 90%;
+    margin-left: 2%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: justify;
+}
+}
+</style>

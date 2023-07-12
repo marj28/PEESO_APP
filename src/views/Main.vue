@@ -3,9 +3,8 @@
 
     <v-row>
       <v-col cols="12" md="8" class="backgruond"></v-col>
-      <v-col cols="12" md="4" style="">
+      <v-col cols="12" md="4" style="" class="tagums">
         <h3 class="mt-5 weare">#WEARE<span class="tagum">TAGUM</span></h3>
-
         <p class="mt-5">
           Public Education and Employment Services Office (P.E.E.S.O.) is a
           government agency tasked in providing education and employment
@@ -17,14 +16,14 @@
 
 
     <v-col cols="12" style="margin-top: 2%; margin-bottom: 2%;">
-      <v-card class="mx-auto" style="height: 101%;">
-        <v-card-text style="height: 77%;">
-          <p class="text-h4 weare">Accessibility and Inclusivity</p>
-          <div class="text--primary">
+      <v-card class="card1" style="height: 60%;">
+        <v-card-text >
+          <h2 class="weare">Accessibility and Inclusivity</h2>
+          <p class="text--primary mb-n12" align="justify">
             Regardless of a person's background or ability, we are committed to offering accessible and inclusive
             services. We guarantee that everyone has an equal chance to succeed in the job market thanks to our
             platform.
-          </div>
+          </p>
         </v-card-text>
         <v-card-actions>
           <br />
@@ -113,35 +112,28 @@
         </v-dialog>
       </v-card>
       <div>
-        <CarouselHomePage style="margin-bottom: 2%; cursor: pointer;" />
+        <CarouselHomePage style="margin-bottom: 2%; cursor: pointer;" class="carousel" />
 
       </div>
     </v-col>
 
     <v-row>
-      <v-col cols="4" md="4">
-
+      <v-col cols="12" md="4">
         <EducationHome />
       </v-col>
 
-
-
-
-      <v-col cols="4" md="4">
-
+      <v-col cols="12" md="4">
         <ApplicantHome />
       </v-col>
-      <v-col cols="4" md="4">
 
+      <v-col cols="12" md="4">
         <TrainingHome />
       </v-col>
-
     </v-row>
-
     <v-row>
       <v-col cols="12" md="4">
-        <div class="mx-auto" style="height: 101%;">
-          <v-card-text style="height: 80%;">
+        <div class="mx-auto">
+          <v-card-text class="sizeCard">
 
             <p class="text-h4 weare">Discover fascinating Job Prospects</p>
 
@@ -153,15 +145,12 @@
           <v-card-actions>
             <br />
             <br />
-
           </v-card-actions>
-
-
         </div>
       </v-col>
       <v-col cols="12" md="4">
-        <div class="mx-auto" style="height: 101%;">
-          <v-card-text style="height: 75%;">
+        <div class="mx-auto" >
+          <v-card-text class="sizeCard">
 
             <p class="text-h4 weare">Develop Your Potential</p>
 
@@ -181,8 +170,8 @@
         </div>
       </v-col>
       <v-col cols="12" md="4">
-        <div class="mx-auto" style="height: 101%;">
-          <v-card-text style="height: 80%;">
+        <div class="mx-auto" >
+          <v-card-text class="sizeCard" >
            
             <p class="text-h4 weare">Connect with Employers</p>
           
@@ -202,8 +191,8 @@
         </div>
       </v-col>
       <v-col cols="12" md="4">
-        <div class="mx-auto" style="height: 101%;">
-          <v-card-text style="height: 79%;">
+        <div class="mx-auto" >
+          <v-card-text class="sizeCard">
           
             <p class="text-h4 weare">Personalized Support</p>
            
@@ -223,7 +212,7 @@
       </v-col>
       <v-col cols="12" md="4">
         <div class="mx-auto">
-          <v-card-text style="height: 70%;">
+          <v-card-text class="sizeCard">
             
             <p class="text-h4 weare">Opportunities for Lifelong Learning</p>
             
@@ -323,8 +312,8 @@
         </div>
       </v-col>
       <v-col cols="12" md="4">
-        <div class="mx-auto" style="height: 101%;">
-          <v-card-text style="height: 78%;">
+        <div class="mx-auto" >
+          <v-card-text class="sizeCard">
             <!-- <div>How to</div> -->
             <p class="text-h4 weare">Community Engagement</p>
             <!-- <p class="mb-6">Applicant Seeker</p> -->
@@ -341,92 +330,12 @@
             </v-btn> -->
           </v-card-actions>
 
-          <!-- <v-dialog v-model="revealEmployer" max-width="600px">
-            <v-card class="transition-fast-in-fast-out v-card--reveal">
-              <v-card-text class="pb-0">
-                <p class="text-h5 weare">Student Access</p>
-                <p>
-                  <b>Step 1: Create an Account</b><br />
-                  - Look for the "Sign Up" or "Create Account" button and
-                  click on it. <br />
-                  - Fill out the registration form with your personal
-                  information, such as your name, email address, and a
-                  password.
-                </p>
-                <p>
-                  <b>Step 2: Verify your email</b><br />
-                  - Check your email inbox for a verification email from the
-                  job application system. <br />
-                  - Open the email and click on the verification link
-                  provided.<br />
-                  - This step confirms your email address and activates your
-                  account.
-                </p>
-                <p>
-                  <b>Step 3: 3: Navigate to your employer dashboard</b><br />
-                  - Once logged in, you will be redirected to your employer
-                  dashboard or a designated section for employers.<br />
-                  - Navigate to the "Job Opportunities" or "Job Listings"
-                  section. <br />
-                  - Familiarize yourself with the available features and
-                  options specific to employers, such as job postings and
-                  candidate management
-                </p>
-                <p>
-                  <b>Step 4: Create a job posting</b><br />
-                  - Click on the "Post a Job" or "Create Job Listing" button
-                  within your employer dashboard.<br />
-                  - Provide the necessary details for the job posting,
-                  including job title, description, qualifications, and any
-                  other relevant information.<br />
-                  - Set the desired application deadline and any other
-                  specific requirements. <br />
-                  - Review the job posting information for accuracy before
-                  submitting it.
-                </p>
-                <p>
-                  <b>Step 5: Manage candidate applications</b><br />
-                  - View the list of candidates who have applied for your
-                  job posting.<br />
-                  - Click on individual candidate profiles to review their
-                  application materials, such as resumes, cover letters, and
-                  additional documents. <br />
-                  - Use the provided tools to track, organize, and manage
-                  candidate applications effectively.
-                </p>
-                <p>
-                  <b>Step 6: Communicate with candidates</b><br />
-                  - Send messages to candidates regarding application
-                  status, interview invitations, or any other necessary
-                  communication.<br />
-                  - Respond promptly to candidate inquiries or requests for
-                  additional information.
-                </p>
-                <p>
-                  <b>Step 7: Shortlist and select candidates</b><br />
-                  - Review the applications and assess candidates based on
-                  the provided qualifications and requirements.<br />
-                  - Select the candidates you would like to proceed with for
-                  further evaluation or interviews.
-                </p>
-                <p>
-                  <b>Step 8: Schedule interviews and assessments</b><br />
-                  - Coordinate and schedule interviews or assessments with
-                  the selected candidates.<br />
-                </p>
-              </v-card-text>
-              <v-card-actions class="pt-0">
-                <v-btn text color="green accent-4" @click="revealEmployer = false">
-                  Close
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog> -->
+       
         </div>
       </v-col>
       <v-col cols="12" md="4">
-        <div class="mx-auto" style="height: 101%;">
-          <v-card-text style="height: 78%;">
+        <div class="mx-auto" >
+          <v-card-text class="sizeCard">
             <!-- <div>How to</div> -->
             <p class="text-h4 weare">Support for Employers</p>
             <!-- <p class="mb-6">Applicant Seeker</p> -->
@@ -443,87 +352,7 @@
             </v-btn> -->
           </v-card-actions>
 
-          <!-- <v-dialog v-model="revealEmployer" max-width="600px">
-            <v-card class="transition-fast-in-fast-out v-card--reveal">
-              <v-card-text class="pb-0">
-                <p class="text-h5 weare">Student Access</p>
-                <p>
-                  <b>Step 1: Create an Account</b><br />
-                  - Look for the "Sign Up" or "Create Account" button and
-                  click on it. <br />
-                  - Fill out the registration form with your personal
-                  information, such as your name, email address, and a
-                  password.
-                </p>
-                <p>
-                  <b>Step 2: Verify your email</b><br />
-                  - Check your email inbox for a verification email from the
-                  job application system. <br />
-                  - Open the email and click on the verification link
-                  provided.<br />
-                  - This step confirms your email address and activates your
-                  account.
-                </p>
-                <p>
-                  <b>Step 3: 3: Navigate to your employer dashboard</b><br />
-                  - Once logged in, you will be redirected to your employer
-                  dashboard or a designated section for employers.<br />
-                  - Navigate to the "Job Opportunities" or "Job Listings"
-                  section. <br />
-                  - Familiarize yourself with the available features and
-                  options specific to employers, such as job postings and
-                  candidate management
-                </p>
-                <p>
-                  <b>Step 4: Create a job posting</b><br />
-                  - Click on the "Post a Job" or "Create Job Listing" button
-                  within your employer dashboard.<br />
-                  - Provide the necessary details for the job posting,
-                  including job title, description, qualifications, and any
-                  other relevant information.<br />
-                  - Set the desired application deadline and any other
-                  specific requirements. <br />
-                  - Review the job posting information for accuracy before
-                  submitting it.
-                </p>
-                <p>
-                  <b>Step 5: Manage candidate applications</b><br />
-                  - View the list of candidates who have applied for your
-                  job posting.<br />
-                  - Click on individual candidate profiles to review their
-                  application materials, such as resumes, cover letters, and
-                  additional documents. <br />
-                  - Use the provided tools to track, organize, and manage
-                  candidate applications effectively.
-                </p>
-                <p>
-                  <b>Step 6: Communicate with candidates</b><br />
-                  - Send messages to candidates regarding application
-                  status, interview invitations, or any other necessary
-                  communication.<br />
-                  - Respond promptly to candidate inquiries or requests for
-                  additional information.
-                </p>
-                <p>
-                  <b>Step 7: Shortlist and select candidates</b><br />
-                  - Review the applications and assess candidates based on
-                  the provided qualifications and requirements.<br />
-                  - Select the candidates you would like to proceed with for
-                  further evaluation or interviews.
-                </p>
-                <p>
-                  <b>Step 8: Schedule interviews and assessments</b><br />
-                  - Coordinate and schedule interviews or assessments with
-                  the selected candidates.<br />
-                </p>
-              </v-card-text>
-              <v-card-actions class="pt-0">
-                <v-btn text color="green accent-4" @click="revealEmployer = false">
-                  Close
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog> -->
+         
         </div>
       </v-col> <v-col cols="12" md="4">
 
@@ -594,21 +423,20 @@ export default {
 
 
 <style>
-/* .v-card--reveal {
-    bottom: 0;
-    opacity: 1 !important;
-    width: 100%;
-  } */
+
 .backgruond {
   background-image: url(../assets/kontak.jpg) !important;
   height: 350px;
-  /* width: 65%; */
   display: block;
-  /* position: absolute; */
   top: 8px;
   right: 16px;
   background-size: cover;
   margin-top: 10px;
+}
+h2{
+  font-size: 30px;
+  margin-bottom: 2%;
+ 
 }
 
 .CPEESOFont {
@@ -626,5 +454,48 @@ export default {
 
 .tagum {
   color: #dfcc03;
+}
+
+p{
+  font-size: 16px;
+}
+.sizeCard{
+  height: 30%; 
+  margin-bottom: -10%;
+  font-size: 18px;
+}
+.mx-auto{
+  height: 80%;
+}
+@media screen and (max-width: 600px)  {
+  .sizeCard{
+  height: 30%; 
+  margin-bottom: -25%;
+  font-size: 13px;
+}
+  p{
+    font-size: 13px;
+    padding: 2%;
+  }
+  .card1{
+    margin-top: -40px;
+  }
+  .tagums{
+  visibility: hidden;
+  }
+  h2{
+    font-size: 16px;
+    margin-top: 2%;
+  }
+  
+  .backgruond {
+  background-image: url(../assets/kontak.jpg) !important;
+  height: 150px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  background-size: cover;
+}
 }
 </style>
