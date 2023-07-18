@@ -2,7 +2,7 @@
     <v-app>
       <div class="backgruond"></div>
       <v-main class="d-flex justify-center align-center">
-        <v-row style="margin-top: 160px">
+        <v-row class="row1">
           <v-col cols="10" lg="8" class="mx-auto">
             <v-card class="pa-4 elevation-6">
               <v-form ref="form">
@@ -184,6 +184,9 @@
   </template>
   
   <style>
+  .row1{
+    margin-top: 160px
+  }
   .backgruond {
     background-image: url(../assets/kontak.jpg) !important;
     height: 350px;

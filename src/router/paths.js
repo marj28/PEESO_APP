@@ -182,12 +182,7 @@ export default [
       path: '/calendar',
       name: 'Calendar',
       view: 'employeer/CalendarView'
-    },
-  
-  
-  
-  
-  
+    },  
     {
       path: '/job-details/:id',
       name: 'JobDetails',
@@ -202,5 +197,21 @@ export default [
       name: 'TablePassingData',
       view: 'Viewing/TablePassingData'
     },
+//home page
+    {
+      path: '/coaching-and-education-facilitation',
+      name: 'coaching-and-education-facilitation',
+      view: 'HomeCards/CoachingAndEducationFacilitation'
+    },
+    {
+      path: '/matching-and-refferal-division',
+      name: 'matching-and-refferal-division',
+      view: 'HomeCards/MatchingAndRefferalDivision'
+    },
+    {
+      path: '/labor-market',
+      name: 'labor-market',
+      view: 'HomeCards/LaborMarket'
+    }
   ]
   

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="12" >
         <v-card>
           <v-card-text>
             <div style="float: left" class="mr-8">
@@ -16,7 +16,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" md="4">
+      <v-col cols="4" md="4">
         <v-card class="mb-4">
           <v-card-title>
             <span class="text-primary">Inbox</span>

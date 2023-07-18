@@ -118,15 +118,15 @@
     </v-col>
 
     <v-row>
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" sm="12" >
         <EducationHome />
       </v-col>
 
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" sm="12" >
         <ApplicantHome />
       </v-col>
 
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" sm="12">
         <TrainingHome />
       </v-col>
     </v-row>
@@ -135,9 +135,9 @@
         <div class="mx-auto">
           <v-card-text class="sizeCard">
 
-            <p class="text-h4 weare">Discover fascinating Job Prospects</p>
+            <p class="text-h5 weare">Discover fascinating Job Prospects</p>
 
-            <div class="text--primary">
+            <div class="text--primary " id="texts">
               Find a world of fascinating career opportunities catered to your talents and interests. Open up a world of
               possibilities and start down the path to a successful career.
             </div>
@@ -152,9 +152,9 @@
         <div class="mx-auto" >
           <v-card-text class="sizeCard">
 
-            <p class="text-h4 weare">Develop Your Potential</p>
+            <p class="text-h5 weare">Develop Your Potential</p>
 
-            <div class="text--primary">
+            <div class="text--primary" id="texts">
               Give yourself the tools and resources you need to realize all of your potential. We're here to support you
               in achieving your professional objectives, from skill-development workshops to career counseling
             </div>
@@ -173,9 +173,9 @@
         <div class="mx-auto" >
           <v-card-text class="sizeCard" >
            
-            <p class="text-h4 weare">Connect with Employers</p>
+            <p class="text-h5 weare">Connect with Employers</p>
           
-            <div class="text--primary">
+            <div class="text--primary" id="texts">
               Forge meaningful connections with leading employers in your industry. Our extensive network provides
               exclusive access to job openings, internships, and apprenticeships, ensuring you stay ahead in the
               competitive job market.
@@ -194,9 +194,9 @@
         <div class="mx-auto" >
           <v-card-text class="sizeCard">
           
-            <p class="text-h4 weare">Personalized Support</p>
+            <p class="text-h5 weare">Personalized Support</p>
            
-            <div class="text--primary">
+            <div class="text--primary" id="texts">
               Our staff of committed career advisors will offer you tailored advice. We are here to offer individualized
               support at every stage of the trip since we recognize that each person's path is unique.
             </div>
@@ -214,9 +214,9 @@
         <div class="mx-auto">
           <v-card-text class="sizeCard">
             
-            <p class="text-h4 weare">Opportunities for Lifelong Learning</p>
+            <p class="text-h5 weare">Opportunities for Lifelong Learning</p>
             
-            <div class="text--primary">
+            <div class="text--primary" id="texts">
               Take advantage of our extensive selection of training programs to improve your skills. We provide
               possibilities for you to develop your skills and improve your employability, from workshops to online
               courses.
@@ -228,7 +228,7 @@
             
           </v-card-actions>
 
-          <v-dialog v-model="revealEmployer" max-width="600px">
+          <!-- <v-dialog v-model="revealEmployer" max-width="600px">
             <v-card class="transition-fast-in-fast-out v-card--reveal">
               <v-card-text class="pb-0">
                 <p class="text-h5 weare">Student Access</p>
@@ -308,16 +308,16 @@
                 </v-btn>
               </v-card-actions>
             </v-card>
-          </v-dialog>
+          </v-dialog> -->
         </div>
       </v-col>
       <v-col cols="12" md="4">
         <div class="mx-auto" >
           <v-card-text class="sizeCard">
             <!-- <div>How to</div> -->
-            <p class="text-h4 weare">Community Engagement</p>
+            <p class="text-h5 weare">Community Engagement</p>
             <!-- <p class="mb-6">Applicant Seeker</p> -->
-            <div class="text--primary">
+            <div class="text--primary" id="texts">
               Join a vibrant community of job seekers, professionals, and experts. Participate in forums, networking
               events, and job fairs to expand your network and tap into collective knowledge.
             </div>
@@ -337,9 +337,9 @@
         <div class="mx-auto" >
           <v-card-text class="sizeCard">
             <!-- <div>How to</div> -->
-            <p class="text-h4 weare">Support for Employers</p>
+            <p class="text-h5 weare">Support for Employers</p>
             <!-- <p class="mb-6">Applicant Seeker</p> -->
-            <div class="text--primary">
+            <div class="text--primary" id="texts">
               For companies seeking talented individuals, we offer a range of services to streamline your recruitment
               process.
             </div>
@@ -433,6 +433,9 @@ export default {
   background-size: cover;
   margin-top: 10px;
 }
+#texts{
+  text-align: justify;
+}
 h2{
   font-size: 30px;
   margin-bottom: 2%;
@@ -486,6 +489,9 @@ p{
   h2{
     font-size: 16px;
     margin-top: 2%;
+  }
+  .mx-auto{
+    margin-top: 10%;
   }
   
   .backgruond {

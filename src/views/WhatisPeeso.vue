@@ -22,7 +22,7 @@
       <v-row>
       
         <v-col cols="12" md="4" class="mb-n10">
-          <v-card class="mx-auto" style="height: 90%;">
+          <v-card class="mx-auto" >
             <v-card-text>
               <div>How to</div>
               <p class="weare" id="js">JOB SEEKER</p>
@@ -43,7 +43,7 @@
               </v-btn>
             </v-card-actions>
 
-            <v-dialog v-model="revealJobseeker" max-width="600px">
+            <v-dialog v-model="revealJobseeker" >
               <v-card class="">
                 <v-card-text class="pb-0 ">
                   <p class="text-h5 weare ">Jobseeker Access</p>
@@ -107,7 +107,7 @@
           </v-card>
         </v-col>
         <v-col cols="12" md="4" class="mb-n10">
-          <v-card class="mx-auto" style="height: 90%;">
+          <v-card class="mx-auto" >
             <v-card-text >
               <div>How to</div>
               <p class="weare"  id="js">STUDENT</p>
@@ -193,7 +193,7 @@
           </v-card>
         </v-col>
         <v-col cols="12" md="4" class="mb-n10">
-          <v-card class="mx-auto" style="height: 90%;">
+          <v-card class="mx-auto" >
             <v-card-text>
               <div>How to</div>
               <p class="weare"  id="js">EMPLOYER</p>
@@ -301,7 +301,7 @@
 
       </v-row>
       <v-col>
-        <h2 style="margin-top: 2%; color: green;">Brief History of CPEESO</h2>
+        <h2 >Brief History of CPEESO</h2>
         <p >PESO is a non-fee charging multi-employment service facility or entity established or
           accredited pursuant to
           Republic Act No. 8759 otherwise known as the PESO Act of 1999.</p>
@@ -325,27 +325,29 @@
         <p id="texts">3. Livelihood, Entrepreneurship, Skills Development And Project Monitoring And
           Evaluation Division (Training)</p>
         <p id="texts">4. Planning, Research and Administrative Division</p>
-        <h2 style="margin-top: 2%; color: green;" class="mb-6">Vision</h2>
+        <h2 class="mb-6">Vision</h2>
         <p id="texts">The City Public Education and Employment Services Office is an organized, conducive
           and accessible office,
           governed by motivated, passionate, optimistic, innovative, competent and highly technical personnel for better
           quality of life among Tagumenyos under the guidance of the Divine Providence.</p>
-        <h2 style=" margin-top: 2%; color: green;" class="mb-6">Mission</h2>
+        <h2 class="mb-6">Mission</h2>
         <p id="texts">City Public Education and Employment Services Office is the main intermediary services
           provider of LGU – Tagum
           between the available workforce and the supply and demand of the community, which endeavors to improve the
           Employment, Education and Skills Training Competence of Tagumenyos through the #WeAreTagum programs.</p>
       </v-col>
-
-
-
-
     </v-col>
   </v-app>
 </template>
   
   
 <style>
+.mx-auto{
+  height: 90%;
+}
+h2{
+  margin-top: 2%; color: green;
+}
 .backgruond {
   background-image: url(../assets/kontak.jpg) !important;
   height: 350px;
@@ -375,7 +377,6 @@ p{
 }
 #texts{
   text-align: justify;
- 
 }
 #js{
   font-size: 30px;

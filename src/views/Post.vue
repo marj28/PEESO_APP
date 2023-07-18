@@ -1,9 +1,19 @@
 <template>
   <v-container>
-
-
     <v-row>
       <v-col cols="12" md="12">
+        <div class="pa-4 ">
+        <v-btn
+          class="text-none primary"
+          min-width="92"
+          rounded
+          variant="outlined"
+          @click="$router.push('/job-listing').catch((err) => {})"
+        >
+          <v-icon> mdi-arrow-left </v-icon>
+          Back
+        </v-btn>
+      </div>
         <v-card>
           <v-toolbar elevation="0">
             <div class="text-h6">{{ post.title }}</div>
