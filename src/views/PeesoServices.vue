@@ -67,7 +67,7 @@
   </v-app>
 </template>
   
-  <style>
+  <style scoped>
 .backgruond {
   background-image: url(../assets/kontak.jpg) !important;
   height: 350px;

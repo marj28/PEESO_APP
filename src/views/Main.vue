@@ -340,7 +340,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 
 .backgruond {
   background-image: url(../assets/kontak.jpg) !important;

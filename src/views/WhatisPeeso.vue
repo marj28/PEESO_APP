@@ -36,15 +36,18 @@
               </p>
             </v-card-text>
             <v-card-actions>            
-              <v-btn text color="green accent-4" @click="revealJobseeker = !revealJobseeker" class="userGuide">
+              <v-btn text color="green accent-4" @click="revealJobseeker = !revealJobseeker" class="userGuide mt-n5">
                 User Guide
               </v-btn>
             </v-card-actions>
 
             <v-dialog v-model="revealJobseeker" max-width="600px">
-              <v-card class="">
+              <v-card>
+                <v-card-title class="text-h5 weare">
+                  Jobseeker Access
+                </v-card-title>
                 <v-card-text class="pb-0 ">
-                  <p class="text-h5 weare">Jobseeker Access</p>
+                  <!-- <p class="text-h5 weare">Jobseeker Access</p> -->
                   <p>
                     <b>Step 1: Create an Account</b><br />
                     - Look for the "Sign Up" or "Create Account" button and
@@ -125,8 +128,11 @@
 
             <v-dialog v-model="revealStudent" max-width="600px">
               <v-card class="transition-fast-in-fast-out v-card--reveal">
+                <v-card-title class="text-h5 weare">
+                  Student Access
+                </v-card-title>
                 <v-card-text class="pb-0">
-                  <p class="text-h5 weare">Student Access</p>
+                  <!-- <p class="text-h5 weare">Student Access</p> -->
                   <p>
                     <b>Step 1: Create an Account</b><br />
                     - Look for the "Sign Up" or "Create Account" button and
@@ -208,8 +214,11 @@
 
             <v-dialog v-model="revealEmployer" max-width="600px">
               <v-card class="transition-fast-in-fast-out v-card--reveal">
+                <v-card-title class="text-h5 weare">
+                  Employer Access
+                </v-card-title>
                 <v-card-text class="pb-0">
-                  <p class="text-h5 weare">Employer Access</p>
+                  <!-- <p class="text-h5 weare">Employer Access</p> -->
                   <p>
                     <b>Step 1: Create an Account</b><br />
                     - Look for the "Sign Up" or "Create Account" button and
@@ -332,7 +341,7 @@
 </template>
   
   
-<style>
+<style scoped>
 
 h2{
   margin-top: 2%; color: green;

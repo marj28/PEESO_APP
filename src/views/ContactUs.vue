@@ -183,7 +183,7 @@
     </v-app>
   </template>
   
-  <style>
+  <style scoped>
   .row1{
     margin-top: 160px
   }
