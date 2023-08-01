@@ -7,11 +7,11 @@
                         <img :src="$store.state.img_dir + 'job.png'" width="48" />
                     </v-col> -->
           <v-col cols="" class="">
-            <h2 class="text-primary">EDUCATION</h2>
+            <h3 class="text-primary">EDUCATION</h3>
           </v-col>
-          <div class="text-end">
+          <v-col class="text-end">
             <v-btn
-              style="margin-top: 30%;"
+              style="margin-top: 7%; margin-bottom: -2%;"
               class="item-right"
               color="green"
               text
@@ -21,11 +21,9 @@
               
               See All
             </v-btn>
-          </div>
+          </v-col>
         </v-row>
       </v-card-title>
-      
-
       <v-card
         class="mx-auto"
         max-width="100%"
@@ -42,8 +40,7 @@
                             </v-list-item-icon> -->
               <v-list-item-content>
                 <v-list-item-title
-                  v-text="item.text"
-                  style="font-size: 116%"
+                  v-text="item.text"                  
                 ></v-list-item-title>
                 <p v-text="item.subtilte" style="margin-top: 2%"></p>
               </v-list-item-content>

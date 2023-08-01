@@ -4,21 +4,20 @@
       <v-card-title>
         <v-row>
           <v-col cols="12">
-            <h2 class="text-primary">APPLICANT</h2>
+            <h3 class="text-primary">APPLICANT</h3>
           </v-col>
-          <div class="text-end">
+          <v-col class="text-end">
             <v-btn
-              style="margin-left:320%; margin-top: -60%;"
+              style="margin-top: -20%;"
               class="item-right"
               color="green"
               text
               large
               @click="$router.push({ path: 'matching-and-refferal-division' })"
-            >
-              
+            >              
               See All
             </v-btn>
-          </div>
+          </v-col>
 
           
         </v-row>
@@ -26,7 +25,7 @@
       <v-card
         class="mx-auto"
         max-width="100%"
-        style="margin-top: -5%;"
+        style="margin-top: -10%;"
         tile
         @click="$router.push({ path: 'matching-and-refferal-division' })"
       >
@@ -40,7 +39,7 @@
               <v-list-item-content>
                 <v-list-item-title
                   v-text="item.text"
-                  style="font-size: 116%"
+                  
                 ></v-list-item-title>
                 <p v-text="item.subtilte" style="margin-top: 2%"></p>
               </v-list-item-content>
@@ -73,7 +72,5 @@ export default {
 };
 </script>
 <style>
-.item-right {
-  position: right;
-}
+
 </style>

@@ -4,28 +4,28 @@
       <v-card-title>
         <v-row>
           <v-col cols="12">
-            <h2 class="text-primary">TRAINING</h2>
+            <h3 class="text-primary">TRAINING</h3>
           </v-col>
-          <div class="text-end">
+
+          <v-col class="text-right">
             <v-btn
-              style="margin-left:320%; margin-top: -60%;"
+              style="margin-top: -20%;"
               class="item-right"
               color="green"
               text
               large
               @click="$router.push({ path: 'labor-market' })"
-            >
-              
+            >              
               See All
             </v-btn>
-          </div>
+          </v-col>
         </v-row>
       </v-card-title>
       <v-card
         class="mx-auto"
         max-width="100%"
         tile
-        style="margin-top: -5%;"
+        style="margin-top: -10%;"
         @click="$router.push({ path: 'labor-market' })"
       >
         <v-list dense>
@@ -38,7 +38,7 @@
               <v-list-item-content>
                 <v-list-item-title
                   v-text="item.text"
-                  style="font-size: 116%"
+                  
                 ></v-list-item-title>
                 <p v-text="item.subtilte" style="margin-top: 2%"></p>
               </v-list-item-content>

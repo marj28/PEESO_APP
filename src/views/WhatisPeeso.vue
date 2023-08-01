@@ -21,7 +21,7 @@
 
       <v-row>
       
-        <v-col cols="12" md="4" class="mb-n10">
+        <v-col cols="12" md="4" class="">
           <v-card class="mx-auto" >
             <v-card-text>
               <div>How to</div>
@@ -32,21 +32,19 @@
                 opportunities. I may be currently unemployed or looking to
                 transition from my current job to a new one. My primary focus
                 is on finding a job that aligns with my skills,
-                qualifications, and career aspirations.
+                qualifications.
               </p>
             </v-card-text>
-            <v-card-actions>
-              <br />
-              <br />
+            <v-card-actions>            
               <v-btn text color="green accent-4" @click="revealJobseeker = !revealJobseeker" class="userGuide">
                 User Guide
               </v-btn>
             </v-card-actions>
 
-            <v-dialog v-model="revealJobseeker" >
+            <v-dialog v-model="revealJobseeker" max-width="600px">
               <v-card class="">
                 <v-card-text class="pb-0 ">
-                  <p class="text-h5 weare ">Jobseeker Access</p>
+                  <p class="text-h5 weare">Jobseeker Access</p>
                   <p>
                     <b>Step 1: Create an Account</b><br />
                     - Look for the "Sign Up" or "Create Account" button and
@@ -106,7 +104,7 @@
             </v-dialog>
           </v-card>
         </v-col>
-        <v-col cols="12" md="4" class="mb-n10">
+        <v-col cols="12" md="4" >
           <v-card class="mx-auto" >
             <v-card-text >
               <div>How to</div>
@@ -120,9 +118,6 @@
               </p>
             </v-card-text>
             <v-card-actions>
-              <br />
-              <br />
-              <br />
               <v-btn text color="green accent-4" @click="revealStudent = true"  class="userGuide">
                 User Guide
               </v-btn>
@@ -192,7 +187,7 @@
             </v-dialog>
           </v-card>
         </v-col>
-        <v-col cols="12" md="4" class="mb-n10">
+        <v-col cols="12" md="4">
           <v-card class="mx-auto" >
             <v-card-text>
               <div>How to</div>
@@ -202,14 +197,10 @@
                 I am responsible for overseeing and managing a company or
                 organization. I have the authority to hire and supervise
                 employees, set company policies and procedures, and make
-                strategic decisions to drive the success of the business. It
-                is my role to create a productive and positive work
-                environment.
+                strategic decisions to drive the success of the business. 
               </p>
             </v-card-text>
             <v-card-actions>
-              <br />
-              <br />
               <v-btn text color="green accent-4" @click="revealEmployer = true" class="userGuide" >
                 User Guide
               </v-btn>
@@ -218,7 +209,7 @@
             <v-dialog v-model="revealEmployer" max-width="600px">
               <v-card class="transition-fast-in-fast-out v-card--reveal">
                 <v-card-text class="pb-0">
-                  <p class="text-h5 weare">Student Access</p>
+                  <p class="text-h5 weare">Employer Access</p>
                   <p>
                     <b>Step 1: Create an Account</b><br />
                     - Look for the "Sign Up" or "Create Account" button and
@@ -237,7 +228,7 @@
                     account.
                   </p>
                   <p>
-                    <b>Step 3: 3: Navigate to your employer dashboard</b><br />
+                    <b>Step 3: Navigate to your employer dashboard</b><br />
                     - Once logged in, you will be redirected to your employer
                     dashboard or a designated section for employers.<br />
                     - Navigate to the "Job Opportunities" or "Job Listings"
@@ -300,7 +291,7 @@
         </v-col>
 
       </v-row>
-      <v-col>
+      <v-col class="brief">
         <h2 >Brief History of CPEESO</h2>
         <p >PESO is a non-fee charging multi-employment service facility or entity established or
           accredited pursuant to
@@ -342,9 +333,7 @@
   
   
 <style>
-.mx-auto{
-  height: 90%;
-}
+
 h2{
   margin-top: 2%; color: green;
 }
@@ -381,10 +370,16 @@ p{
 #js{
   font-size: 30px;
 }
-.userGuide{
+/* .userGuide{
   margin-top: -20%;
-}
+} */
 @media screen and (max-width: 600px)  {
+  .userGuide{
+    margin-top: -10%;
+  }
+  .brief{
+    margin-top: 10%;
+  }
   p{
     font-size: 13px;
     padding: 2%;
