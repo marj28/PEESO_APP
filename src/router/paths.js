@@ -187,10 +187,7 @@ export default [
       path: '/job-details/:id',
       name: 'JobDetails',
       view: 'JobDetails'
-    },
-  
-  
-  
+    }, 
   
     {
       path: '/table-passing',

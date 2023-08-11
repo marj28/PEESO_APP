@@ -177,7 +177,7 @@
                 </v-card-actions>
               </v-form>
             </v-card>
-          </v-col>
+          </v-col>  
         </v-row>
       </v-main>
     </v-app>

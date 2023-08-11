@@ -6,7 +6,7 @@
         <router-link
           :to="getDashboardLink"
           tag="button"
-          class="dashboard-button black--text ml-3"
+          class="dashboard-button black--text ml-3 "
           >HOME</router-link
         >
         <v-btn
